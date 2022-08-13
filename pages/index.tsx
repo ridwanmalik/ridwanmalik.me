@@ -12,8 +12,17 @@ const Home: NextPage = () => {
       <main className="body-wrapper">
         <Navbar />
         <div className="section-wrapper">
-          <section className="page-section">
-            <h1>Home</h1>
+          <section className="page-section image-bg">
+            <div className="container mx-auto">
+              <div className="w-1/3">
+                <h1 className="font-merriweather font-extrabold text-6xl mb-3">Ridwan Malik</h1>
+                <p className="tracking-15 mb-3">Problem Solver . Quick Learner . Programmer</p>
+                <p className="tracking-widest">
+                  A Full Stack Web Developer with excellent problem-solving skills. Passionate about coding and learning
+                  new technologies.
+                </p>
+              </div>
+            </div>
           </section>
           <section className="page-section">
             <h1>About</h1>

@@ -3,7 +3,7 @@ import { logoWhite } from "../public/assets"
 
 const Navbar = () => {
   return (
-    <nav className="px-2 sm:px-4 py-2.5 fixed w-screen bg-white dark:bg-slate-900">
+    <nav className="px-2 sm:px-4 py-2.5 fixed w-screen">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a href="#home" className="flex items-center">
           <div className="flex w-8 h-8">
