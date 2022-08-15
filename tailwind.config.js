@@ -11,7 +11,7 @@ module.exports = {
         "glowing-blue": "linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16)",
       },
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
+        openSans: ["Open Sans", "sans-serif"],
         raleway: ["Raleway", "sans-serif"],
         merriweather: ["Merriweather", "serif"],
       },
