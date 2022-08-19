@@ -18,9 +18,13 @@ const Home: NextPage = () => {
                 <p className="mb-3">Hi, This is</p>
                 <h1 className="font-merriweather font-extrabold text-6xl mb-3">Ridwan Malik</h1>
                 {/* <p className="mb-3">Problem Solver . Quick Learner . Programmer</p> */}
-                <p className="text-2xl font-medium">I'm a Full Stack Web Developer.</p>
-                <p></p>
-                <p></p>
+                <p className="text-2xl font-medium mb-3">I'm a Full Stack Web Developer</p>
+                <p>
+                  with excellent problem-solving skills. Passionate about coding and learning new technologies. Comes
+                  with more than 3 years of experience with Laravel (PHP), React (Next.js), Node.js, Ionic
+                  Cross-Platform Mobile App Development, and WordPress to provide quality support to the company in
+                  developing web-based applications.
+                </p>
               </div>
             </div>
           </section>
