@@ -1,3 +1,2 @@
-import Navbar from "./Navbar"
-
-export { Navbar }
+export * from "./layouts"
+export * from "./pages"
