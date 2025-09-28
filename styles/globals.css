@@ -1,21 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Import Inter font to fallback gracefully */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply h-screen w-screen bg-white dark:bg-slate-900 dark:text-slate-400 text-slate-500 dark:bg-glowing-blue font-openSans tracking-wide;
-  }
+:root {
+  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
 }
-@layer components {
-  .body-wrapper {
-    @apply h-screen w-screen;
-  }
 
+@layer components {
   .nav {
-    @apply flex flex-col p-4 mt-4 rounded-lg border border-slate-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:border-slate-700;
+    @apply flex flex-col px-4 py-2 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:border-slate-700;
   }
 
   .nav-item {
@@ -26,17 +23,31 @@
   }
 
   .section-wrapper {
-    @apply w-full h-full snap-mandatory snap-y overflow-y-scroll scroll-smooth scroll-mt-20;
-  }
-  .page-section {
-    @apply h-screen w-full flex justify-center items-center snap-start snap-always;
+    @apply w-full h-full overflow-y-scroll;
+    scroll-behavior: smooth;
   }
 
-  .image-bg {
-    background: url("../public/ridwan.png") center right no-repeat;
-    background-size: contain;
+  /* Custom Scrollbar */
+  .section-wrapper::-webkit-scrollbar {
+    width: 8px;
   }
-  /* .page-section:nth-child(odd) {
-    @apply bg-slate-800;
-  } */
+
+  .section-wrapper::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  .section-wrapper::-webkit-scrollbar-thumb {
+    background: #424c63;
+    border-radius: 4px;
+  }
+
+  .section-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #7CFAD6;
+  }
+
+  /* Firefox */
+  .section-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #424c63 #0f172a;
+  }
 }
