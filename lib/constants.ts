@@ -153,17 +153,32 @@ export const SOCIAL_LINKS = [
   {
     name: "GitHub",
     url: "https://github.com/ridwanmalik",
-    icon: "github"
+    icon: "github",
+    description: "Check out my repositories and open source contributions"
   },
   {
     name: "LinkedIn", 
     url: "https://linkedin.com/in/skridwanmalik",
-    icon: "linkedin"
+    icon: "linkedin",
+    description: "Connect with me professionally"
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/ridwanmalik",
+    icon: "twitter", 
+    description: "Follow me for tech updates and thoughts"
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/ridwanmalik",
+    icon: "instagram",
+    description: "See my life behind the code"
   },
   {
     name: "HackerRank",
     url: "https://hackerrank.com/RidwanMalik", 
-    icon: "hackerrank"
+    icon: "hackerrank",
+    description: "View my coding challenges and solutions"
   }
 ]
 

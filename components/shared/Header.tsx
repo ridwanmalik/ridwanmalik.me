@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { logoWhite } from "../../public/assets"
+import { logoWhite } from "@/lib/assets"
 import { CSSProperties } from "react"
 
 interface HeaderProps {
@@ -11,12 +11,8 @@ interface HeaderProps {
 }
 
 const Header = ({ variant = "default", className = "", style, isScrolled = false }: HeaderProps) => {
-
   return (
-    <nav 
-      className={`px-2 sm:px-4 py-2.5 ${className}`}
-      style={style}
-    >
+    <nav className={`px-2 sm:px-4 py-2.5 ${className}`} style={style}>
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link href="/" className="flex items-center">
           <div className="flex w-8 h-8">
@@ -27,7 +23,7 @@ const Header = ({ variant = "default", className = "", style, isScrolled = false
         <div className="flex items-center md:hidden">
           <a
             href="mailto:skridwanulmalik@gmail.com"
-            className="border border-accent text-accent px-3 py-1 rounded hover:bg-accent/10 transition-colors font-mono text-xs mr-3">
+            className="border border-accent text-custom-accent px-3 py-1 rounded hover:bg-accent/10 transition-colors font-mono text-xs mr-3">
             Contact
           </a>
           <button
@@ -78,7 +74,7 @@ const Header = ({ variant = "default", className = "", style, isScrolled = false
             </ul>
             <a
               href="mailto:skridwanulmalik@gmail.com"
-              className="hidden md:inline-block border border-accent text-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
+              className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
               Get In Touch
             </a>
           </div>

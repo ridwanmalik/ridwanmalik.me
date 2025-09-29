@@ -5,6 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 ```bash
+# Package Management
+yarn install     # Install all dependencies (preferred over npm)
+
 # Development server
 yarn dev          # Start development server on http://localhost:3000
 
@@ -14,36 +17,54 @@ yarn start        # Start production server
 
 # Code quality
 yarn lint         # Run ESLint for code linting
+
+# IMPORTANT: Always use yarn, never use npm
+# The project uses yarn.lock, not package-lock.json
 ```
 
 ## Project Architecture
 
-This is a Next.js 14 personal portfolio website using the App Router architecture.
+This is a Next.js 15 personal portfolio website using the App Router architecture.
 
 ### Core Structure
 - **App Router**: Uses the new Next.js App Router (`app/` directory)
 - **Component Architecture**: Modular component system organized by type
-  - `components/layouts/`: Layout components (Layout, Navbar)
-  - `components/pages/`: Page-specific components (Home, About, Experience)
+  - `components/layouts/`: Layout components (Navbar)
+  - `components/pages/`: Page-specific components (Home, About, Experience, Projects, Contact)
+  - `components/shared/`: Shared/reusable components (Header)
   - Barrel exports via `index.ts` files for clean imports
+- **Constants & Utils**: Centralized data management
+  - `lib/constants.ts`: All static data (personal info, experiences, projects, etc.)
+  - `lib/icons.tsx`: Reusable icon components
 
 ### Styling & Design
-- **Tailwind CSS**: Primary styling framework with custom configuration
+- **Tailwind CSS v3.4+**: Primary styling framework with custom configuration
 - **Custom Theme**: Extended Tailwind config with:
-  - Custom colors (oxford-blue: #0A192F)
+  - Custom colors: oxford-blue (#0A192F), foreground (#ccd6f6), secondary (#8892b0), accent (#7CFAD6)
   - Custom background gradients (glowing-blue)
   - Custom font families (Calibre, Inter, SF Pro Text system fonts with monospace fallbacks)
 - **Typography**: Uses professional font stack prioritizing system fonts (Calibre, SF Pro Text) with Inter fallback
+- **Color System**: Unified custom color scheme replacing default Tailwind colors
 
 ### Code Standards
+- **Package Manager**: Uses Yarn exclusively (yarn.lock present, no package-lock.json)
 - **ESLint**: Uses Next.js core web vitals configuration
-- **Prettier**: Configured with 2-space indentation, no semicolons, double quotes
 - **TypeScript**: Full TypeScript setup with strict typing
-- **Import Patterns**: Consistent use of barrel exports and path aliases (`@/components`)
+- **Import Patterns**: Consistent use of barrel exports and path aliases (`@/components`, `@/lib`)
+- **Data Organization**: No magic strings - all content centralized in constants
 
 ### Key Files
-- `app/layout.tsx`: Root layout with global styles and font configuration
-- `app/page.tsx`: Main page composing Home, About, and Experience sections
+- `app/layout.tsx`: Root layout with comprehensive metadata and font configuration
+- `app/page.tsx`: Main page composing all portfolio sections
 - `components/index.ts`: Central component export hub
+- `lib/constants.ts`: Centralized data store (personal info, projects, experiences)
+- `lib/icons.tsx`: Reusable SVG icon components
 - `tailwind.config.ts`: Extended Tailwind configuration with custom theme
-- dont run yran dev if i told you. only run lint and ts check or build if needed
+- `yarn.lock`: Yarn lockfile (DO NOT use npm or package-lock.json)
+
+### Development Notes
+- **DO NOT run yarn dev** unless explicitly requested
+- Only run yarn lint, yarn build, or TypeScript checks when needed
+- Always use yarn commands, never npm
+- All content should reference constants from `lib/constants.ts`
+- Follow the established custom color system (foreground, secondary, accent)

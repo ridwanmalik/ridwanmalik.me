@@ -1,3 +1,4 @@
 import Header from "./Header"
+import SocialIconMenu from "./SocialIconMenu"
 
-export { Header }
+export { Header, SocialIconMenu }

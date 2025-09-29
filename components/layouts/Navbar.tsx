@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Header } from "@/components"
+import Header from "@/components/shared/Header"
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)

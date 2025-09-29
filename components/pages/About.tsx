@@ -1,5 +1,5 @@
-import { ridwan } from "@/public/assets"
 import Image from "next/image"
+import { ridwan } from "@/lib/assets"
 import { SECTION_TITLES, TECH_STACK } from "@/lib/constants"
 
 const About = () => {
@@ -7,9 +7,9 @@ const About = () => {
     <section id="about" className="w-full py-10">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 items-start">
-          <div className="lg:col-span-2 space-y-4 text-secondary">
+          <div className="lg:col-span-2 space-y-4 text-custom-secondary">
             <div className="flex items-center mb-10">
-              <h2 className="text-3xl font-bold text-accent">{SECTION_TITLES.about}</h2>
+              <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.about}</h2>
               <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
             </div>
             <p>
@@ -35,7 +35,7 @@ const About = () => {
             <div className="grid grid-cols-2 gap-2 mt-12 font-mono">
               {TECH_STACK.map((tech, index) => (
                 <div key={index} className="flex items-center space-y-2">
-                  <span className="text-accent mr-2">▸</span>
+                  <span className="text-custom-accent mr-2">▸</span>
                   <span className="text-xs">{tech}</span>
                 </div>
               ))}

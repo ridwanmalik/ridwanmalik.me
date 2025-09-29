@@ -1,4 +1,8 @@
-import { About, Contact, Experience, Home as HomeSection, Projects } from "@/components"
+import About from "@/components/pages/About"
+import Contact from "@/components/pages/Contact"
+import Experience from "@/components/pages/Experience"
+import HomeSection from "@/components/pages/Home"
+import Projects from "@/components/pages/Projects"
 
 const Home = () => {
   return (
