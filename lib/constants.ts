@@ -320,8 +320,7 @@ export const TECHNOLOGIES = {
   HTML: {
     name: "HTML",
     category: "Markup Language",
-    description:
-      "HyperText Markup Language for structuring and presenting content on the World Wide Web.",
+    description: "HyperText Markup Language for structuring and presenting content on the World Wide Web.",
     features: ["Semantic elements", "Accessibility", "Forms & validation", "Multimedia support"],
     color: "bg-orange-600",
     aliases: ["html", "html5", "hypertext-markup-language"],
@@ -381,7 +380,8 @@ export const TECHNOLOGIES = {
   PayPal: {
     name: "PayPal",
     category: "Payment Gateway",
-    description: "A global online payment system that allows users to send and receive payments securely over the internet.",
+    description:
+      "A global online payment system that allows users to send and receive payments securely over the internet.",
     features: ["Global payment processing", "Secure transactions", "Multiple currencies", "Developer APIs"],
     color: "bg-blue-600",
     aliases: ["paypal", "paypal-api"],
@@ -389,7 +389,8 @@ export const TECHNOLOGIES = {
   SSLCOMMERZ: {
     name: "SSLCOMMERZ",
     category: "Payment Gateway",
-    description: "A comprehensive payment gateway solution for Bangladesh, supporting multiple payment methods and currencies.",
+    description:
+      "A comprehensive payment gateway solution for Bangladesh, supporting multiple payment methods and currencies.",
     features: ["Local payment methods", "Mobile banking", "Card payments", "Secure processing"],
     color: "bg-green-700",
     aliases: ["sslcommerz", "ssl-commerz", "sslcommerz-payment"],
@@ -450,13 +451,13 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "Twitter",
-    url: "https://twitter.com/ridwanmalik",
+    url: "https://x.com/skridwanmalik",
     icon: "twitter",
     description: "Follow me for tech updates and thoughts",
   },
   {
     name: "Instagram",
-    url: "https://instagram.com/ridwanmalik",
+    url: "https://instagram.com/skridwanulmalik",
     icon: "instagram",
     description: "See my life behind the code",
   },
@@ -484,4 +485,3 @@ export const findTechnology = (techName: string) => {
     tech => tech.name.toLowerCase() === searchTerm || tech.aliases.some(alias => alias.toLowerCase() === searchTerm)
   )
 }
-
