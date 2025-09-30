@@ -1,4 +1,5 @@
 import About from "@/components/pages/About"
+import Certification from "@/components/pages/Certification"
 import Contact from "@/components/pages/Contact"
 import Experience from "@/components/pages/Experience"
 import HomeSection from "@/components/pages/Home"
@@ -12,6 +13,7 @@ const Home = () => {
       <About />
       <Technologies />
       <Experience />
+      <Certification />
       <Projects />
       <Contact />
     </>

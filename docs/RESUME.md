@@ -108,21 +108,25 @@ improving user payment experience and transaction reliability.
 ```
 React + Redux Certified
 SoloLearn, Inc.
+https://www.sololearn.com/en/certificates/CT-ZO6UD2UD
 ```
 
 ```
 JavaScript Certified
 SoloLearn, Inc.
+https://www.sololearn.com/certificates/course/en/11234106/1024/landscape/png
 ```
 
 ```
 PHP Certified
 SoloLearn, Inc.
+https://www.sololearn.com/Certificate/1059-11234106/jpg
 ```
 
 ```
 Problem-Solving (Basic)
 HackerRank
+https://www.hackerrank.com/certificates/e5f3b68d3684
 ```
 
 ### 7 Info Tech — Junior Web Developer

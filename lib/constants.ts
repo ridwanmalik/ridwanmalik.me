@@ -473,6 +473,7 @@ export const SECTION_TITLES = {
   technologies: "Technical Skills",
   experience: "Where I've Worked",
   projects: "Some Things I've Built",
+  certification: "Certifications",
   contact: "Get In Touch",
 }
 

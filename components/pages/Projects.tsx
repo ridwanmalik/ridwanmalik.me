@@ -83,7 +83,7 @@ const PROJECTS_CONTENT = {
       description:
         "An Online Exam System for over 10,000 users, implementing secure, scalable testing features with real-time monitoring.",
       tech: ["React", "Node.js", "WebSocket", "MongoDB"],
-      github: "https://github.com/ridwanmalik",
+      // github: "https://github.com/ridwanmalik",
       external: null,
     },
   ],
