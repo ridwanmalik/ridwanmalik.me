@@ -39,6 +39,14 @@ const PROJECTS_CONTENT = {
   ],
   other: [
     {
+      title: "Netflix Clone",
+      description:
+        "A Netflix-like web application that you can use to browse movies and TV shows. As like as Netflix movie slider in dark mode.",
+      tech: ["React", "Next.js", "Tailwind CSS", "TMDB API"],
+      github: "https://github.com/ridwanmalik/netflix-clone",
+      external: "https://rio-watch.vercel.app/",
+    },
+    {
       title: "Garam Masala Food Ordering",
       description:
         "A PHP-based food ordering system with table booking capabilities, which boosted customer convenience and reservation volume for the restaurant.",
@@ -53,14 +61,6 @@ const PROJECTS_CONTENT = {
       tech: ["Node.js", "Express", "MongoDB", "React"],
       // github: "https://github.com/ridwanmalik",
       external: "https://etstelco.com",
-    },
-    {
-      title: "Laravel OTT Platform",
-      description:
-        "A Laravel-based OTT Platform Web App that scaled to over 10,000 active users with optimized video streaming capabilities.",
-      tech: ["Laravel", "PHP", "MySQL", "Video Streaming"],
-      // github: "https://github.com/ridwanmalik",
-      external: null,
     },
     {
       title: "Tournament Management System",
