@@ -10,17 +10,16 @@ import Link from "next/link"
 const HOME_CONTENT = {
   cta: {
     text: "Check out my work!",
-    href: "#work"
+    href: "#work",
   },
   profileImage: {
     alt: "Ridwan Malik",
     width: 455,
-    height: 1106
-  }
+    height: 1106,
+  },
 }
 
 const Home = () => {
-
   return (
     <section id="home" className="min-h-screen w-full flex flex-col bg-gradient-to-t from-[#020b16]/50 to-transparent">
       <Header className="w-full" />
@@ -51,12 +50,12 @@ const Home = () => {
             </div>
           </div>
           <div className="flex justify-end items-end self-end">
-            <Image 
-              src={ridwan} 
-              alt={HOME_CONTENT.profileImage.alt} 
-              width={HOME_CONTENT.profileImage.width} 
-              height={HOME_CONTENT.profileImage.height} 
-              className="h-full" 
+            <Image
+              src={ridwan}
+              alt={HOME_CONTENT.profileImage.alt}
+              width={HOME_CONTENT.profileImage.width}
+              height={HOME_CONTENT.profileImage.height}
+              className="h-full max-h-[90vh] object-contain pt-8"
             />
           </div>
         </div>

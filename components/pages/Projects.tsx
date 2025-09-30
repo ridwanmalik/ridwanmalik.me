@@ -1,32 +1,36 @@
 "use client"
 
-import { useState } from "react"
-import { SECTION_TITLES } from "@/lib/constants"
-import { Github, ExternalLink, FolderOpen } from "lucide-react"
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
+import { SECTION_TITLES } from "@/lib/constants"
+import { ExternalLink, FolderOpen, Github } from "lucide-react"
+import Link from "next/link"
+import { useState } from "react"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const PROJECTS_CONTENT = {
   featured: [
     {
-      title: "RealEzy",
-      description: "A comprehensive real estate web application for apartment bookings, improving booking efficiency and user interface satisfaction. Built with Next.js for the frontend and Vue.js & Laravel for the admin panel, providing backend flexibility for property management.",
-      tech: ["Next.js", "Vue.js", "Laravel", "PHP", "MySQL"],
-      github: "https://github.com/ridwanmalik",
-      external: "https://realezy.com",
-      image: "/assets/realezy.png",
-    },
-    {
       title: "Scouty",
-      description: "A football team management application that enables efficient team and player management. Features a React web app and cross-platform mobile app using React Native with real-time communication features for coaches, players, and administrators.",
+      description:
+        "A football team management application that enables efficient team and player management. Features a React web app and cross-platform mobile app using React Native with real-time communication features for coaches, players, and administrators.",
       tech: ["React", "React Native", "Node.js", "WebSocket", "MongoDB"],
-      github: "https://github.com/ridwanmalik",
+      // github: "https://github.com/ridwanmalik",
       external: "https://scouty.io",
       image: "/assets/scouty.png",
     },
     {
+      title: "RealEzy",
+      description:
+        "A comprehensive real estate web application for apartment bookings, improving booking efficiency and user interface satisfaction. Built with Next.js for the frontend and Vue.js & Laravel for the admin panel, providing backend flexibility for property management.",
+      tech: ["Next.js", "Vue.js", "Laravel", "PHP", "MySQL"],
+      // github: "https://github.com/ridwanmalik",
+      external: "https://realezy.com",
+      image: "/assets/realezy.png",
+    },
+    {
       title: "SENSE HAIR",
-      description: "A professional hair salon booking website designed and built with Next.js. The platform enhances booking accuracy and user engagement with a beautiful, intuitive interface for stylist appointments and service scheduling.",
+      description:
+        "A professional hair salon booking website designed and built with Next.js. The platform enhances booking accuracy and user engagement with a beautiful, intuitive interface for stylist appointments and service scheduling.",
       tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL"],
       github: "https://github.com/ridwanmalik",
       external: "https://sensehair.nl",
@@ -36,42 +40,48 @@ const PROJECTS_CONTENT = {
   other: [
     {
       title: "Garam Masala Food Ordering",
-      description: "A PHP-based food ordering system with table booking capabilities, which boosted customer convenience and reservation volume for the restaurant.",
+      description:
+        "A PHP-based food ordering system with table booking capabilities, which boosted customer convenience and reservation volume for the restaurant.",
       tech: ["PHP", "MySQL", "JavaScript", "CSS"],
-      github: "https://github.com/ridwanmalik",
+      // github: "https://github.com/ridwanmalik",
       external: "https://garam-masala.nl",
     },
     {
       title: "ETS Telco ISP Website",
-      description: "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
+      description:
+        "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
       tech: ["Node.js", "Express", "MongoDB", "React"],
-      github: "https://github.com/ridwanmalik",
+      // github: "https://github.com/ridwanmalik",
       external: "https://etstelco.com",
     },
     {
       title: "Laravel OTT Platform",
-      description: "A Laravel-based OTT Platform Web App that scaled to over 10,000 active users with optimized video streaming capabilities.",
+      description:
+        "A Laravel-based OTT Platform Web App that scaled to over 10,000 active users with optimized video streaming capabilities.",
       tech: ["Laravel", "PHP", "MySQL", "Video Streaming"],
-      github: "https://github.com/ridwanmalik",
+      // github: "https://github.com/ridwanmalik",
       external: null,
     },
     {
       title: "Tournament Management System",
-      description: "A React-based Tournament Management Website that reduces admin overhead by automating scheduling and team coordination.",
+      description:
+        "A React-based Tournament Management Website that reduces admin overhead by automating scheduling and team coordination.",
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      github: "https://github.com/ridwanmalik",
+      // github: "https://github.com/ridwanmalik",
       external: null,
     },
     {
       title: "Patient Management System",
-      description: "A robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
+      description:
+        "A robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
       tech: ["Laravel", "PHP", "MySQL", "Vue.js"],
-      github: "https://github.com/ridwanmalik",
+      // github: "https://github.com/ridwanmalik",
       external: null,
     },
     {
       title: "Online Exam System",
-      description: "An Online Exam System for over 10,000 users, implementing secure, scalable testing features with real-time monitoring.",
+      description:
+        "An Online Exam System for over 10,000 users, implementing secure, scalable testing features with real-time monitoring.",
       tech: ["React", "Node.js", "WebSocket", "MongoDB"],
       github: "https://github.com/ridwanmalik",
       external: null,
@@ -80,14 +90,15 @@ const PROJECTS_CONTENT = {
   ui: {
     showMoreText: "Show More",
     showLessText: "Show Less",
-    initialDisplayCount: 6
-  }
+    initialDisplayCount: 6,
+  },
 }
 
 const Projects = () => {
-
   const [showMore, setShowMore] = useState(false)
-  const visibleProjects = showMore ? PROJECTS_CONTENT.other : PROJECTS_CONTENT.other.slice(0, PROJECTS_CONTENT.ui.initialDisplayCount)
+  const visibleProjects = showMore
+    ? PROJECTS_CONTENT.other
+    : PROJECTS_CONTENT.other.slice(0, PROJECTS_CONTENT.ui.initialDisplayCount)
 
   return (
     <section id="work" className="w-full py-20">
@@ -141,12 +152,22 @@ const Projects = () => {
                   </div>
 
                   <div className={`flex gap-4 ${index % 2 === 1 ? "lg:justify-start" : "lg:justify-end"}`}>
-                    <a href={project.github} className="text-custom-secondary hover:text-custom-accent transition-colors">
-                      <Github className="w-6 h-6" />
-                    </a>
-                    <a href={project.external} className="text-custom-secondary hover:text-custom-accent transition-colors">
+                    {project.github && (
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={project.github}
+                        className="text-custom-secondary hover:text-custom-accent transition-colors">
+                        <Github className="w-6 h-6" />
+                      </Link>
+                    )}
+                    <Link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={project.external}
+                      className="text-custom-secondary hover:text-custom-accent transition-colors">
                       <ExternalLink className="w-6 h-6" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -157,7 +178,6 @@ const Projects = () => {
         {/* Other Projects */}
         <div>
           <h2 className="text-3xl font-bold text-center mb-16">Other Noteworthy Projects</h2>
-          <p className="text-center text-custom-accent mb-12 cursor-pointer hover:underline">view the archive</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visibleProjects.map((project, index) => (
@@ -165,13 +185,23 @@ const Projects = () => {
                 <div className="flex justify-between items-start mb-4">
                   <FolderOpen className="w-8 h-8 text-custom-accent" />
                   <div className="flex gap-3">
-                    <a href={project.github} className="text-custom-secondary hover:text-custom-accent transition-colors">
-                      <Github className="w-5 h-5" />
-                    </a>
+                    {project.github && (
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={project.github}
+                        className="text-custom-secondary hover:text-custom-accent transition-colors">
+                        <Github className="w-5 h-5" />
+                      </Link>
+                    )}
                     {project.external && (
-                      <a href={project.external} className="text-custom-secondary hover:text-custom-accent transition-colors">
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={project.external}
+                        className="text-custom-secondary hover:text-custom-accent transition-colors">
                         <ExternalLink className="w-5 h-5" />
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>

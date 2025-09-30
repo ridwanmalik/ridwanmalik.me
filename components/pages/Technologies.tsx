@@ -5,11 +5,11 @@ import TechHoverCard from "@/components/shared/TechHoverCard"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const TECHNOLOGIES_CONTENT = {
-  introduction: "I specialize in building applications with React, Next.js, and Laravel, creating both frontend interfaces and robust backend systems. My experience spans from JavaScript and PHP development to Node.js server applications and MySQL database design."
+  introduction:
+    "I specialize in building applications with React, Next.js, and Laravel, creating both frontend interfaces and robust backend systems. My experience spans from JavaScript and PHP development to Node.js server applications and MySQL database design.",
 }
 
 const Technologies = () => {
-
   // Get technical skills and sort by level (highest first)
   const allSkills = TECHNICAL_SKILLS.sort((a, b) => b.level - a.level)
 
@@ -21,19 +21,12 @@ const Technologies = () => {
   return (
     <section id="technologies" className="w-full py-20">
       <div className="container mx-auto px-4">
-        <div className="flex items-center mb-4">
+        <div className="flex items-center mb-16">
           <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.technologies}</h2>
           <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
         </div>
 
         <div className="">
-          {/* Introduction */}
-          <div className="space-y-4 mb-8">
-            <div className="text-lg text-custom-secondary leading-relaxed">
-              <TechWithHoverCard text={TECHNOLOGIES_CONTENT.introduction} />
-            </div>
-          </div>
-
           {/* Technical Skills Two-Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left Column */}

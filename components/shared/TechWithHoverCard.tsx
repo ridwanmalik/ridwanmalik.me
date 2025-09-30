@@ -88,7 +88,9 @@ export default function TechWithHoverCard({ text, className = "" }: TechWithHove
                     {item.content}
                   </span>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80 bg-slate-800/90 border-slate-700 backdrop-blur-sm" side="top">
+                <HoverCardContent
+                  className="w-80 bg-slate-800/90 border-slate-700 backdrop-blur-sm text-left"
+                  side="top">
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <h4 className="text-sm font-semibold text-custom-foreground">{item.tech.name}</h4>
