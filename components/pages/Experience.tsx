@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { SECTION_TITLES, EXPERIENCES } from "@/lib/constants"
+import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 
 const Experience = () => {
   const [activeTab, setActiveTab] = useState(0)
@@ -55,7 +56,9 @@ const Experience = () => {
                   {EXPERIENCES[activeTab]?.description?.map((desc, index) => (
                     <div key={index} className="flex items-start">
                       <span className="text-custom-accent mr-3 -mt-0.5">▸</span>
-                      <p className="text-custom-secondary">{desc}</p>
+                      <div className="text-custom-secondary">
+                        <TechWithHoverCard text={desc} />
+                      </div>
                     </div>
                   ))}
                 </div>

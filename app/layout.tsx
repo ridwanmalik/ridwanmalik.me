@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar"
+import FixedSocialMenu from "@/components/shared/FixedSocialMenu"
 import { PERSONAL_INFO } from "@/lib/constants"
 import "@/styles/globals.css"
 import type { Metadata } from "next"
@@ -79,6 +80,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         }}>
         <div className="h-screen w-screen relative">
           <Navbar />
+          <FixedSocialMenu />
           <div className="section-wrapper">{children}</div>
         </div>
       </body>

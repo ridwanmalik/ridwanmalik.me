@@ -1,6 +1,8 @@
 import Header from "@/components/shared/Header"
+import SocialIconMenu from "@/components/shared/SocialIconMenu"
 import { ridwan } from "@/lib/assets"
 import { PERSONAL_INFO } from "@/lib/constants"
+import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -19,14 +21,23 @@ const Home = () => {
               {PERSONAL_INFO.title}
             </h2>
             <div className="max-w-2xl">
-              <p className="text-custom-secondary leading-relaxed">{PERSONAL_INFO.description}</p>
+              <div className="text-custom-secondary leading-relaxed">
+                <TechWithHoverCard text={PERSONAL_INFO.description} />
+              </div>
             </div>
-            <div className="pt-8">
+            <div className="pt-8 space-y-6">
               <Link
                 href="#work"
                 className="text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono">
                 Check out my work!
               </Link>
+              <div className="flex justify-start lg:hidden">
+                <SocialIconMenu 
+                  orientation="horizontal"
+                  size="md"
+                  className="gap-4"
+                />
+              </div>
             </div>
           </div>
           <div className="flex justify-end items-end self-end">

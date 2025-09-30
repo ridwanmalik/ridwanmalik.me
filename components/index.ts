@@ -2,7 +2,7 @@
 export { Navbar } from "./layouts"
 
 // Shared  
-export { Header, SocialIconMenu } from "./shared"
+export { Header, SocialIconMenu, FixedSocialMenu } from "./shared"
 
 // Pages
 export { About, Contact, Experience, Home, Projects, Technologies } from "./pages"

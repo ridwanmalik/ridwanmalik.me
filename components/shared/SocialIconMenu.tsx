@@ -52,7 +52,7 @@ export default function SocialIconMenu({
       <Button
         variant="ghost"
         size="icon"
-        className="text-custom-secondary hover:text-custom-accent transition-colors"
+        className="text-custom-secondary hover:text-custom-secondary/80 hover:bg-transparent transition-colors duration-200"
         asChild
       >
         <a

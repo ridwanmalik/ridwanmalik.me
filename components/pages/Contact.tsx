@@ -22,7 +22,7 @@ const Contact = () => {
           <SocialIconMenu 
             orientation="horizontal"
             size="lg"
-            className="gap-6"
+            className="gap-4"
           />
         </div>
       </div>

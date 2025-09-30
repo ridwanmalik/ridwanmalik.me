@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { SECTION_TITLES, FEATURED_PROJECTS, OTHER_PROJECTS } from "@/lib/constants"
 import { Github, ExternalLink, FolderOpen } from "lucide-react"
+import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 
 const Projects = () => {
   // Using FEATURED_PROJECTS from constants
@@ -47,7 +48,9 @@ const Projects = () => {
                   <h3 className="text-2xl font-semibold text-custom-foreground mb-4">{project.title}</h3>
 
                   <div className="bg-slate-800/50 p-6 rounded-lg mb-4 backdrop-blur-sm">
-                    <p className="text-custom-secondary">{project.description}</p>
+                    <div className="text-custom-secondary">
+                      <TechWithHoverCard text={project.description} />
+                    </div>
                   </div>
 
                   <div
@@ -55,7 +58,9 @@ const Projects = () => {
                       index % 2 === 1 ? "lg:justify-start" : "lg:justify-end"
                     }`}>
                     {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex}>{tech}</span>
+                      <span key={techIndex}>
+                        <TechWithHoverCard text={tech} />
+                      </span>
                     ))}
                   </div>
 
@@ -98,11 +103,15 @@ const Projects = () => {
                 <h3 className="text-xl font-semibold text-custom-foreground mb-3 group-hover:text-custom-accent transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-custom-secondary mb-4">{project.description}</p>
+                <div className="text-custom-secondary mb-4">
+                  <TechWithHoverCard text={project.description} />
+                </div>
 
                 <div className="flex flex-wrap gap-2 font-mono text-sm text-custom-secondary">
                   {project.tech.map((tech, techIndex) => (
-                    <span key={techIndex}>{tech}</span>
+                    <span key={techIndex}>
+                      <TechWithHoverCard text={tech} />
+                    </span>
                   ))}
                 </div>
               </div>
