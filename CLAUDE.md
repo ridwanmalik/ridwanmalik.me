@@ -66,5 +66,11 @@ This is a Next.js 15 personal portfolio website using the App Router architectur
 - **DO NOT run yarn dev** unless explicitly requested
 - Only run yarn lint, yarn build, or TypeScript checks when needed
 - Always use yarn commands, never npm
-- All content should reference constants from `lib/constants.ts`
 - Follow the established custom color system (foreground, secondary, accent)
+
+### Constants Organization
+- **Global Constants (`lib/constants.ts`)**: Only for data reused across multiple components (personal info, technologies, section titles)
+- **Local Constants**: Component-specific content should be defined as constants **OUTSIDE** the component function to avoid recreation on every render
+- **Structure**: Use objects/arrays for better organization (e.g., `COMPONENT_CONTENT = { paragraphs: [], cta: { text: "", href: "" } }`)
+- **No Magic Strings**: All text content should be extracted to constants (either global or local) to avoid magic strings in JSX
+- **Performance**: Constants outside component functions are created once, not on every render

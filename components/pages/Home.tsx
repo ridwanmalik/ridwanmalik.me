@@ -6,7 +6,21 @@ import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 import Image from "next/image"
 import Link from "next/link"
 
+// Local constants - only used in this component (outside component to avoid recreation)
+const HOME_CONTENT = {
+  cta: {
+    text: "Check out my work!",
+    href: "#work"
+  },
+  profileImage: {
+    alt: "Ridwan Malik",
+    width: 455,
+    height: 1106
+  }
+}
+
 const Home = () => {
+
   return (
     <section id="home" className="min-h-screen w-full flex flex-col bg-gradient-to-t from-[#020b16]/50 to-transparent">
       <Header className="w-full" />
@@ -27,21 +41,23 @@ const Home = () => {
             </div>
             <div className="pt-8 space-y-6">
               <Link
-                href="#work"
+                href={HOME_CONTENT.cta.href}
                 className="text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono">
-                Check out my work!
+                {HOME_CONTENT.cta.text}
               </Link>
               <div className="flex justify-start lg:hidden">
-                <SocialIconMenu 
-                  orientation="horizontal"
-                  size="md"
-                  className="gap-4"
-                />
+                <SocialIconMenu orientation="horizontal" size="md" className="gap-4" />
               </div>
             </div>
           </div>
           <div className="flex justify-end items-end self-end">
-            <Image src={ridwan} alt="Ridwan Malik" width={455} height={1106} className="h-full" />
+            <Image 
+              src={ridwan} 
+              alt={HOME_CONTENT.profileImage.alt} 
+              width={HOME_CONTENT.profileImage.width} 
+              height={HOME_CONTENT.profileImage.height} 
+              className="h-full" 
+            />
           </div>
         </div>
       </div>
