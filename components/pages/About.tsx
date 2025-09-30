@@ -1,41 +1,42 @@
-import { SECTION_TITLES, TECH_STACK } from "@/lib/constants"
+import { SECTION_TITLES } from "@/lib/constants"
+import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 
 const About = () => {
   return (
     <section id="about" className="w-full pt-40 pb-20">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="space-y-4 text-custom-secondary">
-          <div className="flex items-center mb-10">
-            <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.about}</h2>
-            <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
-          </div>
-          <p>
-            Hello! I&apos;m Ridwan, and I enjoy creating things that live on the internet. My interest in web
-            development started back in 2018 when I decided to try building my first website — turns out learning HTML &
-            CSS taught me a lot about frontend development!
-          </p>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center mb-16">
+          <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.about}</h2>
+          <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
+        </div>
 
-          <p>
-            Fast-forward to today, and I&apos;ve had the privilege of working at various companies, from startups to
-            established businesses. My main focus these days is building accessible, inclusive products and digital
-            experiences for a variety of clients.
-          </p>
+        <div className="">
+          <div className="space-y-6 text-custom-secondary text-lg leading-relaxed">
+            <p>
+              Hello! I&apos;m Ridwan, and I enjoy creating things that live on the internet. My interest in web
+              development started back in 2018 when I decided to try building my first website — turns out learning HTML
+              & CSS taught me a lot about frontend development!
+            </p>
 
-          <p>
-            I recently started studying Computer Science and Engineering at Bangladesh University of Business and
-            Technology, while continuing to work as a Software Developer. I&apos;m passionate about learning new
-            technologies and solving complex problems.
-          </p>
+            <p>
+              Fast-forward to today, and I&apos;ve had the privilege of working at various companies, from startups to
+              established businesses. My main focus these days is building accessible, inclusive products and digital
+              experiences for a variety of clients.
+            </p>
 
-          <p>Here are a few technologies I&apos;ve been working with recently:</p>
+            <p>
+              I recently started studying Computer Science and Engineering at Bangladesh University of Business and
+              Technology, while continuing to work as a Software Developer. I&apos;m passionate about learning new
+              technologies and solving complex problems.
+            </p>
 
-          <div className="grid grid-cols-2 gap-2 mt-12 font-mono">
-            {TECH_STACK.map((tech, index) => (
-              <div key={index} className="flex items-center space-y-2">
-                <span className="text-custom-accent mr-2">▸</span>
-                <span className="text-xs">{tech}</span>
-              </div>
-            ))}
+            <div>
+              I specialize in building applications with <TechWithHoverCard text="React" />,{" "}
+              <TechWithHoverCard text="Next.js" />, and <TechWithHoverCard text="Laravel" />, creating both frontend
+              interfaces and robust backend systems. My experience spans from <TechWithHoverCard text="JavaScript" />{" "}
+              and <TechWithHoverCard text="PHP" /> development to <TechWithHoverCard text="Node.js" /> server
+              applications and <TechWithHoverCard text="MySQL" /> database design.
+            </div>
           </div>
         </div>
       </div>

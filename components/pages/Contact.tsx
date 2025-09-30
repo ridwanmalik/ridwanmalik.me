@@ -4,7 +4,7 @@ import SocialIconMenu from "@/components/shared/SocialIconMenu"
 const Contact = () => {
   return (
     <section id="contact" className="w-full flex flex-col justify-center items-center">
-      <div className="container mx-auto px-4 text-center max-w-4xl pt-40 pb-48">
+      <div className="container mx-auto px-4 text-center pt-40 pb-48">
         <p className="text-custom-accent font-mono mb-4">{CONTACT_INFO.title}</p>
         <h2 className="text-4xl md:text-5xl font-bold text-custom-foreground mb-6">{CONTACT_INFO.subtitle}</h2>
 
@@ -21,7 +21,6 @@ const Contact = () => {
         <div className="mt-16 flex justify-center">
           <SocialIconMenu 
             orientation="horizontal"
-            showHoverCards={true}
             size="lg"
             className="gap-6"
           />

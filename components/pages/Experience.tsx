@@ -15,13 +15,13 @@ const Experience = () => {
 
   return (
     <section id="experience" className="w-full flex justify-center items-center py-40">
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4">
         <div className="flex items-center mb-16">
           <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.experience}</h2>
           <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div>
           <div className="flex flex-col md:flex-row">
             {/* Tab List */}
             <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible mb-4 md:mb-0 md:mr-8">
@@ -54,7 +54,7 @@ const Experience = () => {
                 <div className="space-y-3">
                   {EXPERIENCES[activeTab]?.description?.map((desc, index) => (
                     <div key={index} className="flex items-start">
-                      <span className="text-custom-accent mr-3 mt-1">▸</span>
+                      <span className="text-custom-accent mr-3 -mt-0.5">▸</span>
                       <p className="text-custom-secondary">{desc}</p>
                     </div>
                   ))}

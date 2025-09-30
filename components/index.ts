@@ -5,4 +5,7 @@ export { Navbar } from "./layouts"
 export { Header, SocialIconMenu } from "./shared"
 
 // Pages
-export { About, Contact, Experience, Home, Projects } from "./pages"
+export { About, Contact, Experience, Home, Projects, Technologies } from "./pages"
+
+// Shared Components
+export { TechWithHoverCard } from "./shared"

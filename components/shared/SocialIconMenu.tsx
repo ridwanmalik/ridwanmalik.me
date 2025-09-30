@@ -31,7 +31,7 @@ const sizeMap = {
 export default function SocialIconMenu({ 
   orientation = "horizontal", 
   className,
-  showHoverCards = true,
+  showHoverCards = false,
   size = "md"
 }: SocialIconMenuProps) {
   const containerClasses = cn(
@@ -71,7 +71,7 @@ export default function SocialIconMenu({
     )
 
     if (!showHoverCards) {
-      return socialButton
+      return <div key={index}>{socialButton}</div>
     }
 
     return (
