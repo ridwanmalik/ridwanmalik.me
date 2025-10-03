@@ -12,8 +12,8 @@ const PROJECTS_CONTENT = {
     {
       title: "Scouty",
       description:
-        "A football team management application that enables efficient team and player management. Features a React web app and cross-platform mobile app using React Native with real-time communication features for coaches, players, and administrators.",
-      tech: ["React", "React Native", "Node.js", "WebSocket", "MongoDB"],
+        "A football team management application that enables efficient team and player management. Features a Next.js web app and cross-platform mobile app using React Native with real-time communication features for coaches, players, and administrators.",
+      tech: ["React", "Next.js", "React Native", "Firebase", "Laravel"],
       // github: "https://github.com/ridwanmalik",
       external: "https://scouty.io",
       image: "/assets/scouty.png",
@@ -22,7 +22,7 @@ const PROJECTS_CONTENT = {
       title: "RealEzy",
       description:
         "A comprehensive real estate web application for apartment bookings, improving booking efficiency and user interface satisfaction. Built with Next.js for the frontend and Vue.js & Laravel for the admin panel, providing backend flexibility for property management.",
-      tech: ["Next.js", "Vue.js", "Laravel", "PHP", "MySQL"],
+      tech: ["React", "Next.js", "Vue.js", "Laravel", "MySQL"],
       // github: "https://github.com/ridwanmalik",
       external: "https://realezy.com",
       image: "/assets/realezy.png",
@@ -31,7 +31,7 @@ const PROJECTS_CONTENT = {
       title: "SENSE HAIR",
       description:
         "A professional hair salon booking website designed and built with Next.js. The platform enhances booking accuracy and user engagement with a beautiful, intuitive interface for stylist appointments and service scheduling.",
-      tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL"],
+      tech: ["Next.js", "React", "Tailwind CSS", "Laravel", "MySQL"],
       github: "https://github.com/ridwanmalik",
       external: "https://sensehair.nl",
       image: "/assets/sensehair.png",

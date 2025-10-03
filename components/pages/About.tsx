@@ -4,9 +4,9 @@ import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 // Local constants - only used in this component (outside component to avoid recreation)
 const ABOUT_CONTENT = {
   paragraphs: [
-    "Hello! I'm Ridwan, and I enjoy creating things that live on the internet. My interest in web development started back in 2018 when I decided to try building my first website — turns out learning HTML & CSS taught me a lot about frontend development!",
+    "Hello! I'm Ridwan, and I enjoy creating things that live on the internet. My interest in web development started back in 2017 when I decided to try building my first website — turns out learning HTML & CSS taught me a lot about frontend development!",
     "Fast-forward to today, and I've had the privilege of working at various companies, from startups to established businesses. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.",
-    "I recently started studying Computer Science and Engineering at Bangladesh University of Business and Technology, while continuing to work as a Software Developer. I'm passionate about learning new technologies and solving complex problems.",
+    "I'm studying Computer Science and Engineering at Bangladesh University of Business and Technology, while continuing to work as a Software Developer. I'm passionate about learning new technologies and solving complex problems.",
     "I specialize in building applications with React, Next.js, and Laravel, creating both frontend interfaces and robust backend systems. My experience spans from JavaScript and PHP development to Node.js server applications and MySQL database design.",
   ],
 }

@@ -1,9 +1,10 @@
+const TOTAL_YEARS_EXPERIENCE = new Date().getFullYear() - 2018
+
 export const PERSONAL_INFO = {
   name: "Sk. Ridwanul Malik",
   title: "I build things for the web",
   intro: "Hi, my name is",
-  description:
-    "I'm a software engineer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products with more than 5 years of experience in React (Next.js), Laravel (PHP), Node.js, and WordPress.",
+  description: `I'm a software engineer specializing in building exceptional digital experiences. I'm A Full Stack Web Developer with excellent problem-solving skills. Passionate about coding and learning new technologies, with more than ${TOTAL_YEARS_EXPERIENCE} years of experience in React (Next.js), Laravel (PHP), Node.js, and WordPress.`,
   email: "skridwanulmalik@gmail.com",
 }
 
