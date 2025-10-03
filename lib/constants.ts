@@ -404,6 +404,14 @@ export const TECHNOLOGIES = {
     color: "bg-orange-600",
     aliases: ["sms-api", "sms", "text-messaging"],
   },
+  "TMDB API": {
+    name: "TMDB API",
+    category: "External API",
+    description: "The Movie Database API providing comprehensive movie, TV show, and celebrity information with extensive metadata.",
+    features: ["Movie & TV data", "Image galleries", "Search functionality", "Trending content"],
+    color: "bg-yellow-600",
+    aliases: ["tmdb", "themoviedb", "movie-database"],
+  },
 }
 
 // Skills displayed in the Technical Skills section (with proficiency levels)

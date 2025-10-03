@@ -58,7 +58,7 @@ const PROJECTS_CONTENT = {
       title: "ETS Telco ISP Website",
       description:
         "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
-      tech: ["Node.js", "Express", "MongoDB", "React"],
+      tech: ["Node.js", "HTML", "CSS"],
       // github: "https://github.com/ridwanmalik",
       external: "https://etstelco.com",
     },
@@ -74,7 +74,7 @@ const PROJECTS_CONTENT = {
       title: "Patient Management System",
       description:
         "A robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
-      tech: ["Laravel", "PHP", "MySQL", "Vue.js"],
+      tech: ["Laravel", "PHP", "MySQL"],
       // github: "https://github.com/ridwanmalik",
       external: null,
     },
@@ -82,7 +82,7 @@ const PROJECTS_CONTENT = {
       title: "Online Exam System",
       description:
         "An Online Exam System for over 10,000 users, implementing secure, scalable testing features with real-time monitoring.",
-      tech: ["React", "Node.js", "WebSocket", "MongoDB"],
+      tech: ["PHP", "HTML", "CSS"],
       // github: "https://github.com/ridwanmalik",
       external: null,
     },
