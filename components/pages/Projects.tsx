@@ -3,6 +3,7 @@
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 import { SECTION_TITLES } from "@/lib/constants"
 import { ExternalLink, FolderOpen, Github } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -28,13 +29,13 @@ const PROJECTS_CONTENT = {
       image: "/assets/realezy.png",
     },
     {
-      title: "SENSE HAIR",
+      title: "ETS Telco ISP Website",
       description:
-        "A professional hair salon booking website designed and built with Next.js. The platform enhances booking accuracy and user engagement with a beautiful, intuitive interface for stylist appointments and service scheduling.",
-      tech: ["Next.js", "React", "Tailwind CSS", "Laravel", "MySQL"],
-      github: "https://github.com/ridwanmalik",
-      external: "https://sensehair.nl",
-      image: "/assets/sensehair.png",
+        "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
+      tech: ["Node.js", "HTML", "CSS"],
+      // github: "https://github.com/ridwanmalik",
+      external: "https://etstelco.com",
+      image: "/assets/etstelco.png",
     },
   ],
   other: [
@@ -55,12 +56,12 @@ const PROJECTS_CONTENT = {
       external: "https://garam-masala.nl",
     },
     {
-      title: "ETS Telco ISP Website",
+      title: "SENSE HAIR",
       description:
-        "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
-      tech: ["Node.js", "HTML", "CSS"],
+        "A professional hair salon booking website designed and built with Next.js. The platform enhances booking accuracy and user engagement with a beautiful, intuitive interface for stylist appointments and service scheduling.",
+      tech: ["Next.js", "React", "Tailwind CSS", "Laravel", "MySQL"],
       // github: "https://github.com/ridwanmalik",
-      external: "https://etstelco.com",
+      external: "https://sensehair.nl",
     },
     {
       title: "Tournament Management System",
@@ -119,20 +120,31 @@ const Projects = () => {
                 }`}>
                 {/* Project Image */}
                 <div className="lg:w-3/5">
-                  <div className="relative group">
-                    <div className="bg-accent/20 rounded-lg overflow-hidden">
-                      <div className="aspect-video bg-slate-800/50 flex items-center justify-center">
-                        <span className="text-custom-accent text-lg font-mono">{project.title}</span>
+                  <Link href={project.external} target="_blank" rel="noopener noreferrer">
+                    <div className="relative group">
+                      <div className="bg-accent/20 rounded-lg overflow-hidden">
+                        <div className="aspect-video relative">
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover grayscale contrast-100 brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+                          />
+                        </div>
                       </div>
+                      <div className="absolute inset-0 bg-oxford-blue/40 rounded-lg group-hover:bg-transparent transition-colors duration-300"></div>
                     </div>
-                    <div className="absolute inset-0 bg-accent/20 rounded-lg group-hover:bg-transparent transition-colors duration-300"></div>
-                  </div>
+                  </Link>
                 </div>
 
                 {/* Project Info */}
                 <div className={`lg:w-2/5 ${index % 2 === 1 ? "lg:text-left" : "lg:text-right"}`}>
                   <p className="text-custom-accent text-sm font-mono mb-2">Featured Project</p>
-                  <h3 className="text-2xl font-semibold text-custom-foreground mb-4">{project.title}</h3>
+                  <h3 className="text-2xl font-semibold text-custom-foreground mb-4">
+                    <Link href={project.external} target="_blank" rel="noopener noreferrer" className="hover:text-custom-accent transition-colors">
+                      {project.title}
+                    </Link>
+                  </h3>
 
                   <div className="bg-slate-800/50 p-6 rounded-lg mb-4 backdrop-blur-sm">
                     <div className="text-custom-secondary">
