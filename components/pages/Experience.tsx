@@ -1,14 +1,16 @@
 "use client"
 
-import { useState } from "react"
-import { SECTION_TITLES } from "@/lib/constants"
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
+import { SECTION_TITLES } from "@/lib/constants"
+import Link from "next/link"
+import { useState } from "react"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const EXPERIENCE_CONTENT = {
   experiences: [
     {
       company: "Equal & Co.",
+      url: "https://equalandco.com",
       role: "Software Developer",
       period: "January 2022 - Present",
       description: [
@@ -18,6 +20,7 @@ const EXPERIENCE_CONTENT = {
     },
     {
       company: "Talent Pro",
+      url: "https://talentpro.global",
       role: "Software Developer",
       period: "February 2022 - July 2023",
       description: [
@@ -28,6 +31,7 @@ const EXPERIENCE_CONTENT = {
     },
     {
       company: "Dynamicflow",
+      url: "https://dynamicflowit.com",
       role: "Web Developer",
       period: "May 2021 - January 2022",
       description: [
@@ -38,6 +42,7 @@ const EXPERIENCE_CONTENT = {
     },
     {
       company: "Dream Diver",
+      url: "https://dreamdiver.nl",
       role: "Web & Apps Developer",
       period: "July 2020 - December 2021",
       description: [
@@ -48,6 +53,7 @@ const EXPERIENCE_CONTENT = {
     },
     {
       company: "Watchflix, Pty Ltd.",
+      url: null,
       role: "Executive, (Web Application Developer)",
       period: "October 2020 - May 2021",
       description: [
@@ -57,6 +63,7 @@ const EXPERIENCE_CONTENT = {
     },
     {
       company: "7 Info Tech",
+      url: "https://7infotech.com.bd",
       role: "Junior Web Developer",
       period: "August 2018 - July 2020",
       description: [
@@ -64,7 +71,7 @@ const EXPERIENCE_CONTENT = {
         "Developed and customized WordPress E-commerce sites, improving site speed and user engagement.",
       ],
     },
-  ]
+  ],
 }
 
 const Experience = () => {
@@ -111,10 +118,23 @@ const Experience = () => {
                   <h3 className="text-xl font-semibold text-custom-foreground">
                     {EXPERIENCE_CONTENT.experiences[activeTab]?.role}{" "}
                     <span className="text-custom-accent">
-                      <span className="text-gray-500/50 px-px">@</span> {EXPERIENCE_CONTENT.experiences[activeTab]?.company}
+                      <span className="text-gray-500/50 px-px">@</span>{" "}
+                      {EXPERIENCE_CONTENT.experiences[activeTab]?.url ? (
+                        <Link
+                          href={EXPERIENCE_CONTENT.experiences[activeTab].url!}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline">
+                          {EXPERIENCE_CONTENT.experiences[activeTab]?.company}
+                        </Link>
+                      ) : (
+                        EXPERIENCE_CONTENT.experiences[activeTab]?.company
+                      )}
                     </span>
                   </h3>
-                  <p className="text-sm text-custom-secondary font-mono">{EXPERIENCE_CONTENT.experiences[activeTab]?.period}</p>
+                  <p className="text-sm text-custom-secondary font-mono">
+                    {EXPERIENCE_CONTENT.experiences[activeTab]?.period}
+                  </p>
                 </div>
 
                 <div className="space-y-3">
