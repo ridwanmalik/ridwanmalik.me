@@ -2,6 +2,7 @@
 
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 import { SECTION_TITLES } from "@/lib/constants"
+import { AppStoreIcon, GooglePlayIcon } from "@/lib/icons"
 import { ExternalLink, FolderOpen, Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -14,9 +15,11 @@ const PROJECTS_CONTENT = {
       title: "Scouty",
       description:
         "A football team management application that enables efficient team and player management. Features a Next.js web app and cross-platform mobile app using React Native with real-time communication features for coaches, players, and administrators.",
-      tech: ["React", "Next.js", "React Native", "Firebase", "Laravel"],
+      tech: ["React", "Next.js", "React Native", "Firebase", "Laravel", "Stripe"],
       // github: "https://github.com/ridwanmalik",
       external: "https://scouty.io",
+      appStore: "https://apps.apple.com/us/app/scouty-app/id6654929904",
+      playStore: "https://play.google.com/store/apps/details?id=io.scouty",
       image: "/assets/scouty.png",
     },
     {
@@ -29,16 +32,24 @@ const PROJECTS_CONTENT = {
       image: "/assets/realezy.png",
     },
     {
+      title: "Zenith Labs",
+      description:
+        "A full-stack e-commerce platform for a Canadian research peptide company. Built with Next.js and Supabase, featuring a product catalog, shopping cart, age-gating, a custom Peptide Calculator tool, and a complete checkout flow with secure payments.",
+      tech: ["Next.js", "Supabase", "React", "Tailwind CSS"],
+      // github: "https://github.com/ridwanmalik",
+      external: "https://zenithpeptides.ca",
+      image: "/assets/zenith.png",
+    },
+  ],
+  other: [
+    {
       title: "ETS Telco ISP Website",
       description:
         "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
       tech: ["Node.js", "HTML", "CSS"],
       // github: "https://github.com/ridwanmalik",
       external: "https://etstelco.com",
-      image: "/assets/etstelco.png",
     },
-  ],
-  other: [
     {
       title: "Netflix Clone",
       description:
@@ -171,6 +182,24 @@ const Projects = () => {
                         href={project.github}
                         className="text-custom-secondary hover:text-custom-accent transition-colors">
                         <Github className="w-6 h-6" />
+                      </Link>
+                    )}
+                    {"appStore" in project && project.appStore && (
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={project.appStore as string}
+                        className="text-custom-secondary hover:text-custom-accent transition-colors">
+                        <AppStoreIcon className="w-6 h-6" />
+                      </Link>
+                    )}
+                    {"playStore" in project && project.playStore && (
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={project.playStore as string}
+                        className="text-custom-secondary hover:text-custom-accent transition-colors">
+                        <GooglePlayIcon className="w-6 h-6" />
                       </Link>
                     )}
                     <Link

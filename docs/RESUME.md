@@ -114,19 +114,31 @@ https://www.sololearn.com/en/certificates/CT-ZO6UD2UD
 ```
 JavaScript Certified
 SoloLearn, Inc.
-https://www.sololearn.com/certificates/course/en/11234106/1024/landscape/png
+https://www.sololearn.com/en/certificates/CT-HI8LUC9C
 ```
 
 ```
 PHP Certified
 SoloLearn, Inc.
-https://www.sololearn.com/Certificate/1059-11234106/jpg
+https://www.sololearn.com/en/certificates/CT-SBL1OYHQ
 ```
 
 ```
 Problem-Solving (Basic)
 HackerRank
 https://www.hackerrank.com/certificates/e5f3b68d3684
+```
+
+```
+Frontend Developer (React)
+HackerRank
+https://www.hackerrank.com/certificates/af9119c8d91f
+```
+
+```
+Problem Solving (Intermediate)
+HackerRank
+https://www.hackerrank.com/certificates/5838db2fe399
 ```
 
 ### 7 Info Tech — Junior Web Developer

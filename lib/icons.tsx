@@ -10,6 +10,20 @@ export const LinkedInIcon = () => (
   </svg>
 )
 
+import { siAppstore, siGoogleplay } from "simple-icons"
+
+export const AppStoreIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="App Store">
+    <path d={siAppstore.path} />
+  </svg>
+)
+
+export const GooglePlayIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Google Play">
+    <path d={siGoogleplay.path} />
+  </svg>
+)
+
 export const HackerRankIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg
     className={className}

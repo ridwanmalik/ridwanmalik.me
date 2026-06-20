@@ -5,6 +5,7 @@ import Link from "next/link"
 // Local constants - only used in this component (outside component to avoid recreation)
 const CERTIFICATION_CONTENT = {
   certifications: [
+    // React
     {
       title: "React + Redux Certified",
       issuer: "SoloLearn, Inc.",
@@ -12,27 +13,22 @@ const CERTIFICATION_CONTENT = {
       icon: "react",
     },
     {
+      title: "Frontend Developer (React)",
+      issuer: "HackerRank",
+      url: "https://www.hackerrank.com/certificates/af9119c8d91f",
+      icon: "react",
+    },
+    {
+      title: "React (Basic)",
+      issuer: "HackerRank",
+      url: "https://www.hackerrank.com/certificates/93696da69617",
+      icon: "react",
+    },
+    // JavaScript
+    {
       title: "JavaScript Certified",
       issuer: "SoloLearn, Inc.",
-      url: "https://www.sololearn.com/certificates/course/en/11234106/1024/landscape/png",
-      icon: "javascript",
-    },
-    {
-      title: "PHP Certified",
-      issuer: "SoloLearn, Inc.",
-      url: "https://www.sololearn.com/Certificate/1059-11234106/jpg",
-      icon: "php",
-    },
-    {
-      title: "Problem-Solving (Basic)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/e5f3b68d3684",
-      icon: "algorithm",
-    },
-    {
-      title: "JavaScript (Basic)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/47a154d2e127",
+      url: "https://www.sololearn.com/en/certificates/CT-HI8LUC9C",
       icon: "javascript",
     },
     {
@@ -42,10 +38,30 @@ const CERTIFICATION_CONTENT = {
       icon: "javascript",
     },
     {
-      title: "React (Basic)",
+      title: "JavaScript (Basic)",
       issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/93696da69617",
-      icon: "react",
+      url: "https://www.hackerrank.com/certificates/47a154d2e127",
+      icon: "javascript",
+    },
+    // Problem Solving
+    {
+      title: "Problem Solving (Intermediate)",
+      issuer: "HackerRank",
+      url: "https://www.hackerrank.com/certificates/5838db2fe399",
+      icon: "algorithm",
+    },
+    {
+      title: "Problem-Solving (Basic)",
+      issuer: "HackerRank",
+      url: "https://www.hackerrank.com/certificates/e5f3b68d3684",
+      icon: "algorithm",
+    },
+    // Other
+    {
+      title: "PHP Certified",
+      issuer: "SoloLearn, Inc.",
+      url: "https://www.sololearn.com/en/certificates/CT-SBL1OYHQ",
+      icon: "php",
     },
     {
       title: "CSS (Basic)",

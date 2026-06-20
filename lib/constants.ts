@@ -219,6 +219,15 @@ export const TECHNOLOGIES = {
     color: "bg-orange-500",
     aliases: ["firebase"],
   },
+  Supabase: {
+    name: "Supabase",
+    category: "Backend Service",
+    description:
+      "An open-source Firebase alternative providing a PostgreSQL database, authentication, real-time subscriptions, and storage.",
+    features: ["PostgreSQL", "Row-level security", "Real-time subscriptions", "Auth & Storage"],
+    color: "bg-emerald-600",
+    aliases: ["supabase"],
+  },
   Docker: {
     name: "Docker",
     category: "DevOps",
@@ -412,6 +421,15 @@ export const TECHNOLOGIES = {
     color: "bg-yellow-600",
     aliases: ["tmdb", "themoviedb", "movie-database"],
   },
+  Stripe: {
+    name: "Stripe",
+    category: "Payment Gateway",
+    description:
+      "A developer-first payment processing platform for accepting online payments, managing subscriptions, and handling complex billing logic.",
+    features: ["Payment processing", "Subscriptions", "Webhooks", "Fraud prevention"],
+    color: "bg-indigo-500",
+    aliases: ["stripe"],
+  },
 }
 
 // Skills displayed in the Technical Skills section (with proficiency levels)
@@ -430,6 +448,8 @@ export const TECHNICAL_SKILLS = [
   { name: "Vue.js", level: 80 },
   { name: "Ionic", level: 80 },
   { name: "Firebase", level: 80 },
+  { name: "Supabase", level: 85 },
+  { name: "Stripe", level: 80 },
   { name: "Docker", level: 80 },
   { name: "DevOps", level: 80 },
 ]

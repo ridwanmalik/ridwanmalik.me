@@ -19,6 +19,28 @@ const EXPERIENCE_CONTENT = {
       ],
     },
     {
+      company: "Source Expert",
+      url: "https://sourceexpert.net",
+      role: "Senior Full Stack Developer",
+      period: "November 2024 - Present",
+      description: [
+        "Building and shipping production web and mobile applications for international clients as part of a 15+ engineer team spanning the USA and Bangladesh.",
+        "Developing full-stack solutions using React.js, React Native, Next.js, and Node.js from concept through deployment.",
+        "Contributing to high-performance, scalable digital products across e-commerce, food delivery, and SaaS domains.",
+      ],
+    },
+    {
+      company: "Oxford International School",
+      url: "https://ois.edu.bd",
+      role: "Software Developer",
+      period: "December 2023 - October 2025",
+      description: [
+        "Developing and maintaining the school's Education Management System (EMS) used across multiple campuses in Dhaka.",
+        "Building React.js-based interfaces for academic administration, student records, and internal workflows.",
+        "Working in a hybrid part-time capacity alongside the school's operations team.",
+      ],
+    },
+    {
       company: "Talent Pro",
       url: "https://talentpro.global",
       role: "Software Developer",
