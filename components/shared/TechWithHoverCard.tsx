@@ -102,7 +102,7 @@ export default function TechWithHoverCard({ text, className = "" }: TechWithHove
                     <div className="space-y-1">
                       <p className="text-xs font-medium text-custom-accent">Key Features:</p>
                       <ul className="text-xs text-custom-secondary space-y-1">
-                        {item.tech.features.map((feature, idx) => (
+                        {item.tech.features.map((feature: string, idx: number) => (
                           <li key={idx} className="flex items-center">
                             <span className="text-custom-accent mr-2">•</span>
                             {feature}

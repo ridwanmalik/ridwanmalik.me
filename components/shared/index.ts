@@ -3,5 +3,6 @@ import SocialIconMenu from "./SocialIconMenu"
 import TechWithHoverCard from "./TechWithHoverCard"
 import TechHoverCard from "./TechHoverCard"
 import FixedSocialMenu from "./FixedSocialMenu"
+import ContactModal from "./ContactModal"
 
-export { Header, SocialIconMenu, TechWithHoverCard, TechHoverCard, FixedSocialMenu }
+export { Header, SocialIconMenu, TechWithHoverCard, TechHoverCard, FixedSocialMenu, ContactModal }

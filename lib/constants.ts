@@ -4,11 +4,227 @@ export const PERSONAL_INFO = {
   name: "Sk. Ridwanul Malik",
   title: "I build things for the web",
   intro: "Hi, my name is",
-  description: `I'm a software engineer specializing in building exceptional digital experiences. I'm A Full Stack Web Developer with excellent problem-solving skills. Passionate about coding and learning new technologies, with more than ${TOTAL_YEARS_EXPERIENCE} years of experience in React (Next.js), Laravel (PHP), Node.js, and WordPress.`,
+  description: `I'm a software engineer and Full Stack Web Developer specializing in building exceptional digital experiences, backed by excellent problem-solving skills. Passionate about coding and learning new technologies, with more than ${TOTAL_YEARS_EXPERIENCE} years of experience in React (Next.js), Laravel (PHP), Node.js, and WordPress.`,
   email: "skridwanulmalik@gmail.com",
+  resume: "/api/resume",
 }
 
-export const TECH_STACK = ["JavaScript (ES6+)", "React", "Next.js", "Node.js", "PHP", "Laravel", "Vue.js", "MySQL"]
+// Content for the "Get In Touch" modal opened from the header/nav
+export const CONTACT_MODAL = {
+  title: "Get In Touch",
+  description: "Pick whichever works best for you — my inbox is always open.",
+  options: {
+    email: {
+      label: "Email me",
+      description: PERSONAL_INFO.email,
+    },
+    copy: {
+      label: "Copy email address",
+      copiedLabel: "Copied to clipboard!",
+    },
+    resume: {
+      label: "Download my resume",
+      description: "PDF · generated from this site",
+    },
+  },
+  socialsLabel: "Or find me on",
+}
+
+export const TECH_STACK = ["React", "Next.js", "Node.js", "PHP", "Laravel", "MySQL"]
+
+// Work experience — shared by the Experience section and the generated resume PDF
+export const EXPERIENCES = [
+  {
+    company: "Scouty Interactive",
+    url: "https://scouty.io",
+    role: "Lead Full Stack Developer",
+    period: "November 2022 - Present",
+    description: [
+      "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
+      "Implemented real-time communication features using Firebase, enabling live updates for coaches, players, and administrators across teams.",
+      "Integrated Stripe for subscription billing and managed deployment of both the web and mobile apps, including App Store and Google Play releases.",
+    ],
+  },
+  {
+    company: "Equal & Co.",
+    url: "https://equalandco.com",
+    role: "Software Developer",
+    period: "January 2022 - Present",
+    description: [
+      "Working the development of a React-based Industrial Liquid Management system, optimizing interface interactions for both admin and customer panels.",
+      "Utilized WebSockets to efficiently handle high-frequency data streams, ensuring accurate and timely updates to interactive graphs.",
+    ],
+  },
+  {
+    company: "Source Expert",
+    url: "https://sourceexpert.net",
+    role: "Senior Full Stack Developer",
+    period: "November 2024 - Present",
+    hideFromResume: true,
+    description: [
+      "Building and shipping production web and mobile applications for international clients as part of a 15+ engineer team spanning the USA and Bangladesh.",
+      "Developing full-stack solutions using React.js, React Native, Next.js, and Node.js from concept through deployment.",
+      "Contributing to high-performance, scalable digital products across e-commerce, food delivery, and SaaS domains.",
+    ],
+  },
+  {
+    company: "Oxford International School",
+    url: "https://ois.edu.bd",
+    role: "Software Developer",
+    period: "December 2023 - October 2025",
+    description: [
+      "Developing and maintaining the school's Education Management System (EMS) used across multiple campuses in Dhaka.",
+      "Building React.js-based interfaces for academic administration, student records, and internal workflows.",
+      "Working in a hybrid part-time capacity alongside the school's operations team.",
+    ],
+  },
+  {
+    company: "Talent Pro",
+    url: "https://talentpro.global",
+    role: "Software Developer",
+    period: "February 2022 - July 2023",
+    description: [
+      "Worked on a React & Laravel based Stock Exchange Project.",
+      "Developed and deployed a Next.js-based Real Estate Web Application, improving load times by 30% through optimization techniques.",
+      "Built a Vue.js and Laravel-based admin panel for a Real Estate Project, enhancing user management capabilities.",
+    ],
+  },
+  {
+    company: "Dynamicflow",
+    url: "https://dynamicflowit.com",
+    role: "Web Developer",
+    period: "May 2021 - January 2022",
+    description: [
+      "Created a React-based Tournament Management Website, reducing admin overhead by automating scheduling and team coordination.",
+      "Built a website for a prominent music artist, increasing online visibility and fan engagement through interactive elements.",
+      "Launched an Online Exam System for over 10,000 users, implementing secure, scalable testing features.",
+    ],
+  },
+  {
+    company: "Dream Diver",
+    url: "https://dreamdiver.nl",
+    role: "Web & Apps Developer",
+    period: "July 2020 - December 2021",
+    description: [
+      "Engineered a robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
+      "Designed and launched a React (Next.js) Website & Ionic PWA for a Package Delivery Company, achieving a 25% increase in customer satisfaction.",
+      "Designed and developed a cross-platform mobile app using Ionic Framework to provide seamless food ordering experiences for users on iOS and Android devices.",
+    ],
+  },
+  {
+    company: "Watchflix, Pty Ltd.",
+    url: null,
+    role: "Executive, (Web Application Developer)",
+    period: "October 2020 - May 2021",
+    description: [
+      "Developed a Laravel OTT Platform Web App, which scaled to over 10,000 active users with optimized video streaming capabilities.",
+      "Integrated PayPal, SSLCOMMERZ Payment Gateway, and SMS APIs, improving user payment experience and transaction reliability.",
+    ],
+  },
+  {
+    company: "7 Info Tech",
+    url: "https://7infotech.com.bd",
+    role: "Junior Web Developer",
+    period: "August 2018 - July 2020",
+    description: [
+      "Built a Raw PHP-based Inventory Management System with data tracking, enhancing inventory accuracy for 1,000+ users.",
+      "Developed and customized WordPress E-commerce sites, improving site speed and user engagement.",
+    ],
+  },
+]
+
+// Portfolio projects — shared by the Projects section and the generated resume PDF
+export const PROJECTS = {
+  featured: [
+    {
+      title: "Scouty",
+      description:
+        "A football team management application that enables efficient team and player management. Features a Next.js web app and cross-platform mobile app using React Native with real-time communication features for coaches, players, and administrators.",
+      tech: ["React", "Next.js", "React Native", "Firebase", "Laravel", "Stripe"],
+      external: "https://scouty.io",
+      appStore: "https://apps.apple.com/us/app/scouty-app/id6654929904",
+      playStore: "https://play.google.com/store/apps/details?id=io.scouty",
+      image: "/assets/scouty.png",
+    },
+    {
+      title: "RealEzy",
+      description:
+        "A comprehensive real estate web application for apartment bookings, improving booking efficiency and user interface satisfaction. Built with Next.js for the frontend and Vue.js & Laravel for the admin panel, providing backend flexibility for property management.",
+      tech: ["React", "Next.js", "Vue.js", "Laravel", "MySQL"],
+      external: "https://realezy.com",
+      image: "/assets/realezy.png",
+    },
+    {
+      title: "Zenith Labs",
+      description:
+        "A full-stack e-commerce platform for a Canadian research peptide company. Built with Next.js and Supabase, featuring a product catalog, shopping cart, age-gating, a custom Peptide Calculator tool, and a complete checkout flow with secure payments.",
+      tech: ["Next.js", "Supabase", "React", "Tailwind CSS"],
+      external: "https://zenithpeptides.ca",
+      image: "/assets/zenith.png",
+    },
+    {
+      title: "Bangla Iqra Academy",
+      description:
+        "A full-featured Learning Management System (LMS) for an online Quran and Islamic education academy. Built with Next.js and Supabase, it handles course management, student enrollment and authentication, admin dashboards with sortable data tables, and cloud-based media storage.",
+      tech: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"],
+      github: "https://github.com/ridwanmalik/bangla-iqra-academy",
+      external: "https://banglaiqraacademy.com/",
+      image: "/assets/bangla-iqra-academy.png",
+    },
+  ],
+  other: [
+    {
+      title: "ETS Telco ISP Website",
+      description:
+        "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
+      tech: ["Node.js", "HTML", "CSS"],
+      external: "https://etstelco.com",
+    },
+    {
+      title: "Netflix Clone",
+      description:
+        "A Netflix-like web application that you can use to browse movies and TV shows. As like as Netflix movie slider in dark mode.",
+      tech: ["React", "Next.js", "Tailwind CSS", "TMDB API"],
+      github: "https://github.com/ridwanmalik/netflix-clone",
+      external: "https://rio-watch.vercel.app/",
+    },
+    {
+      title: "Garam Masala Food Ordering",
+      description:
+        "A PHP-based food ordering system with table booking capabilities, which boosted customer convenience and reservation volume for the restaurant.",
+      tech: ["PHP", "MySQL", "JavaScript", "CSS"],
+      external: "https://garam-masala.nl",
+    },
+    {
+      title: "SENSE HAIR",
+      description:
+        "A professional hair salon booking website designed and built with Next.js. The platform enhances booking accuracy and user engagement with a beautiful, intuitive interface for stylist appointments and service scheduling.",
+      tech: ["Next.js", "React", "Tailwind CSS", "Laravel", "MySQL"],
+      external: "https://sensehair.nl",
+    },
+    {
+      title: "Tournament Management System",
+      description:
+        "A React-based Tournament Management Website that reduces admin overhead by automating scheduling and team coordination.",
+      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
+      external: null,
+    },
+    {
+      title: "Patient Management System",
+      description:
+        "A robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
+      tech: ["Laravel", "PHP", "MySQL"],
+      external: null,
+    },
+    {
+      title: "Online Exam System",
+      description:
+        "An Online Exam System for over 10,000 users, implementing secure, scalable testing features with real-time monitoring.",
+      tech: ["PHP", "HTML", "CSS"],
+      external: null,
+    },
+  ],
+}
 
 export const TECH_STACK_DETAILED = [
   {
@@ -106,6 +322,15 @@ export const TECHNOLOGIES = {
     features: ["Dynamic typing", "Prototype-based OOP", "First-class functions", "Event-driven"],
     color: "bg-yellow-500",
     aliases: ["JS", "javascript", "js"],
+  },
+  TypeScript: {
+    name: "TypeScript",
+    category: "Programming Language",
+    description:
+      "A strongly typed superset of JavaScript that compiles to plain JavaScript, adding static types for safer, more maintainable code at scale.",
+    features: ["Static typing", "Type inference", "Interfaces & generics", "First-class tooling"],
+    color: "bg-blue-500",
+    aliases: ["typescript", "ts"],
   },
   PHP: {
     name: "PHP",
@@ -438,6 +663,7 @@ export const TECHNICAL_SKILLS = [
   { name: "React", level: 100 },
   { name: "React Native", level: 100 },
   { name: "JavaScript", level: 100 },
+  { name: "TypeScript", level: 100, hideFromSkills: true },
   { name: "PHP", level: 100 },
   { name: "Laravel", level: 100 },
   { name: "Node.js", level: 100 },

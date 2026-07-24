@@ -1,7 +1,7 @@
 "use client"
 
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
-import { SECTION_TITLES } from "@/lib/constants"
+import { SECTION_TITLES, PROJECTS } from "@/lib/constants"
 import { AppStoreIcon, GooglePlayIcon } from "@/lib/icons"
 import { ExternalLink, FolderOpen, Github } from "lucide-react"
 import Image from "next/image"
@@ -10,95 +10,7 @@ import { useState } from "react"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const PROJECTS_CONTENT = {
-  featured: [
-    {
-      title: "Scouty",
-      description:
-        "A football team management application that enables efficient team and player management. Features a Next.js web app and cross-platform mobile app using React Native with real-time communication features for coaches, players, and administrators.",
-      tech: ["React", "Next.js", "React Native", "Firebase", "Laravel", "Stripe"],
-      // github: "https://github.com/ridwanmalik",
-      external: "https://scouty.io",
-      appStore: "https://apps.apple.com/us/app/scouty-app/id6654929904",
-      playStore: "https://play.google.com/store/apps/details?id=io.scouty",
-      image: "/assets/scouty.png",
-    },
-    {
-      title: "RealEzy",
-      description:
-        "A comprehensive real estate web application for apartment bookings, improving booking efficiency and user interface satisfaction. Built with Next.js for the frontend and Vue.js & Laravel for the admin panel, providing backend flexibility for property management.",
-      tech: ["React", "Next.js", "Vue.js", "Laravel", "MySQL"],
-      // github: "https://github.com/ridwanmalik",
-      external: "https://realezy.com",
-      image: "/assets/realezy.png",
-    },
-    {
-      title: "Zenith Labs",
-      description:
-        "A full-stack e-commerce platform for a Canadian research peptide company. Built with Next.js and Supabase, featuring a product catalog, shopping cart, age-gating, a custom Peptide Calculator tool, and a complete checkout flow with secure payments.",
-      tech: ["Next.js", "Supabase", "React", "Tailwind CSS"],
-      // github: "https://github.com/ridwanmalik",
-      external: "https://zenithpeptides.ca",
-      image: "/assets/zenith.png",
-    },
-  ],
-  other: [
-    {
-      title: "ETS Telco ISP Website",
-      description:
-        "A Node.js web platform to streamline the process of ordering and managing internet services for customers.",
-      tech: ["Node.js", "HTML", "CSS"],
-      // github: "https://github.com/ridwanmalik",
-      external: "https://etstelco.com",
-    },
-    {
-      title: "Netflix Clone",
-      description:
-        "A Netflix-like web application that you can use to browse movies and TV shows. As like as Netflix movie slider in dark mode.",
-      tech: ["React", "Next.js", "Tailwind CSS", "TMDB API"],
-      github: "https://github.com/ridwanmalik/netflix-clone",
-      external: "https://rio-watch.vercel.app/",
-    },
-    {
-      title: "Garam Masala Food Ordering",
-      description:
-        "A PHP-based food ordering system with table booking capabilities, which boosted customer convenience and reservation volume for the restaurant.",
-      tech: ["PHP", "MySQL", "JavaScript", "CSS"],
-      // github: "https://github.com/ridwanmalik",
-      external: "https://garam-masala.nl",
-    },
-    {
-      title: "SENSE HAIR",
-      description:
-        "A professional hair salon booking website designed and built with Next.js. The platform enhances booking accuracy and user engagement with a beautiful, intuitive interface for stylist appointments and service scheduling.",
-      tech: ["Next.js", "React", "Tailwind CSS", "Laravel", "MySQL"],
-      // github: "https://github.com/ridwanmalik",
-      external: "https://sensehair.nl",
-    },
-    {
-      title: "Tournament Management System",
-      description:
-        "A React-based Tournament Management Website that reduces admin overhead by automating scheduling and team coordination.",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      // github: "https://github.com/ridwanmalik",
-      external: null,
-    },
-    {
-      title: "Patient Management System",
-      description:
-        "A robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
-      tech: ["Laravel", "PHP", "MySQL"],
-      // github: "https://github.com/ridwanmalik",
-      external: null,
-    },
-    {
-      title: "Online Exam System",
-      description:
-        "An Online Exam System for over 10,000 users, implementing secure, scalable testing features with real-time monitoring.",
-      tech: ["PHP", "HTML", "CSS"],
-      // github: "https://github.com/ridwanmalik",
-      external: null,
-    },
-  ],
+  ...PROJECTS,
   ui: {
     showMoreText: "Show More",
     showLessText: "Show Less",
@@ -175,11 +87,11 @@ const Projects = () => {
                   </div>
 
                   <div className={`flex gap-4 ${index % 2 === 1 ? "lg:justify-start" : "lg:justify-end"}`}>
-                    {project.github && (
+                    {(project as { github?: string }).github && (
                       <Link
                         target="_blank"
                         rel="noopener noreferrer"
-                        href={project.github}
+                        href={(project as { github?: string }).github as string}
                         className="text-custom-secondary hover:text-custom-accent transition-colors">
                         <Github className="w-6 h-6" />
                       </Link>

@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { logoWhite } from "@/lib/assets"
 import { CSSProperties } from "react"
+import ContactModal from "@/components/shared/ContactModal"
 
 interface HeaderProps {
   variant?: "default" | "sticky"
@@ -21,11 +22,10 @@ const Header = ({ variant = "default", className = "", style, isScrolled = false
         </Link>
 
         <div className="flex items-center md:hidden">
-          <a
-            href="mailto:skridwanulmalik@gmail.com"
-            className="border border-accent text-custom-accent px-3 py-1 rounded hover:bg-accent/10 transition-colors font-mono text-xs mr-3">
-            Contact
-          </a>
+          <ContactModal
+            label="Contact"
+            className="border border-accent text-custom-accent px-3 py-1 rounded hover:bg-accent/10 transition-colors font-mono text-xs mr-3"
+          />
           <button
             data-collapse-toggle="navbar-default"
             type="button"
@@ -72,11 +72,10 @@ const Header = ({ variant = "default", className = "", style, isScrolled = false
                 </Link>
               </li>
             </ul>
-            <a
-              href="mailto:skridwanulmalik@gmail.com"
-              className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
-              Get In Touch
-            </a>
+            <ContactModal
+              label="Get In Touch"
+              className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm"
+            />
           </div>
         </div>
       </div>

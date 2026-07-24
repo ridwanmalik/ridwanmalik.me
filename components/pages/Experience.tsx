@@ -1,110 +1,13 @@
 "use client"
 
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
-import { SECTION_TITLES } from "@/lib/constants"
+import { SECTION_TITLES, EXPERIENCES } from "@/lib/constants"
 import Link from "next/link"
 import { useState } from "react"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const EXPERIENCE_CONTENT = {
-  experiences: [
-    {
-      company: "Scouty Interactive",
-      url: "https://scouty.io",
-      role: "Lead Full Stack Developer",
-      period: "November 2022 - Present",
-      description: [
-        "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
-        "Implemented real-time communication features using Firebase, enabling live updates for coaches, players, and administrators across teams.",
-        "Integrated Stripe for subscription billing and managed deployment of both the web and mobile apps, including App Store and Google Play releases.",
-      ],
-    },
-    {
-      company: "Equal & Co.",
-      url: "https://equalandco.com",
-      role: "Software Developer",
-      period: "January 2022 - Present",
-      description: [
-        "Working the development of a React-based Industrial Liquid Management system, optimizing interface interactions for both admin and customer panels.",
-        "Utilized WebSockets to efficiently handle high-frequency data streams, ensuring accurate and timely updates to interactive graphs.",
-      ],
-    },
-    {
-      company: "Source Expert",
-      url: "https://sourceexpert.net",
-      role: "Senior Full Stack Developer",
-      period: "November 2024 - Present",
-      description: [
-        "Building and shipping production web and mobile applications for international clients as part of a 15+ engineer team spanning the USA and Bangladesh.",
-        "Developing full-stack solutions using React.js, React Native, Next.js, and Node.js from concept through deployment.",
-        "Contributing to high-performance, scalable digital products across e-commerce, food delivery, and SaaS domains.",
-      ],
-    },
-    {
-      company: "Oxford International School",
-      url: "https://ois.edu.bd",
-      role: "Software Developer",
-      period: "December 2023 - October 2025",
-      description: [
-        "Developing and maintaining the school's Education Management System (EMS) used across multiple campuses in Dhaka.",
-        "Building React.js-based interfaces for academic administration, student records, and internal workflows.",
-        "Working in a hybrid part-time capacity alongside the school's operations team.",
-      ],
-    },
-    {
-      company: "Talent Pro",
-      url: "https://talentpro.global",
-      role: "Software Developer",
-      period: "February 2022 - July 2023",
-      description: [
-        "Worked on a React & Laravel based Stock Exchange Project.",
-        "Developed and deployed a Next.js-based Real Estate Web Application, improving load times by 30% through optimization techniques.",
-        "Built a Vue.js and Laravel-based admin panel for a Real Estate Project, enhancing user management capabilities.",
-      ],
-    },
-    {
-      company: "Dynamicflow",
-      url: "https://dynamicflowit.com",
-      role: "Web Developer",
-      period: "May 2021 - January 2022",
-      description: [
-        "Created a React-based Tournament Management Website, reducing admin overhead by automating scheduling and team coordination.",
-        "Built a website for a prominent music artist, increasing online visibility and fan engagement through interactive elements.",
-        "Launched an Online Exam System for over 10,000 users, implementing secure, scalable testing features.",
-      ],
-    },
-    {
-      company: "Dream Diver",
-      url: "https://dreamdiver.nl",
-      role: "Web & Apps Developer",
-      period: "July 2020 - December 2021",
-      description: [
-        "Engineered a robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
-        "Designed and launched a React (Next.js) Website & Ionic PWA for a Package Delivery Company, achieving a 25% increase in customer satisfaction.",
-        "Designed and developed a cross-platform mobile app using Ionic Framework to provide seamless food ordering experiences for users on iOS and Android devices.",
-      ],
-    },
-    {
-      company: "Watchflix, Pty Ltd.",
-      url: null,
-      role: "Executive, (Web Application Developer)",
-      period: "October 2020 - May 2021",
-      description: [
-        "Developed a Laravel OTT Platform Web App, which scaled to over 10,000 active users with optimized video streaming capabilities.",
-        "Integrated PayPal, SSLCOMMERZ Payment Gateway, and SMS APIs, improving user payment experience and transaction reliability.",
-      ],
-    },
-    {
-      company: "7 Info Tech",
-      url: "https://7infotech.com.bd",
-      role: "Junior Web Developer",
-      period: "August 2018 - July 2020",
-      description: [
-        "Built a Raw PHP-based Inventory Management System with data tracking, enhancing inventory accuracy for 1,000+ users.",
-        "Developed and customized WordPress E-commerce sites, improving site speed and user engagement.",
-      ],
-    },
-  ],
+  experiences: EXPERIENCES,
 }
 
 const Experience = () => {

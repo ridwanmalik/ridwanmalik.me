@@ -10,8 +10,10 @@ const TECHNOLOGIES_CONTENT = {
 }
 
 const Technologies = () => {
-  // Get technical skills and sort by level (highest first)
-  const allSkills = TECHNICAL_SKILLS.sort((a, b) => b.level - a.level)
+  // Get technical skills (excluding any hidden from this section) and sort by level (highest first)
+  const allSkills = TECHNICAL_SKILLS.filter(
+    skill => !(skill as { hideFromSkills?: boolean }).hideFromSkills
+  ).sort((a, b) => b.level - a.level)
 
   // Split skills into two columns
   const midPoint = Math.ceil(allSkills.length / 2)
