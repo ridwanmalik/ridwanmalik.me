@@ -2,8 +2,9 @@
 
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 import { SECTION_TITLES, EXPERIENCES } from "@/lib/constants"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const EXPERIENCE_CONTENT = {
@@ -12,11 +13,25 @@ const EXPERIENCE_CONTENT = {
 
 const Experience = () => {
   const [activeTab, setActiveTab] = useState(0)
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const isFirstRender = useRef(true)
+
+  // Snap the active company tab into view in the horizontal strip when it changes
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    tabRefs.current[activeTab]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
+  }, [activeTab])
 
   const handleTabClick = (index: number) => {
-    console.log("Tab clicked:", index)
     setActiveTab(index)
   }
+
+  const lastIndex = EXPERIENCE_CONTENT.experiences.length - 1
+  const goPrev = () => setActiveTab(i => Math.max(0, i - 1))
+  const goNext = () => setActiveTab(i => Math.min(lastIndex, i + 1))
 
   // Using EXPERIENCES from constants
 
@@ -31,10 +46,13 @@ const Experience = () => {
         <div>
           <div className="flex flex-col md:flex-row">
             {/* Tab List */}
-            <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible mb-4 md:mb-0 md:mr-8">
+            <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible -mx-4 px-4 md:mx-0 md:px-0 mb-4 md:mb-0 md:mr-8">
               {EXPERIENCE_CONTENT.experiences.map((exp, index) => (
                 <button
                   key={index}
+                  ref={el => {
+                    tabRefs.current[index] = el
+                  }}
                   onClick={() => handleTabClick(index)}
                   type="button"
                   className={`font-mono text-sm whitespace-nowrap px-4 py-3 text-left border-b-2 md:border-b-0 md:border-l-2 transition-colors duration-200 cursor-pointer focus:outline-none ${
@@ -83,6 +101,26 @@ const Experience = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Prev/next company arrows — mobile only, centered below the text */}
+              <div className="flex md:hidden justify-center gap-4 mt-8">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  disabled={activeTab === 0}
+                  aria-label="Previous company"
+                  className="p-2 border border-slate-600 rounded text-custom-accent transition-colors hover:border-accent disabled:opacity-30 disabled:pointer-events-none">
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  disabled={activeTab === lastIndex}
+                  aria-label="Next company"
+                  className="p-2 border border-slate-600 rounded text-custom-accent transition-colors hover:border-accent disabled:opacity-30 disabled:pointer-events-none">
+                  <ChevronRight className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>
