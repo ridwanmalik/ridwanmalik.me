@@ -13,7 +13,7 @@ const CONTACT_CONTENT = {
 const Contact = () => {
   return (
     <section id="contact" className="w-full flex flex-col justify-center items-center">
-      <div className="container mx-auto px-4 text-center pt-40 pb-48">
+      <div className="container mx-auto text-center pt-40 pb-48">
         <p className="text-custom-accent font-mono mb-4">{CONTACT_CONTENT.title}</p>
         <h2 className="text-4xl md:text-5xl font-bold text-custom-foreground mb-6">{CONTACT_CONTENT.subtitle}</h2>
 

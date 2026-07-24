@@ -4,7 +4,7 @@ export const PERSONAL_INFO = {
   name: "Sk. Ridwanul Malik",
   title: "I build things for the web",
   intro: "Hi, my name is",
-  description: `I'm a software engineer and Full Stack Web Developer specializing in building exceptional digital experiences, backed by excellent problem-solving skills. Passionate about coding and learning new technologies, with more than ${TOTAL_YEARS_EXPERIENCE} years of experience in React (Next.js), Laravel (PHP), Node.js, and WordPress.`,
+  description: `I'm a software engineer and Full Stack Web Developer specializing in building exceptional digital experiences, backed by excellent problem-solving skills. Passionate about coding and learning new technologies, with more than ${TOTAL_YEARS_EXPERIENCE} years of experience in React (Next.js), React Native, Laravel (PHP), Node.js, and WordPress.`,
   // Condensed summary used in the resume PDF (kept to ~2 lines / under 255 characters)
   resumeSummary: `I am a Full Stack Web Developer with excellent problem-solving skills. I'm passionate about coding and learning new technologies. ${TOTAL_YEARS_EXPERIENCE}+ years of experience with React (Next.js), React Native, TypeScript, Node.js, and Laravel.`,
   email: "skridwanulmalik@gmail.com",
@@ -199,7 +199,6 @@ export const PROJECTS = {
       description:
         "A full-featured Learning Management System (LMS) for an online Quran and Islamic education academy. Built with Next.js and Supabase, it handles course management, student enrollment and authentication, admin dashboards with sortable data tables, and cloud-based media storage.",
       tech: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"],
-      github: "https://github.com/ridwanmalik/bangla-iqra-academy",
       external: "https://banglaiqraacademy.com/",
       image: "/assets/bangla-iqra-academy.png",
     },

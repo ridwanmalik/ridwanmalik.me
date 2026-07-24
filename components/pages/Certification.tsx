@@ -10,7 +10,7 @@ const CERTIFICATION_CONTENT = {
 const Certification = () => {
   return (
     <section id="certification" className="w-full py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="flex items-center mb-16">
           <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.certification}</h2>
           <div className="flex-1 h-px bg-secondary/20 ml-8"></div>

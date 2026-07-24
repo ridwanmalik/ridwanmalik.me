@@ -14,7 +14,7 @@ const ABOUT_CONTENT = {
 const About = () => {
   return (
     <section id="about" className="w-full pt-40 pb-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="flex items-center mb-16">
           <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.about}</h2>
           <div className="flex-1 h-px bg-secondary/20 ml-8"></div>

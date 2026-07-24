@@ -26,7 +26,7 @@ const Projects = () => {
 
   return (
     <section id="work" className="w-full py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         {/* Featured Projects */}
         <div className="mb-20">
           <div className="flex items-center mb-16">

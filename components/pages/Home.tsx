@@ -24,7 +24,7 @@ const Home = () => {
     <section id="home" className="min-h-screen w-full flex flex-col bg-gradient-to-t from-[#020b16]/50 to-transparent">
       <Header className="w-full" />
       <div className="flex-1 flex flex-col">
-        <div className="container mx-auto px-4 flex-1 flex flex-col lg:flex-row justify-center items-center h-full gap-8">
+        <div className="container mx-auto flex-1 flex flex-col lg:flex-row justify-center items-center h-full gap-8">
           <div className="flex-1 space-y-4">
             <p className="text-custom-accent font-mono text-lg">{PERSONAL_INFO.intro}</p>
             <h1 className="text-5xl md:text-7xl font-bold text-custom-foreground leading-tight">

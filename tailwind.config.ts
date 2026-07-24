@@ -9,6 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          lg: "4rem",
+          xl: "6rem",
+          "2xl": "10rem",
+        },
+      },
       colors: {
         "oxford-blue": "#0A192F",
         "custom-foreground": "#ccd6f6",
