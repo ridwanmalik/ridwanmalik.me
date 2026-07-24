@@ -15,56 +15,31 @@ const Technologies = () => {
     skill => !(skill as { hideFromSkills?: boolean }).hideFromSkills
   ).sort((a, b) => b.level - a.level)
 
-  // Split skills into two columns
-  const midPoint = Math.ceil(allSkills.length / 2)
-  const leftColumnSkills = allSkills.slice(0, midPoint)
-  const rightColumnSkills = allSkills.slice(midPoint)
-
   return (
-    <section id="technologies" className="w-full py-20">
+    <section id="technologies" className="w-full pt-10 pb-20 sm:pt-20">
       <div className="container mx-auto">
-        <div className="flex items-center mb-16">
-          <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.technologies}</h2>
-          <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
+        <div className="flex items-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-custom-accent">{SECTION_TITLES.technologies}</h2>
+          <div className="flex-1 h-px bg-custom-secondary/40 ml-4 sm:ml-8"></div>
         </div>
 
-        <div className="">
-          {/* Technical Skills Two-Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left Column */}
-            <div className="space-y-4">
-              {leftColumnSkills.map(skill => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <TechHoverCard
-                      techName={skill.name}
-                      className="text-sm font-medium text-custom-foreground hover:text-custom-accent">
-                      {skill.name}
-                    </TechHoverCard>
-                    <span className="text-xs text-custom-accent font-mono">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2 bg-slate-800" />
-                </div>
-              ))}
+        {/* One continuous column on mobile, two columns on desktop */}
+        <div className="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-4">
+          {allSkills.map(skill => (
+            <div
+              key={skill.name}
+              className={`space-y-2 ${(skill as { hideOnMobile?: boolean }).hideOnMobile ? "hidden sm:block" : ""}`}>
+              <div className="flex justify-between items-center">
+                <TechHoverCard
+                  techName={skill.name}
+                  className="text-sm font-medium text-custom-foreground hover:text-custom-accent">
+                  {skill.name}
+                </TechHoverCard>
+                <span className="text-xs text-custom-accent font-mono">{skill.level}%</span>
+              </div>
+              <Progress value={skill.level} className="h-2 bg-slate-800" />
             </div>
-
-            {/* Right Column */}
-            <div className="space-y-4">
-              {rightColumnSkills.map(skill => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <TechHoverCard
-                      techName={skill.name}
-                      className="text-sm font-medium text-custom-foreground hover:text-custom-accent">
-                      {skill.name}
-                    </TechHoverCard>
-                    <span className="text-xs text-custom-accent font-mono">{skill.level}%</span>
-                  </div>
-                  <Progress value={skill.level} className="h-2 bg-slate-800" />
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

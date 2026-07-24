@@ -1,5 +1,5 @@
-import { PERSONAL_INFO } from "@/lib/constants"
 import SocialIconMenu from "@/components/shared/SocialIconMenu"
+import ContactModal from "@/components/shared/ContactModal"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const CONTACT_CONTENT = {
@@ -13,19 +13,18 @@ const CONTACT_CONTENT = {
 const Contact = () => {
   return (
     <section id="contact" className="w-full flex flex-col justify-center items-center">
-      <div className="container mx-auto text-center pt-40 pb-48">
+      <div className="container mx-auto text-center pt-20 pb-48 sm:pt-40">
         <p className="text-custom-accent font-mono mb-4">{CONTACT_CONTENT.title}</p>
-        <h2 className="text-4xl md:text-5xl font-bold text-custom-foreground mb-6">{CONTACT_CONTENT.subtitle}</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-custom-foreground mb-6">{CONTACT_CONTENT.subtitle}</h2>
 
-        <p className="text-lg text-custom-secondary mb-8 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-sm md:text-base text-custom-secondary mb-8 leading-relaxed max-w-2xl mx-auto">
           {CONTACT_CONTENT.description}
         </p>
 
-        <a
-          href={`mailto:${PERSONAL_INFO.email}`}
-          className="text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono">
-          {CONTACT_CONTENT.cta}
-        </a>
+        <ContactModal
+          label={CONTACT_CONTENT.cta}
+          className="text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono"
+        />
 
         <div className="mt-16 flex justify-center">
           <SocialIconMenu 

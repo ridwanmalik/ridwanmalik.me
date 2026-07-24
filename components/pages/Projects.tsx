@@ -6,7 +6,7 @@ import { AppStoreIcon, GooglePlayIcon } from "@/lib/icons"
 import { ExternalLink, FolderOpen, Github } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const PROJECTS_CONTENT = {
@@ -20,18 +20,27 @@ const PROJECTS_CONTENT = {
 
 const Projects = () => {
   const [showMore, setShowMore] = useState(false)
-  const visibleProjects = showMore
-    ? PROJECTS_CONTENT.other
-    : PROJECTS_CONTENT.other.slice(0, PROJECTS_CONTENT.ui.initialDisplayCount)
+  // Show 3 initially on mobile, 6 on larger screens
+  const [initialCount, setInitialCount] = useState(PROJECTS_CONTENT.ui.initialDisplayCount)
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 640px)")
+    const update = () => setInitialCount(mq.matches ? PROJECTS_CONTENT.ui.initialDisplayCount : 3)
+    update()
+    mq.addEventListener("change", update)
+    return () => mq.removeEventListener("change", update)
+  }, [])
+
+  const visibleProjects = showMore ? PROJECTS_CONTENT.other : PROJECTS_CONTENT.other.slice(0, initialCount)
 
   return (
-    <section id="work" className="w-full py-20">
+    <section id="work" className="w-full pt-10 pb-20 sm:pt-20">
       <div className="container mx-auto">
         {/* Featured Projects */}
         <div className="mb-20">
-          <div className="flex items-center mb-16">
-            <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.projects}</h2>
-            <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
+          <div className="flex items-center mb-8 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-custom-accent">{SECTION_TITLES.projects}</h2>
+            <div className="flex-1 h-px bg-custom-secondary/40 ml-4 sm:ml-8"></div>
           </div>
 
           <div className="space-y-24">
@@ -41,8 +50,22 @@ const Projects = () => {
                 className={`flex flex-col lg:flex-row items-center gap-8 ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}>
+                {/* Project title above the image — mobile only */}
+                <div className="w-full lg:hidden">
+                  <p className="text-custom-accent text-sm font-mono mb-2">Featured Project</p>
+                  <h3 className="text-2xl font-semibold text-custom-foreground">
+                    <Link
+                      href={project.external}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-custom-accent transition-colors">
+                      {project.title}
+                    </Link>
+                  </h3>
+                </div>
+
                 {/* Project Image */}
-                <div className="lg:w-3/5">
+                <div className="w-full lg:w-3/5">
                   <Link href={project.external} target="_blank" rel="noopener noreferrer">
                     <div className="relative group">
                       <div className="bg-accent/20 rounded-lg overflow-hidden">
@@ -51,26 +74,26 @@ const Projects = () => {
                             src={project.image}
                             alt={project.title}
                             fill
-                            className="object-cover grayscale contrast-100 brightness-90 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+                            className="object-cover contrast-100 transition-all duration-300 lg:grayscale lg:brightness-90 lg:group-hover:grayscale-0 lg:group-hover:brightness-100"
                           />
                         </div>
                       </div>
-                      <div className="absolute inset-0 bg-oxford-blue/40 rounded-lg group-hover:bg-transparent transition-colors duration-300"></div>
+                      <div className="absolute inset-0 rounded-lg bg-transparent transition-colors duration-300 lg:bg-oxford-blue/40 lg:group-hover:bg-transparent"></div>
                     </div>
                   </Link>
                 </div>
 
                 {/* Project Info */}
-                <div className={`lg:w-2/5 ${index % 2 === 1 ? "lg:text-left" : "lg:text-right"}`}>
-                  <p className="text-custom-accent text-sm font-mono mb-2">Featured Project</p>
-                  <h3 className="text-2xl font-semibold text-custom-foreground mb-4">
+                <div className={`w-full lg:w-2/5 ${index % 2 === 1 ? "lg:text-left" : "lg:text-right"}`}>
+                  <p className="hidden lg:block text-custom-accent text-sm font-mono mb-2">Featured Project</p>
+                  <h3 className="hidden lg:block text-2xl font-semibold text-custom-foreground mb-4">
                     <Link href={project.external} target="_blank" rel="noopener noreferrer" className="hover:text-custom-accent transition-colors">
                       {project.title}
                     </Link>
                   </h3>
 
-                  <div className="bg-slate-800/50 p-6 rounded-lg mb-4 backdrop-blur-sm">
-                    <div className="text-custom-secondary">
+                  <div className="relative z-10 -mt-12 mx-4 shadow-xl lg:mt-0 lg:mx-0 lg:shadow-none bg-slate-800 lg:bg-slate-800/50 p-6 rounded-lg mb-4 lg:backdrop-blur-sm">
+                    <div className="text-custom-secondary text-sm md:text-base">
                       <TechWithHoverCard text={project.description} />
                     </div>
                   </div>
@@ -130,13 +153,32 @@ const Projects = () => {
 
         {/* Other Projects */}
         <div>
-          <h2 className="text-3xl font-bold text-center mb-16">Other Noteworthy Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-16">Other Noteworthy Projects</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visibleProjects.map((project, index) => (
-              <div key={index} className="bg-slate-800/50 p-6 rounded-lg hover:bg-slate-800/70 transition-colors group">
-                <div className="flex justify-between items-start mb-4">
-                  <FolderOpen className="w-8 h-8 text-custom-accent" />
+              <div
+                key={index}
+                className="relative overflow-hidden bg-slate-800/50 p-6 rounded-lg hover:bg-slate-800/70 transition-colors group">
+                {/* Folder watermark overlay */}
+                <FolderOpen className="pointer-events-none absolute bottom-1 right-3 h-28 w-28 text-custom-accent opacity-5" />
+
+                <div className="relative">
+                  <h3 className="text-xl font-semibold text-custom-foreground mb-3 group-hover:text-custom-accent transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="text-custom-secondary mb-4 text-sm md:text-base">
+                    <TechWithHoverCard text={project.description} />
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 font-mono text-sm text-custom-secondary mb-4">
+                    {project.tech.map((tech, techIndex) => (
+                      <span key={techIndex}>
+                        <TechWithHoverCard text={tech} />
+                      </span>
+                    ))}
+                  </div>
+
                   <div className="flex gap-3">
                     {project.github && (
                       <Link
@@ -158,26 +200,11 @@ const Projects = () => {
                     )}
                   </div>
                 </div>
-
-                <h3 className="text-xl font-semibold text-custom-foreground mb-3 group-hover:text-custom-accent transition-colors">
-                  {project.title}
-                </h3>
-                <div className="text-custom-secondary mb-4">
-                  <TechWithHoverCard text={project.description} />
-                </div>
-
-                <div className="flex flex-wrap gap-2 font-mono text-sm text-custom-secondary">
-                  {project.tech.map((tech, techIndex) => (
-                    <span key={techIndex}>
-                      <TechWithHoverCard text={tech} />
-                    </span>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
 
-          {PROJECTS_CONTENT.other.length > PROJECTS_CONTENT.ui.initialDisplayCount && (
+          {PROJECTS_CONTENT.other.length > initialCount && (
             <div className="text-center mt-12">
               <button
                 onClick={() => setShowMore(!showMore)}

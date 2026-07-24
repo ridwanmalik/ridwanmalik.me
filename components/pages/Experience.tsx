@@ -21,11 +21,11 @@ const Experience = () => {
   // Using EXPERIENCES from constants
 
   return (
-    <section id="experience" className="w-full flex justify-center items-center py-40">
+    <section id="experience" className="w-full flex justify-center items-center pt-20 pb-40 sm:pt-40">
       <div className="container mx-auto">
-        <div className="flex items-center mb-16">
-          <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.experience}</h2>
-          <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
+        <div className="flex items-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-custom-accent">{SECTION_TITLES.experience}</h2>
+          <div className="flex-1 h-px bg-custom-secondary/40 ml-4 sm:ml-8"></div>
         </div>
 
         <div>
@@ -53,8 +53,8 @@ const Experience = () => {
                 <div>
                   <h3 className="text-xl font-semibold text-custom-foreground">
                     {EXPERIENCE_CONTENT.experiences[activeTab]?.role}{" "}
-                    <span className="text-custom-accent">
-                      <span className="text-gray-500/50 px-px">@</span>{" "}
+                    <span className="text-custom-accent block sm:inline">
+                      <span className="text-gray-500/50 px-px hidden sm:inline">@</span>{" "}
                       {EXPERIENCE_CONTENT.experiences[activeTab]?.url ? (
                         <Link
                           href={EXPERIENCE_CONTENT.experiences[activeTab].url!}
@@ -75,7 +75,7 @@ const Experience = () => {
 
                 <div className="space-y-3">
                   {EXPERIENCE_CONTENT.experiences[activeTab]?.description?.map((desc, index) => (
-                    <div key={index} className="flex items-start">
+                    <div key={index} className="flex items-start text-sm md:text-base">
                       <span className="text-custom-accent mr-3 -mt-0.5">▸</span>
                       <div className="text-custom-secondary">
                         <TechWithHoverCard text={desc} />

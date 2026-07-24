@@ -9,11 +9,11 @@ const CERTIFICATION_CONTENT = {
 
 const Certification = () => {
   return (
-    <section id="certification" className="w-full py-20">
+    <section id="certification" className="w-full pt-10 pb-20 sm:pt-20">
       <div className="container mx-auto">
-        <div className="flex items-center mb-16">
-          <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.certification}</h2>
-          <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
+        <div className="flex items-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-custom-accent">{SECTION_TITLES.certification}</h2>
+          <div className="flex-1 h-px bg-custom-secondary/40 ml-4 sm:ml-8"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -23,21 +23,29 @@ const Certification = () => {
               target="_blank"
               rel="noopener noreferrer"
               href={cert.url}
-              className="block bg-slate-800/50 p-6 rounded-lg hover:bg-slate-800/70 transition-all duration-300 group border border-slate-700/50 hover:border-custom-accent/30 cursor-pointer">
-              <div className="flex justify-between items-start mb-4">
-                <Award className="w-8 h-8 text-custom-accent group-hover:scale-110 transition-transform duration-300" />
-                <ExternalLink className="w-5 h-5 text-custom-secondary group-hover:text-custom-accent transition-colors" />
-              </div>
+              className={`relative overflow-hidden block bg-slate-800/50 p-6 rounded-lg hover:bg-slate-800/70 transition-all duration-300 group border border-slate-700/50 hover:border-custom-accent/30 cursor-pointer ${
+                (cert as { hideOnMobile?: boolean }).hideOnMobile ? "hidden sm:block" : ""
+              }`}>
+              {/* Faint watermark icon — mobile only */}
+              <Award className="pointer-events-none absolute bottom-1 -right-2 h-24 w-24 text-custom-accent opacity-5 sm:hidden" />
 
-              <h3 className="text-lg font-semibold text-custom-foreground mb-2 group-hover:text-custom-accent transition-colors">
-                {cert.title}
-              </h3>
+              <div className="relative">
+                {/* Top row (icon + external link) — desktop only */}
+                <div className="hidden sm:flex justify-between items-start mb-4">
+                  <Award className="w-8 h-8 text-custom-accent group-hover:scale-110 transition-transform duration-300" />
+                  <ExternalLink className="w-5 h-5 text-custom-secondary group-hover:text-custom-accent transition-colors" />
+                </div>
 
-              <p className="text-custom-secondary text-sm mb-4">{cert.issuer}</p>
+                <h3 className="text-lg font-semibold text-custom-foreground mb-2 group-hover:text-custom-accent transition-colors">
+                  {cert.title}
+                </h3>
 
-              <div className="inline-flex items-center text-custom-accent text-sm">
-                View Certificate
-                <ExternalLink className="w-3 h-3 ml-1" />
+                <p className="text-custom-secondary text-sm mb-4">{cert.issuer}</p>
+
+                <div className="inline-flex items-center text-custom-accent text-sm">
+                  View Certificate
+                  <ExternalLink className="w-3 h-3 ml-1" />
+                </div>
               </div>
             </Link>
           ))}

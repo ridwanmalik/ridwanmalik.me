@@ -25,7 +25,7 @@ const Home = () => {
       <Header className="w-full" />
       <div className="flex-1 flex flex-col">
         <div className="container mx-auto flex-1 flex flex-col lg:flex-row justify-center items-center h-full gap-8">
-          <div className="flex-1 space-y-4">
+          <div className="w-full space-y-4 lg:flex-1">
             <p className="text-custom-accent font-mono text-sm sm:text-base md:text-lg">{PERSONAL_INFO.intro}</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-custom-foreground leading-tight">
               {PERSONAL_INFO.name}
@@ -33,8 +33,8 @@ const Home = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-custom-secondary leading-tight">
               {PERSONAL_INFO.title}
             </h2>
-            <div className="max-w-2xl">
-              <div className="text-custom-secondary leading-relaxed">
+            <div className="max-w-xl">
+              <div className="text-custom-secondary leading-relaxed text-sm md:text-base">
                 <TechWithHoverCard text={PERSONAL_INFO.description} />
               </div>
             </div>
@@ -49,13 +49,13 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-end items-end self-end">
+          <div className="hidden lg:flex justify-end items-end self-end">
             <Image
               src={ridwan}
               alt={HOME_CONTENT.profileImage.alt}
               width={HOME_CONTENT.profileImage.width}
               height={HOME_CONTENT.profileImage.height}
-              className="h-full max-h-[45vh] sm:max-h-[55vh] md:max-h-[70vh] lg:max-h-[80vh] xl:max-h-[90vh] object-contain pt-8"
+              className="h-full max-h-[90vh] object-contain pt-8"
             />
           </div>
         </div>

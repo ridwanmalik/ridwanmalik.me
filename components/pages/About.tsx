@@ -13,15 +13,15 @@ const ABOUT_CONTENT = {
 
 const About = () => {
   return (
-    <section id="about" className="w-full pt-40 pb-20">
+    <section id="about" className="w-full pt-20 pb-20 sm:pt-40">
       <div className="container mx-auto">
-        <div className="flex items-center mb-16">
-          <h2 className="text-3xl font-bold text-custom-accent">{SECTION_TITLES.about}</h2>
-          <div className="flex-1 h-px bg-secondary/20 ml-8"></div>
+        <div className="flex items-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-custom-accent">{SECTION_TITLES.about}</h2>
+          <div className="flex-1 h-px bg-custom-secondary/40 ml-4 sm:ml-8"></div>
         </div>
 
         <div className="">
-          <div className="space-y-6 text-custom-secondary text-lg leading-relaxed">
+          <div className="space-y-6 text-custom-secondary text-sm md:text-base leading-relaxed">
             {ABOUT_CONTENT.paragraphs.map((paragraph, index) => (
               <div key={index}>
                 <TechWithHoverCard text={paragraph} />
