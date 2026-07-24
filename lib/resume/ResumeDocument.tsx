@@ -1,4 +1,4 @@
-import { CERTIFICATIONS, EXPERIENCES, PERSONAL_INFO, PROJECTS, SOCIAL_LINKS, TECH_STACK } from "@/lib/constants"
+import { CERTIFICATIONS, EDUCATION, EXPERIENCES, PERSONAL_INFO, PROJECTS, SOCIAL_LINKS, TECH_STACK } from "@/lib/constants"
 import { Document, Link, Page, StyleSheet, Text, View } from "@react-pdf/renderer"
 
 // Print-friendly palette (the site's mint accent is too light on white paper)
@@ -80,18 +80,6 @@ const firstSentence = (text: string) => {
 }
 
 // Resume-only sections
-const EDUCATION = [
-  {
-    degree: "B.Sc. in Computer Science & Engineering",
-    institution: "BUBT, Dhaka",
-    period: "2020 – Present",
-  },
-  {
-    degree: "Diploma in Computer Engineering",
-    institution: "BCMC College of Engineering & Technology, Jashore",
-    period: "2016 – 2021 · CGPA 3.8/4",
-  },
-]
 const LANGUAGES = ["English (Fluent)", "Bangla (Native)", "Spanish (Basic)", "Hindi (Fluent)"]
 
 const getSocial = (name: string) => SOCIAL_LINKS.find(link => link.name === name)?.url ?? ""
@@ -215,9 +203,9 @@ const ResumeDocument = () => {
             <View key={edu.degree} style={styles.job} wrap={false}>
               <View style={styles.jobHeader}>
                 <Text style={styles.jobRole}>
-                  {edu.degree} <Text style={styles.eduInstitution}>— {edu.institution}</Text>
+                  {edu.degree} <Text style={styles.eduInstitution}>— {edu.shortName}</Text>
                 </Text>
-                <Text style={styles.jobPeriod}>{edu.period}</Text>
+                <Text style={styles.jobPeriod}>{edu.note ? `${edu.period} · ${edu.note}` : edu.period}</Text>
               </View>
             </View>
           ))}

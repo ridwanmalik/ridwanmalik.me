@@ -828,10 +828,31 @@ export const SOCIAL_LINKS = [
   },
 ]
 
+// Education — shared by the Education section and the generated resume PDF
+export const EDUCATION = [
+  {
+    degree: "B.Sc. in Computer Science & Engineering",
+    institution: "Bangladesh University of Business and Technology",
+    shortName: "BUBT, Dhaka",
+    location: "Dhaka",
+    period: "2020 – Present",
+    note: "",
+  },
+  {
+    degree: "Diploma in Computer Engineering",
+    institution: "BCMC College of Engineering & Technology",
+    shortName: "BCMC College of Engineering & Technology, Jashore",
+    location: "Jashore",
+    period: "2016 – 2021",
+    note: "CGPA 3.8/4",
+  },
+]
+
 export const SECTION_TITLES = {
   about: "About Me",
   technologies: "Technical Skills",
   experience: "Where I've Worked",
+  education: "Education",
   projects: "Some Things I've Built",
   certification: "Certifications",
   contact: "Get In Touch",
