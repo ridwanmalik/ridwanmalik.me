@@ -5,7 +5,11 @@ export const PERSONAL_INFO = {
   title: "I build things for the web",
   intro: "Hi, my name is",
   description: `I'm a software engineer and Full Stack Web Developer specializing in building exceptional digital experiences, backed by excellent problem-solving skills. Passionate about coding and learning new technologies, with more than ${TOTAL_YEARS_EXPERIENCE} years of experience in React (Next.js), Laravel (PHP), Node.js, and WordPress.`,
+  // Condensed summary used in the resume PDF (kept to ~2 lines / under 255 characters)
+  resumeSummary: `I am a Full Stack Web Developer with excellent problem-solving skills. I'm passionate about coding and learning new technologies. ${TOTAL_YEARS_EXPERIENCE}+ years of experience with React (Next.js), React Native, TypeScript, Node.js, and Laravel.`,
   email: "skridwanulmalik@gmail.com",
+  phone: "+880 1734-862996",
+  location: "Jashore, BD",
   resume: "/api/resume",
 }
 
@@ -30,7 +34,18 @@ export const CONTACT_MODAL = {
   socialsLabel: "Or find me on",
 }
 
-export const TECH_STACK = ["React", "Next.js", "Node.js", "PHP", "Laravel", "MySQL"]
+export const TECH_STACK = [
+  "React",
+  "Next.js",
+  "React Native",
+  "Tailwind CSS",
+  "Node.js",
+  "PHP",
+  "Laravel",
+  "MySQL",
+  "Supabase",
+  "Firebase",
+]
 
 // Work experience — shared by the Experience section and the generated resume PDF
 export const EXPERIENCES = [
@@ -39,6 +54,9 @@ export const EXPERIENCES = [
     url: "https://scouty.io",
     role: "Lead Full Stack Developer",
     period: "November 2022 - Present",
+    resumeBullets: [
+      "Built Scouty (scouty.io), a football team management platform with a Next.js web app and a React Native mobile app for iOS and Android. Implemented real-time communication with Firebase for live updates across coaches, players, and admins.",
+    ],
     description: [
       "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
       "Implemented real-time communication features using Firebase, enabling live updates for coaches, players, and administrators across teams.",
@@ -50,6 +68,9 @@ export const EXPERIENCES = [
     url: "https://equalandco.com",
     role: "Software Developer",
     period: "January 2022 - Present",
+    resumeBullets: [
+      "Developed a React-based Industrial Liquid Management system, optimizing interface interactions for both admin and customer panels. Utilized WebSockets to handle high-frequency data streams for accurate, timely updates to interactive graphs.",
+    ],
     description: [
       "Working the development of a React-based Industrial Liquid Management system, optimizing interface interactions for both admin and customer panels.",
       "Utilized WebSockets to efficiently handle high-frequency data streams, ensuring accurate and timely updates to interactive graphs.",
@@ -83,6 +104,9 @@ export const EXPERIENCES = [
     url: "https://talentpro.global",
     role: "Software Developer",
     period: "February 2022 - July 2023",
+    resumeBullets: [
+      "Developed a Next.js-based Real Estate Web Application, improving load times by 30% through optimization techniques.",
+    ],
     description: [
       "Worked on a React & Laravel based Stock Exchange Project.",
       "Developed and deployed a Next.js-based Real Estate Web Application, improving load times by 30% through optimization techniques.",
@@ -94,6 +118,9 @@ export const EXPERIENCES = [
     url: "https://dynamicflowit.com",
     role: "Web Developer",
     period: "May 2021 - January 2022",
+    resumeBullets: [
+      "Created a React-based Tournament Management Website, reducing overhead by automating scheduling and team coordination.",
+    ],
     description: [
       "Created a React-based Tournament Management Website, reducing admin overhead by automating scheduling and team coordination.",
       "Built a website for a prominent music artist, increasing online visibility and fan engagement through interactive elements.",
@@ -105,6 +132,10 @@ export const EXPERIENCES = [
     url: "https://dreamdiver.nl",
     role: "Web & Apps Developer",
     period: "July 2020 - December 2021",
+    // Resume leads with the React/Next.js work rather than the default first bullet
+    resumeBullets: [
+      "Launched a React (Next.js) Website & Ionic PWA for a Package Delivery Company, achieving a 25% increase in satisfaction.",
+    ],
     description: [
       "Engineered a robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
       "Designed and launched a React (Next.js) Website & Ionic PWA for a Package Delivery Company, achieving a 25% increase in customer satisfaction.",
@@ -116,6 +147,7 @@ export const EXPERIENCES = [
     url: null,
     role: "Executive, (Web Application Developer)",
     period: "October 2020 - May 2021",
+    hideFromResume: true,
     description: [
       "Developed a Laravel OTT Platform Web App, which scaled to over 10,000 active users with optimized video streaming capabilities.",
       "Integrated PayPal, SSLCOMMERZ Payment Gateway, and SMS APIs, improving user payment experience and transaction reliability.",
@@ -225,6 +257,77 @@ export const PROJECTS = {
     },
   ],
 }
+
+// Certifications — shared by the Certification section and the generated resume PDF
+export const CERTIFICATIONS = [
+  // React
+  {
+    title: "React + Redux Certified",
+    issuer: "SoloLearn, Inc.",
+    url: "https://www.sololearn.com/en/certificates/CT-ZO6UD2UD",
+    icon: "react",
+    resumeFeatured: true,
+  },
+  {
+    title: "Frontend Developer (React)",
+    issuer: "HackerRank",
+    url: "https://www.hackerrank.com/certificates/af9119c8d91f",
+    icon: "react",
+    resumeFeatured: true,
+  },
+  {
+    title: "React (Basic)",
+    issuer: "HackerRank",
+    url: "https://www.hackerrank.com/certificates/93696da69617",
+    icon: "react",
+  },
+  // JavaScript
+  {
+    title: "JavaScript Certified",
+    issuer: "SoloLearn, Inc.",
+    url: "https://www.sololearn.com/en/certificates/CT-HI8LUC9C",
+    icon: "javascript",
+  },
+  {
+    title: "JavaScript (Intermediate)",
+    issuer: "HackerRank",
+    url: "https://www.hackerrank.com/certificates/2b87f9f4557d",
+    icon: "javascript",
+  },
+  {
+    title: "JavaScript (Basic)",
+    issuer: "HackerRank",
+    url: "https://www.hackerrank.com/certificates/47a154d2e127",
+    icon: "javascript",
+  },
+  // Problem Solving
+  {
+    title: "Problem Solving (Intermediate)",
+    issuer: "HackerRank",
+    url: "https://www.hackerrank.com/certificates/5838db2fe399",
+    icon: "algorithm",
+    resumeFeatured: true,
+  },
+  {
+    title: "Problem-Solving (Basic)",
+    issuer: "HackerRank",
+    url: "https://www.hackerrank.com/certificates/e5f3b68d3684",
+    icon: "algorithm",
+  },
+  // Other
+  {
+    title: "PHP Certified",
+    issuer: "SoloLearn, Inc.",
+    url: "https://www.sololearn.com/en/certificates/CT-SBL1OYHQ",
+    icon: "php",
+  },
+  {
+    title: "CSS (Basic)",
+    issuer: "HackerRank",
+    url: "https://www.hackerrank.com/certificates/03bfe39e8db9",
+    icon: "css",
+  },
+]
 
 export const TECH_STACK_DETAILED = [
   {
@@ -641,7 +744,8 @@ export const TECHNOLOGIES = {
   "TMDB API": {
     name: "TMDB API",
     category: "External API",
-    description: "The Movie Database API providing comprehensive movie, TV show, and celebrity information with extensive metadata.",
+    description:
+      "The Movie Database API providing comprehensive movie, TV show, and celebrity information with extensive metadata.",
     features: ["Movie & TV data", "Image galleries", "Search functionality", "Trending content"],
     color: "bg-yellow-600",
     aliases: ["tmdb", "themoviedb", "movie-database"],

@@ -1,75 +1,10 @@
-import { SECTION_TITLES } from "@/lib/constants"
+import { SECTION_TITLES, CERTIFICATIONS } from "@/lib/constants"
 import { Award, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const CERTIFICATION_CONTENT = {
-  certifications: [
-    // React
-    {
-      title: "React + Redux Certified",
-      issuer: "SoloLearn, Inc.",
-      url: "https://www.sololearn.com/en/certificates/CT-ZO6UD2UD",
-      icon: "react",
-    },
-    {
-      title: "Frontend Developer (React)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/af9119c8d91f",
-      icon: "react",
-    },
-    {
-      title: "React (Basic)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/93696da69617",
-      icon: "react",
-    },
-    // JavaScript
-    {
-      title: "JavaScript Certified",
-      issuer: "SoloLearn, Inc.",
-      url: "https://www.sololearn.com/en/certificates/CT-HI8LUC9C",
-      icon: "javascript",
-    },
-    {
-      title: "JavaScript (Intermediate)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/2b87f9f4557d",
-      icon: "javascript",
-    },
-    {
-      title: "JavaScript (Basic)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/47a154d2e127",
-      icon: "javascript",
-    },
-    // Problem Solving
-    {
-      title: "Problem Solving (Intermediate)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/5838db2fe399",
-      icon: "algorithm",
-    },
-    {
-      title: "Problem-Solving (Basic)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/e5f3b68d3684",
-      icon: "algorithm",
-    },
-    // Other
-    {
-      title: "PHP Certified",
-      issuer: "SoloLearn, Inc.",
-      url: "https://www.sololearn.com/en/certificates/CT-SBL1OYHQ",
-      icon: "php",
-    },
-    {
-      title: "CSS (Basic)",
-      issuer: "HackerRank",
-      url: "https://www.hackerrank.com/certificates/03bfe39e8db9",
-      icon: "css",
-    },
-  ],
+  certifications: CERTIFICATIONS,
 }
 
 const Certification = () => {
