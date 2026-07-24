@@ -9,6 +9,17 @@ import { useState } from "react"
 const EXPERIENCE_CONTENT = {
   experiences: [
     {
+      company: "Scouty Interactive",
+      url: "https://scouty.io",
+      role: "Lead Full Stack Developer",
+      period: "November 2022 - Present",
+      description: [
+        "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
+        "Implemented real-time communication features using Firebase, enabling live updates for coaches, players, and administrators across teams.",
+        "Integrated Stripe for subscription billing and managed deployment of both the web and mobile apps, including App Store and Google Play releases.",
+      ],
+    },
+    {
       company: "Equal & Co.",
       url: "https://equalandco.com",
       role: "Software Developer",

@@ -434,11 +434,11 @@ export const TECHNOLOGIES = {
 
 // Skills displayed in the Technical Skills section (with proficiency levels)
 export const TECHNICAL_SKILLS = [
+  { name: "Next.js", level: 100 },
+  { name: "React", level: 100 },
+  { name: "React Native", level: 100 },
   { name: "JavaScript", level: 100 },
   { name: "PHP", level: 100 },
-  { name: "React", level: 100 },
-  { name: "Next.js", level: 100 },
-  { name: "React Native", level: 100 },
   { name: "Laravel", level: 100 },
   { name: "Node.js", level: 100 },
   { name: "MySQL", level: 100 },
