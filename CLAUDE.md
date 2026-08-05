@@ -5,6 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Projects Directory
 - All of the user's (Ridwan Malik's) projects live in `D:\Projects` (`/d/Projects`) — this repository is one of them.
 
+## Production URL
+- The production URL is `https://ridwanmalik.com`.
+
 ## Development Commands
 
 ```bash

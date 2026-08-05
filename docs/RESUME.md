@@ -9,6 +9,7 @@ Passionate about coding and learning new technologies.
 Mirpur-10, Dhaka- 1216
 +880 1734- 862996
 skridwanulmalik@gmail.com
+ridwanmalik.com
 linkedin.com/in/skridwanmalik
 github.com/ridwanmalik
 hackerrank.com/RidwanMalik

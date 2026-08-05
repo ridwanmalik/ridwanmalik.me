@@ -11,6 +11,7 @@ export const PERSONAL_INFO = {
   phone: "+880 1734-862996",
   location: "Jashore, BD",
   resume: "/api/resume",
+  website: "https://ridwanmalik.com",
 }
 
 // Content for the "Get In Touch" modal opened from the header/nav

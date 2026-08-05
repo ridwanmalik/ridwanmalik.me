@@ -109,6 +109,8 @@ const ResumeDocument = () => {
               style={[styles.contactItem, styles.contactPlain]}>
               {PERSONAL_INFO.phone}
             </Link>
+            <Text style={styles.contactItem}>|</Text>
+            <Text style={styles.contactItem}>{PERSONAL_INFO.location}</Text>
             {linkedin ? (
               <>
                 <Text style={styles.contactItem}>|</Text>
@@ -125,9 +127,12 @@ const ResumeDocument = () => {
                 </Link>
               </>
             ) : null}
-            <Text style={styles.contactItem}>|</Text>
-            <Text style={styles.contactItem}>{PERSONAL_INFO.location}</Text>
           </View>
+          {PERSONAL_INFO.website ? (
+            <Link src={PERSONAL_INFO.website} style={[styles.contactRow, styles.contactLink]}>
+              {stripProtocol(PERSONAL_INFO.website)}
+            </Link>
+          ) : null}
         </View>
 
         {/* Summary */}
