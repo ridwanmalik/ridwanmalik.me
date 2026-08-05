@@ -2,6 +2,7 @@ import { SECTION_TITLES, TECHNICAL_SKILLS } from "@/lib/constants"
 import { Progress } from "@/components/ui/progress"
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 import TechHoverCard from "@/components/shared/TechHoverCard"
+import { Reveal } from "@/components/shared"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const TECHNOLOGIES_CONTENT = {
@@ -25,20 +26,24 @@ const Technologies = () => {
 
         {/* One continuous column on mobile, two columns on desktop */}
         <div className="space-y-4 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-4">
-          {allSkills.map(skill => (
-            <div
+          {allSkills.map((skill, index) => (
+            <Reveal
               key={skill.name}
-              className={`space-y-2 ${(skill as { hideOnMobile?: boolean }).hideOnMobile ? "hidden sm:block" : ""}`}>
-              <div className="flex justify-between items-center">
-                <TechHoverCard
-                  techName={skill.name}
-                  className="text-sm font-medium text-custom-foreground hover:text-custom-accent">
-                  {skill.name}
-                </TechHoverCard>
-                <span className="text-xs text-custom-accent font-mono">{skill.level}%</span>
+              delay={index * 0.04}
+              className={(skill as { hideOnMobile?: boolean }).hideOnMobile ? "hidden sm:block" : undefined}
+            >
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <TechHoverCard
+                    techName={skill.name}
+                    className="text-sm font-medium text-custom-foreground hover:text-custom-accent">
+                    {skill.name}
+                  </TechHoverCard>
+                  <span className="text-xs text-custom-accent font-mono">{skill.level}%</span>
+                </div>
+                <Progress value={skill.level} className="h-2 bg-slate-800" />
               </div>
-              <Progress value={skill.level} className="h-2 bg-slate-800" />
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

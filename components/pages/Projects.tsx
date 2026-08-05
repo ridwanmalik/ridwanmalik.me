@@ -1,9 +1,11 @@
 "use client"
 
+import { Reveal } from "@/components/shared"
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
 import { SECTION_TITLES, PROJECTS } from "@/lib/constants"
 import { AppStoreIcon, GooglePlayIcon } from "@/lib/icons"
 import { ExternalLink, FolderOpen, Github } from "lucide-react"
+import { motion } from "motion/react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -45,108 +47,109 @@ const Projects = () => {
 
           <div className="space-y-24">
             {PROJECTS_CONTENT.featured.map((project, index) => (
-              <div
-                key={index}
-                className={`flex flex-col lg:flex-row items-center gap-8 ${
-                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
-                }`}>
-                {/* Project title above the image — mobile only */}
-                <div className="w-full lg:hidden">
-                  <p className="text-custom-accent text-sm font-mono mb-2">Featured Project</p>
-                  <h3 className="text-2xl font-semibold text-custom-foreground">
-                    <Link
-                      href={project.external}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-custom-accent transition-colors">
-                      {project.title}
-                    </Link>
-                  </h3>
-                </div>
+              <Reveal key={index} from={index % 2 === 1 ? "right" : "left"}>
+                <div
+                  className={`flex flex-col lg:flex-row items-center gap-8 ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                  }`}>
+                  {/* Project title above the image — mobile only */}
+                  <div className="w-full lg:hidden">
+                    <p className="text-custom-accent text-sm font-mono mb-2">Featured Project</p>
+                    <h3 className="text-2xl font-semibold text-custom-foreground">
+                      <Link
+                        href={project.external}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-custom-accent transition-colors">
+                        {project.title}
+                      </Link>
+                    </h3>
+                  </div>
 
-                {/* Project Image */}
-                <div className="w-full lg:w-3/5">
-                  <Link href={project.external} target="_blank" rel="noopener noreferrer">
-                    <div className="relative group">
-                      <div className="bg-accent/20 rounded-lg overflow-hidden">
-                        <div className="aspect-video relative">
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover contrast-100 transition-all duration-300 lg:grayscale lg:brightness-90 lg:group-hover:grayscale-0 lg:group-hover:brightness-100"
-                          />
+                  {/* Project Image */}
+                  <div className="w-full lg:w-3/5">
+                    <Link href={project.external} target="_blank" rel="noopener noreferrer">
+                      <div className="relative group">
+                        <div className="bg-accent/20 rounded-lg overflow-hidden">
+                          <div className="aspect-video relative">
+                            <Image
+                              src={project.image}
+                              alt={project.title}
+                              fill
+                              className="object-cover contrast-100 transition-all duration-300 lg:grayscale lg:brightness-90 lg:group-hover:grayscale-0 lg:group-hover:brightness-100"
+                            />
+                          </div>
                         </div>
+                        <div className="absolute inset-0 rounded-lg bg-transparent transition-colors duration-300 lg:bg-oxford-blue/40 lg:group-hover:bg-transparent"></div>
                       </div>
-                      <div className="absolute inset-0 rounded-lg bg-transparent transition-colors duration-300 lg:bg-oxford-blue/40 lg:group-hover:bg-transparent"></div>
-                    </div>
-                  </Link>
-                </div>
-
-                {/* Project Info */}
-                <div className={`w-full lg:w-2/5 ${index % 2 === 1 ? "lg:text-left" : "lg:text-right"}`}>
-                  <p className="hidden lg:block text-custom-accent text-sm font-mono mb-2">Featured Project</p>
-                  <h3 className="hidden lg:block text-2xl font-semibold text-custom-foreground mb-4">
-                    <Link href={project.external} target="_blank" rel="noopener noreferrer" className="hover:text-custom-accent transition-colors">
-                      {project.title}
-                    </Link>
-                  </h3>
-
-                  <div className="relative z-10 -mt-12 mx-4 shadow-xl lg:mt-0 lg:mx-0 lg:shadow-none bg-slate-800 lg:bg-slate-800/50 p-6 rounded-lg mb-4 lg:backdrop-blur-sm">
-                    <div className="text-custom-secondary text-sm md:text-base">
-                      <TechWithHoverCard text={project.description} />
-                    </div>
-                  </div>
-
-                  <div
-                    className={`flex flex-wrap gap-2 mb-4 font-mono text-xs text-custom-secondary ${
-                      index % 2 === 1 ? "lg:justify-start" : "lg:justify-end"
-                    }`}>
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex}>
-                        <TechWithHoverCard text={tech} />
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className={`flex gap-4 ${index % 2 === 1 ? "lg:justify-start" : "lg:justify-end"}`}>
-                    {(project as { github?: string }).github && (
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={(project as { github?: string }).github as string}
-                        className="text-custom-secondary hover:text-custom-accent transition-colors">
-                        <Github className="w-6 h-6" />
-                      </Link>
-                    )}
-                    {"appStore" in project && project.appStore && (
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={project.appStore as string}
-                        className="text-custom-secondary hover:text-custom-accent transition-colors">
-                        <AppStoreIcon className="w-6 h-6" />
-                      </Link>
-                    )}
-                    {"playStore" in project && project.playStore && (
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={project.playStore as string}
-                        className="text-custom-secondary hover:text-custom-accent transition-colors">
-                        <GooglePlayIcon className="w-6 h-6" />
-                      </Link>
-                    )}
-                    <Link
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={project.external}
-                      className="text-custom-secondary hover:text-custom-accent transition-colors">
-                      <ExternalLink className="w-6 h-6" />
                     </Link>
                   </div>
+
+                  {/* Project Info */}
+                  <div className={`w-full lg:w-2/5 ${index % 2 === 1 ? "lg:text-left" : "lg:text-right"}`}>
+                    <p className="hidden lg:block text-custom-accent text-sm font-mono mb-2">Featured Project</p>
+                    <h3 className="hidden lg:block text-2xl font-semibold text-custom-foreground mb-4">
+                      <Link href={project.external} target="_blank" rel="noopener noreferrer" className="hover:text-custom-accent transition-colors">
+                        {project.title}
+                      </Link>
+                    </h3>
+
+                    <div className="relative z-10 -mt-12 mx-4 shadow-xl lg:mt-0 lg:mx-0 lg:shadow-none bg-slate-800 lg:bg-slate-800/50 p-6 rounded-lg mb-4 lg:backdrop-blur-sm">
+                      <div className="text-custom-secondary text-sm md:text-base">
+                        <TechWithHoverCard text={project.description} />
+                      </div>
+                    </div>
+
+                    <div
+                      className={`flex flex-wrap gap-2 mb-4 font-mono text-xs text-custom-secondary ${
+                        index % 2 === 1 ? "lg:justify-start" : "lg:justify-end"
+                      }`}>
+                      {project.tech.map((tech, techIndex) => (
+                        <span key={techIndex}>
+                          <TechWithHoverCard text={tech} />
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className={`flex gap-4 ${index % 2 === 1 ? "lg:justify-start" : "lg:justify-end"}`}>
+                      {(project as { github?: string }).github && (
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={(project as { github?: string }).github as string}
+                          className="text-custom-secondary hover:text-custom-accent transition-colors">
+                          <Github className="w-6 h-6" />
+                        </Link>
+                      )}
+                      {"appStore" in project && project.appStore && (
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={project.appStore as string}
+                          className="text-custom-secondary hover:text-custom-accent transition-colors">
+                          <AppStoreIcon className="w-6 h-6" />
+                        </Link>
+                      )}
+                      {"playStore" in project && project.playStore && (
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={project.playStore as string}
+                          className="text-custom-secondary hover:text-custom-accent transition-colors">
+                          <GooglePlayIcon className="w-6 h-6" />
+                        </Link>
+                      )}
+                      <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={project.external}
+                        className="text-custom-secondary hover:text-custom-accent transition-colors">
+                        <ExternalLink className="w-6 h-6" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -157,50 +160,53 @@ const Projects = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {visibleProjects.map((project, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden bg-slate-800/50 p-6 rounded-lg hover:bg-slate-800/70 transition-colors group">
-                {/* Folder watermark overlay */}
-                <FolderOpen className="pointer-events-none absolute bottom-1 right-3 h-28 w-28 text-custom-accent opacity-5" />
+              <Reveal key={index} delay={index * 0.05}>
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="h-full relative overflow-hidden bg-slate-800/50 p-6 rounded-lg hover:bg-slate-800/70 transition-colors group">
+                  {/* Folder watermark overlay */}
+                  <FolderOpen className="pointer-events-none absolute bottom-1 right-3 h-28 w-28 text-custom-accent opacity-5" />
 
-                <div className="relative">
-                  <h3 className="text-xl font-semibold text-custom-foreground mb-3 group-hover:text-custom-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="text-custom-secondary mb-4 text-sm md:text-base">
-                    <TechWithHoverCard text={project.description} />
-                  </div>
+                  <div className="relative">
+                    <h3 className="text-xl font-semibold text-custom-foreground mb-3 group-hover:text-custom-accent transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="text-custom-secondary mb-4 text-sm md:text-base">
+                      <TechWithHoverCard text={project.description} />
+                    </div>
 
-                  <div className="flex flex-wrap gap-2 font-mono text-sm text-custom-secondary mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex}>
-                        <TechWithHoverCard text={tech} />
-                      </span>
-                    ))}
-                  </div>
+                    <div className="flex flex-wrap gap-2 font-mono text-sm text-custom-secondary mb-4">
+                      {project.tech.map((tech, techIndex) => (
+                        <span key={techIndex}>
+                          <TechWithHoverCard text={tech} />
+                        </span>
+                      ))}
+                    </div>
 
-                  <div className="flex gap-3">
-                    {project.github && (
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={project.github}
-                        className="text-custom-secondary hover:text-custom-accent transition-colors">
-                        <Github className="w-5 h-5" />
-                      </Link>
-                    )}
-                    {project.external && (
-                      <Link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={project.external}
-                        className="text-custom-secondary hover:text-custom-accent transition-colors">
-                        <ExternalLink className="w-5 h-5" />
-                      </Link>
-                    )}
+                    <div className="flex gap-3">
+                      {project.github && (
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={project.github}
+                          className="text-custom-secondary hover:text-custom-accent transition-colors">
+                          <Github className="w-5 h-5" />
+                        </Link>
+                      )}
+                      {project.external && (
+                        <Link
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={project.external}
+                          className="text-custom-secondary hover:text-custom-accent transition-colors">
+                          <ExternalLink className="w-5 h-5" />
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </Reveal>
             ))}
           </div>
 

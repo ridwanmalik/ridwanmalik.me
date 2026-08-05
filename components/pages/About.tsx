@@ -1,5 +1,6 @@
 import { SECTION_TITLES } from "@/lib/constants"
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
+import { Reveal } from "@/components/shared"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const ABOUT_CONTENT = {
@@ -20,15 +21,13 @@ const About = () => {
           <div className="flex-1 h-px bg-custom-secondary/40 ml-4 sm:ml-8"></div>
         </div>
 
-        <div className="">
-          <div className="space-y-6 text-custom-secondary text-sm md:text-base leading-relaxed">
-            {ABOUT_CONTENT.paragraphs.map((paragraph, index) => (
-              <div key={index}>
-                <TechWithHoverCard text={paragraph} />
-              </div>
-            ))}
-          </div>
-        </div>
+        <Reveal className="space-y-6 text-custom-secondary text-sm md:text-base leading-relaxed">
+          {ABOUT_CONTENT.paragraphs.map((paragraph, index) => (
+            <div key={index}>
+              <TechWithHoverCard text={paragraph} />
+            </div>
+          ))}
+        </Reveal>
       </div>
     </section>
   )

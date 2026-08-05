@@ -1,6 +1,7 @@
 "use client"
 
 import TechWithHoverCard from "@/components/shared/TechWithHoverCard"
+import { Reveal } from "@/components/shared"
 import { SECTION_TITLES, EXPERIENCES } from "@/lib/constants"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
@@ -67,7 +68,7 @@ const Experience = () => {
 
             {/* Tab Content */}
             <div className="flex-1">
-              <div className="space-y-4" key={activeTab}>
+              <Reveal key={activeTab} className="space-y-4" from="bottom">
                 <div>
                   <h3 className="text-xl font-semibold text-custom-foreground">
                     {EXPERIENCE_CONTENT.experiences[activeTab]?.role}{" "}
@@ -101,7 +102,7 @@ const Experience = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Reveal>
 
               {/* Prev/next company arrows — mobile only, centered below the text */}
               <div className="flex md:hidden justify-center gap-4 mt-8">
