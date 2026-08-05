@@ -5,5 +5,6 @@ import TechHoverCard from "./TechHoverCard"
 import FixedSocialMenu from "./FixedSocialMenu"
 import ContactModal from "./ContactModal"
 import Reveal from "./Reveal"
+import { StaggerGroup, StaggerItem } from "./StaggerReveal"
 
-export { Header, SocialIconMenu, TechWithHoverCard, TechHoverCard, FixedSocialMenu, ContactModal, Reveal }
+export { Header, SocialIconMenu, TechWithHoverCard, TechHoverCard, FixedSocialMenu, ContactModal, Reveal, StaggerGroup, StaggerItem }

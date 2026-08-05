@@ -4,6 +4,7 @@ import { logoWhite } from "@/lib/assets"
 import { CSSProperties } from "react"
 import ContactModal from "@/components/shared/ContactModal"
 import MobileMenu from "@/components/shared/MobileMenu"
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerReveal"
 
 interface HeaderProps {
   variant?: "default" | "sticky"
@@ -27,34 +28,44 @@ const Header = ({ variant = "default", className = "", style, isScrolled = false
         </div>
 
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <div className="flex items-center space-x-8">
+          <StaggerGroup className="flex items-center space-x-8" stagger={0.08}>
             <ul className="nav">
               <li>
-                <Link href="#about" className="nav-item">
-                  About
-                </Link>
+                <StaggerItem from="down">
+                  <Link href="#about" className="nav-item">
+                    About
+                  </Link>
+                </StaggerItem>
               </li>
               <li>
-                <Link href="#experience" className="nav-item">
-                  Experience
-                </Link>
+                <StaggerItem from="down">
+                  <Link href="#experience" className="nav-item">
+                    Experience
+                  </Link>
+                </StaggerItem>
               </li>
               <li>
-                <Link href="#work" className="nav-item">
-                  Work
-                </Link>
+                <StaggerItem from="down">
+                  <Link href="#work" className="nav-item">
+                    Work
+                  </Link>
+                </StaggerItem>
               </li>
               <li>
-                <Link href="#contact" className="nav-item">
-                  Contact
-                </Link>
+                <StaggerItem from="down">
+                  <Link href="#contact" className="nav-item">
+                    Contact
+                  </Link>
+                </StaggerItem>
               </li>
             </ul>
-            <ContactModal
-              label="Get In Touch"
-              className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm"
-            />
-          </div>
+            <StaggerItem from="down">
+              <ContactModal
+                label="Get In Touch"
+                className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm"
+              />
+            </StaggerItem>
+          </StaggerGroup>
         </div>
       </div>
     </nav>

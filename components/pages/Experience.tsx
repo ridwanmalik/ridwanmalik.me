@@ -49,20 +49,21 @@ const Experience = () => {
             {/* Tab List */}
             <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible -mx-4 px-4 md:mx-0 md:px-0 mb-4 md:mb-0 md:mr-8">
               {EXPERIENCE_CONTENT.experiences.map((exp, index) => (
-                <button
-                  key={index}
-                  ref={el => {
-                    tabRefs.current[index] = el
-                  }}
-                  onClick={() => handleTabClick(index)}
-                  type="button"
-                  className={`font-mono text-sm whitespace-nowrap px-4 py-3 text-left border-b-2 md:border-b-0 md:border-l-2 transition-colors duration-200 cursor-pointer focus:outline-none ${
-                    activeTab === index
-                      ? "border-accent text-custom-accent bg-accent/10"
-                      : "border-slate-600 text-custom-secondary hover:text-custom-accent hover:bg-slate-800/50"
-                  }`}>
-                  {exp.company}
-                </button>
+                <Reveal key={index} delay={index * 0.06} className="w-full h-full">
+                  <button
+                    ref={el => {
+                      tabRefs.current[index] = el
+                    }}
+                    onClick={() => handleTabClick(index)}
+                    type="button"
+                    className={`w-full h-full font-mono text-sm whitespace-nowrap px-4 py-3 text-left border-b-2 md:border-b-0 md:border-l-2 transition-colors duration-200 cursor-pointer focus:outline-none ${
+                      activeTab === index
+                        ? "border-accent text-custom-accent bg-accent/10"
+                        : "border-slate-600 text-custom-secondary hover:text-custom-accent hover:bg-slate-800/50"
+                    }`}>
+                    {exp.company}
+                  </button>
+                </Reveal>
               ))}
             </div>
 
