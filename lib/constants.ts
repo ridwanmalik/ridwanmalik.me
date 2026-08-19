@@ -8,7 +8,7 @@ export const PERSONAL_INFO = {
   // Condensed summary used in the resume PDF (kept to ~2 lines / under 255 characters).
   // Written in implied-subject voice and leading with years — ATS resume checkers flag
   // first-person openers and "passionate about" as filler.
-  resumeSummary: `Full Stack Web Developer with ${TOTAL_YEARS_EXPERIENCE}+ years building production web and mobile applications in React (ReactJS), Next.js, React Native, TypeScript, Node.js, and Laravel, across real-time platforms, e-commerce, and enterprise systems.`,
+  resumeSummary: `Full Stack Software Developer with ${TOTAL_YEARS_EXPERIENCE}+ years building production web and mobile applications in React (ReactJS), Next.js, React Native, TypeScript, Node.js, and Laravel, across real-time platforms, e-commerce, and enterprise systems.`,
   email: "skridwanulmalik@gmail.com",
   phone: "+880 1734-862996",
   // Country spelled out — location parsers match poorly on two-letter codes
@@ -70,7 +70,7 @@ export const RESUME_SKILLS = [
       "Node.js",
       "Laravel",
       "Tailwind CSS",
-      "REST APIs",
+      "REST API",
       "Vue.js",
       "Ionic",
       "WebSockets",
@@ -82,6 +82,7 @@ export const RESUME_SKILLS = [
       "Git",
       "GitHub",
       "Vercel",
+      "DigitalOcean",
       "MySQL",
       "PostgreSQL",
       "Firebase",
@@ -90,9 +91,11 @@ export const RESUME_SKILLS = [
       "WooCommerce",
       "Docker",
       "CI/CD",
+      "Azure DevOps",
       "Stripe",
       "Storybook",
       "Figma",
+      "AI-Assisted Development (Copilot, Claude)",
     ],
   },
 ]
@@ -102,12 +105,12 @@ export const EXPERIENCES = [
   {
     company: "Scouty Interactive",
     url: "https://scouty.io",
-    role: "Lead Full Stack Developer",
+    role: "Senior Software Developer",
     period: "November 2022 - Present",
     resumeBullets: [
       "Built Scouty, a football team management platform, as a Next.js web app paired with a React Native mobile app for iOS and Android.",
       "Implemented real-time communication with Firebase, delivering live updates across coaches, players, and admins.",
-      "Integrated Stripe for subscription billing and led the team's technical direction across the web and mobile codebases.",
+      "Integrated Stripe for subscription billing, deployed the web app on DigitalOcean with Nginx reverse proxy, SSL, and PM2, and led the team's technical direction across web and mobile.",
     ],
     description: [
       "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
@@ -122,7 +125,7 @@ export const EXPERIENCES = [
     period: "January 2022 - Present",
     resumeBullets: [
       "Developed a React Industrial Liquid Management system, optimizing interface interactions across both admin and customer panels.",
-      "Used WebSockets to handle high-frequency data streams, driving accurate, timely updates to interactive graphs.",
+      "Integrated WebSockets to handle high-frequency data streams, driving accurate, timely updates to interactive graphs.",
       "Designed the REST API contracts and SQL schema backing the reporting views.",
     ],
     description: [
@@ -161,7 +164,7 @@ export const EXPERIENCES = [
     resumeBullets: [
       "Developed and deployed a Next.js real estate web application, improving load times by 30% through optimization techniques.",
       "Built a Vue.js and Laravel admin panel for the same product, expanding property management capability.",
-      "Worked on a React and Laravel stock exchange project.",
+      "Built a React and Laravel stock exchange project.",
     ],
     description: [
       "Worked on a React & Laravel based Stock Exchange Project.",
@@ -172,7 +175,7 @@ export const EXPERIENCES = [
   {
     company: "Dynamicflow",
     url: "https://dynamicflowit.com",
-    role: "Web Developer",
+    role: "Full Stack Web Developer",
     period: "May 2021 - January 2022",
     resumeBullets: [
       "Created a React-based tournament management website, cutting admin overhead by automating scheduling and team coordination.",

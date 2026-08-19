@@ -15,7 +15,7 @@ const COLORS = {
   body: "#334155",
   muted: "#64748B",
   accent: "#0F766E",
-  heading: "#2079c7",
+  heading: "#1d4ed8",
   line: "#E2E8F0",
 }
 
@@ -29,12 +29,11 @@ const styles = StyleSheet.create({
     lineHeight: 1.25,
   },
   name: { fontSize: 20, fontFamily: "Helvetica-Bold", color: COLORS.ink, letterSpacing: 0.5 },
-  title: { fontSize: 9, color: COLORS.accent, marginTop: 2, fontFamily: "Helvetica-Bold" },
-  contactRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 5, fontSize: 8.5, color: COLORS.muted },
+  contactRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 4, fontSize: 8.5, color: COLORS.muted },
   contactItem: { marginRight: 6 },
   contactLink: { color: COLORS.heading, textDecoration: "none" },
   contactPlain: { color: COLORS.body, textDecoration: "none" },
-  section: { marginTop: 5 },
+  section: { marginTop: 6 },
   sectionTitle: {
     fontSize: 9.5,
     fontFamily: "Helvetica-Bold",
@@ -105,7 +104,6 @@ const ResumeDocument = () => {
         {/* Header */}
         <View>
           <Text style={styles.name}>{PERSONAL_INFO.name}</Text>
-          <Text style={styles.title}>Full Stack Web Developer</Text>
           <View style={styles.contactRow}>
             <Link src={`mailto:${PERSONAL_INFO.email}`} style={[styles.contactItem, styles.contactPlain]}>
               {PERSONAL_INFO.email}
