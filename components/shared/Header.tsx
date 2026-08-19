@@ -72,7 +72,7 @@ const Header = ({ variant = "default", className = "", style, isScrolled = false
               <a
                 href={HEADER_CONTENT.resume.href}
                 download
-                className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
+                className="btn-pop hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
                 {HEADER_CONTENT.resume.label}
               </a>
             </StaggerItem>

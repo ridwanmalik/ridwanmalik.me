@@ -24,7 +24,7 @@ const Contact = () => {
 
         <ContactModal
           label={CONTACT_CONTENT.cta}
-          className="text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono"
+          className="btn-pop text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono"
         />
 
         <div className="mt-16 flex justify-center">

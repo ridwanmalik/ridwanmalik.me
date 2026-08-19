@@ -52,7 +52,7 @@ const Home = () => {
                 <div className="pt-8 space-y-6">
                   <Link
                     href={HOME_CONTENT.cta.href}
-                    className="text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono">
+                    className="btn-pop text-sm inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors font-mono">
                     {HOME_CONTENT.cta.text}
                   </Link>
                   <div className="flex justify-start lg:hidden">

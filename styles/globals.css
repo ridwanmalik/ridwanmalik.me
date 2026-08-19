@@ -42,6 +42,32 @@
   body {
     @apply bg-background text-foreground;
   }
+
+}
+
+@layer components {
+  /* Opt-in: button "pops" up-and-left on hover, revealing a solid backing in
+     the button's own color underneath — reads as if it lifted off the page
+     rather than just swapping color. currentColor keeps the backing in sync
+     with each button's own accent/border color without per-button tuning.
+     Applied selectively (nav, hero) rather than globally. */
+  .btn-pop:not(:disabled) {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  .btn-pop:not(:disabled):hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 0 0 currentColor;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-pop:not(:disabled) {
+      transition: none;
+    }
+    .btn-pop:not(:disabled):hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 }
 
 @layer components {

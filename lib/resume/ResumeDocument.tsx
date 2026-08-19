@@ -15,7 +15,7 @@ const COLORS = {
   body: "#334155",
   muted: "#64748B",
   accent: "#0F766E",
-  heading: "#1d4ed8",
+  heading: "#2079c7",
   line: "#E2E8F0",
 }
 

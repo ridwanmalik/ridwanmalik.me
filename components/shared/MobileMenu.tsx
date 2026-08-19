@@ -45,7 +45,7 @@ const MobileMenu = () => {
         type="button"
         onClick={() => setIsOpen(true)}
         aria-label="Open menu"
-        className="-mr-3 p-2 text-custom-accent hover:text-custom-accent/80 transition-colors">
+        className="btn-pop -mr-3 p-2 text-custom-accent hover:text-custom-accent/80 transition-colors">
         <Menu className="w-6 h-6" />
       </button>
 
@@ -76,7 +76,7 @@ const MobileMenu = () => {
                     type="button"
                     onClick={() => setIsOpen(false)}
                     aria-label="Close menu"
-                    className="self-end p-5 text-custom-accent hover:text-custom-accent/80 transition-colors">
+                    className="btn-pop self-end p-5 text-custom-accent hover:text-custom-accent/80 transition-colors">
                     <X className="w-6 h-6" />
                   </button>
 
@@ -95,7 +95,7 @@ const MobileMenu = () => {
                       href={RESUME_CTA.href}
                       download
                       onClick={() => setIsOpen(false)}
-                      className="mt-6 border border-accent text-custom-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
+                      className="btn-pop mt-6 border border-accent text-custom-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
                       {RESUME_CTA.label}
                     </a>
                   </nav>

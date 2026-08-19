@@ -190,7 +190,7 @@ const Projects = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           href={project.github}
-                          className="text-custom-secondary hover:text-custom-accent transition-colors">
+                          className="btn-pop text-custom-secondary hover:text-custom-accent transition-colors">
                           <Github className="w-5 h-5" />
                         </Link>
                       )}
@@ -199,7 +199,7 @@ const Projects = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           href={project.external}
-                          className="text-custom-secondary hover:text-custom-accent transition-colors">
+                          className="btn-pop text-custom-secondary hover:text-custom-accent transition-colors">
                           <ExternalLink className="w-5 h-5" />
                         </Link>
                       )}
@@ -214,7 +214,7 @@ const Projects = () => {
             <div className="text-center mt-12">
               <button
                 onClick={() => setShowMore(!showMore)}
-                className="inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors">
+                className="btn-pop inline-block border border-accent text-custom-accent px-6 py-3 rounded hover:bg-accent/10 transition-colors">
                 {showMore ? PROJECTS_CONTENT.ui.showLessText : PROJECTS_CONTENT.ui.showMoreText}
               </button>
             </div>

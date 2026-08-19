@@ -95,7 +95,9 @@ export const RESUME_SKILLS = [
       "Stripe",
       "Storybook",
       "Figma",
-      "AI-Assisted Development (Copilot, Claude)",
+      "AI Assisted Coding",
+      "Copilot",
+      "Claude Code",
     ],
   },
 ]
@@ -110,7 +112,7 @@ export const EXPERIENCES = [
     resumeBullets: [
       "Built Scouty, a football team management platform, as a Next.js web app paired with a React Native mobile app for iOS and Android.",
       "Implemented real-time communication with Firebase, delivering live updates across coaches, players, and admins.",
-      "Integrated Stripe for subscription billing, deployed the web app on DigitalOcean with Nginx reverse proxy, SSL, and PM2, and led the team's technical direction across web and mobile.",
+      "Led the team's technical direction and code reviews, integrated Stripe for subscription billing, and deployed the web app to DigitalOcean with Nginx, SSL, and PM2.",
     ],
     description: [
       "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
