@@ -5,7 +5,7 @@ import { Reveal } from "@/components/shared"
 import { SECTION_TITLES, EXPERIENCES } from "@/lib/constants"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 // Local constants - only used in this component (outside component to avoid recreation)
 const EXPERIENCE_CONTENT = {
@@ -15,24 +15,30 @@ const EXPERIENCE_CONTENT = {
 const Experience = () => {
   const [activeTab, setActiveTab] = useState(0)
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
-  const isFirstRender = useRef(true)
 
-  // Snap the active company tab into view in the horizontal strip when it changes
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false
-      return
-    }
-    tabRefs.current[activeTab]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
-  }, [activeTab])
+  // Snap the active company tab into view in the horizontal strip.
+  //
+  // This runs from the click/arrow handlers rather than a useEffect on activeTab.
+  // As an effect it also fired on mount: React StrictMode double-invokes mount effects
+  // in development while preserving refs, so an "is this the first render" ref guard
+  // does not hold. scrollIntoView then bubbled up to the .section-wrapper scroll
+  // container and jumped the whole page down to this section on load.
+  const scrollTabIntoView = (index: number) => {
+    tabRefs.current[index]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
+  }
+
+  const selectTab = (index: number) => {
+    setActiveTab(index)
+    scrollTabIntoView(index)
+  }
 
   const handleTabClick = (index: number) => {
-    setActiveTab(index)
+    selectTab(index)
   }
 
   const lastIndex = EXPERIENCE_CONTENT.experiences.length - 1
-  const goPrev = () => setActiveTab(i => Math.max(0, i - 1))
-  const goNext = () => setActiveTab(i => Math.min(lastIndex, i + 1))
+  const goPrev = () => selectTab(Math.max(0, activeTab - 1))
+  const goNext = () => selectTab(Math.min(lastIndex, activeTab + 1))
 
   // Using EXPERIENCES from constants
 

@@ -13,8 +13,8 @@ const CONTACT_CONTENT = {
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-screen w-full flex flex-col justify-center items-center">
-      <Reveal className="container mx-auto text-center pt-20 pb-48 sm:pt-40">
+    <section id="contact" className="min-h-screen w-full flex flex-col">
+      <Reveal className="container mx-auto my-auto text-center pt-20 sm:pt-40">
         <p className="text-custom-accent font-mono mb-4">{CONTACT_CONTENT.title}</p>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-custom-foreground mb-6">{CONTACT_CONTENT.subtitle}</h2>
 
@@ -35,7 +35,7 @@ const Contact = () => {
           />
         </div>
       </Reveal>
-      <div className="flex justify-center items-center mb-8">
+      <div className="flex justify-center items-center pb-6">
         <p className="text-custom-accent/70 text-sm font-mono">{CONTACT_CONTENT.footer}</p>
       </div>
     </section>

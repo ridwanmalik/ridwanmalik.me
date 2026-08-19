@@ -5,11 +5,15 @@ export const PERSONAL_INFO = {
   title: "I build things for the web",
   intro: "Hi, my name is",
   description: `I'm a software engineer and Full Stack Web Developer specializing in building exceptional digital experiences, backed by excellent problem-solving skills. Passionate about coding and learning new technologies, with more than ${TOTAL_YEARS_EXPERIENCE} years of experience in React (Next.js), React Native, Laravel (PHP), Node.js, and WordPress.`,
-  // Condensed summary used in the resume PDF (kept to ~2 lines / under 255 characters)
-  resumeSummary: `I am a Full Stack Web Developer with excellent problem-solving skills. I'm passionate about coding and learning new technologies. ${TOTAL_YEARS_EXPERIENCE}+ years of experience with React (Next.js), React Native, TypeScript, Node.js, and Laravel.`,
+  // Condensed summary used in the resume PDF (kept to ~2 lines / under 255 characters).
+  // Written in implied-subject voice and leading with years — ATS resume checkers flag
+  // first-person openers and "passionate about" as filler.
+  resumeSummary: `Full Stack Web Developer with ${TOTAL_YEARS_EXPERIENCE}+ years building production web and mobile applications in React (ReactJS), Next.js, React Native, TypeScript, Node.js, and Laravel, across real-time platforms, e-commerce, and enterprise systems.`,
   email: "skridwanulmalik@gmail.com",
   phone: "+880 1734-862996",
-  location: "Jashore, BD",
+  // Country spelled out — location parsers match poorly on two-letter codes
+  location: "Jashore, Bangladesh",
+  availability: "Open to remote",
   resume: "/api/resume",
   website: "https://ridwanmalik.com",
 }
@@ -48,6 +52,51 @@ export const TECH_STACK = [
   "Firebase",
 ]
 
+// Categorized skills for the generated resume. ATS keyword matching weighs the skills
+// block heaviest and compares exact strings, so spellings mirror how job descriptions
+// write them ("ReactJS" and "React" both appear).
+export const RESUME_SKILLS = [
+  {
+    label: "Programming Languages",
+    items: ["JavaScript", "TypeScript", "PHP", "SQL", "HTML", "CSS", "Sass"],
+  },
+  {
+    label: "Libraries & Frameworks",
+    items: [
+      "React (ReactJS)",
+      "Next.js",
+      "React Native",
+      "Redux",
+      "Node.js",
+      "Laravel",
+      "Tailwind CSS",
+      "REST APIs",
+      "Vue.js",
+      "Ionic",
+      "WebSockets",
+    ],
+  },
+  {
+    label: "Tools & Platforms",
+    items: [
+      "Git",
+      "GitHub",
+      "Vercel",
+      "MySQL",
+      "PostgreSQL",
+      "Firebase",
+      "Supabase",
+      "WordPress",
+      "WooCommerce",
+      "Docker",
+      "CI/CD",
+      "Stripe",
+      "Storybook",
+      "Figma",
+    ],
+  },
+]
+
 // Work experience — shared by the Experience section and the generated resume PDF
 export const EXPERIENCES = [
   {
@@ -56,7 +105,9 @@ export const EXPERIENCES = [
     role: "Lead Full Stack Developer",
     period: "November 2022 - Present",
     resumeBullets: [
-      "Built Scouty (scouty.io), a football team management platform with a Next.js web app and a React Native mobile app for iOS and Android. Implemented real-time communication with Firebase for live updates across coaches, players, and admins.",
+      "Built Scouty, a football team management platform, as a Next.js web app paired with a React Native mobile app for iOS and Android.",
+      "Implemented real-time communication with Firebase, delivering live updates across coaches, players, and admins.",
+      "Integrated Stripe for subscription billing and led the team's technical direction across the web and mobile codebases.",
     ],
     description: [
       "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
@@ -70,7 +121,9 @@ export const EXPERIENCES = [
     role: "Software Developer",
     period: "January 2022 - Present",
     resumeBullets: [
-      "Developed a React-based Industrial Liquid Management system, optimizing interface interactions for both admin and customer panels. Utilized WebSockets to handle high-frequency data streams for accurate, timely updates to interactive graphs.",
+      "Developed a React Industrial Liquid Management system, optimizing interface interactions across both admin and customer panels.",
+      "Used WebSockets to handle high-frequency data streams, driving accurate, timely updates to interactive graphs.",
+      "Designed the REST API contracts and SQL schema backing the reporting views.",
     ],
     description: [
       "Working the development of a React-based Industrial Liquid Management system, optimizing interface interactions for both admin and customer panels.",
@@ -106,7 +159,9 @@ export const EXPERIENCES = [
     role: "Software Developer",
     period: "February 2022 - July 2023",
     resumeBullets: [
-      "Developed a Next.js-based Real Estate Web Application, improving load times by 30% through optimization techniques.",
+      "Developed and deployed a Next.js real estate web application, improving load times by 30% through optimization techniques.",
+      "Built a Vue.js and Laravel admin panel for the same product, expanding property management capability.",
+      "Worked on a React and Laravel stock exchange project.",
     ],
     description: [
       "Worked on a React & Laravel based Stock Exchange Project.",
@@ -120,7 +175,8 @@ export const EXPERIENCES = [
     role: "Web Developer",
     period: "May 2021 - January 2022",
     resumeBullets: [
-      "Created a React-based Tournament Management Website, reducing overhead by automating scheduling and team coordination.",
+      "Created a React-based tournament management website, cutting admin overhead by automating scheduling and team coordination.",
+      "Launched an online exam system serving over 10,000 users with secure, scalable testing features.",
     ],
     description: [
       "Created a React-based Tournament Management Website, reducing admin overhead by automating scheduling and team coordination.",
@@ -135,7 +191,8 @@ export const EXPERIENCES = [
     period: "July 2020 - December 2021",
     // Resume leads with the React/Next.js work rather than the default first bullet
     resumeBullets: [
-      "Launched a React (Next.js) Website & Ionic PWA for a Package Delivery Company, achieving a 25% increase in satisfaction.",
+      "Launched a React (Next.js) website and Ionic PWA for a package delivery company, achieving a 25% increase in customer satisfaction.",
+      "Engineered a Laravel-based patient management solution covering records, appointments, and billing.",
     ],
     description: [
       "Engineered a robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
@@ -202,6 +259,7 @@ export const PROJECTS = {
       tech: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"],
       external: "https://banglaiqraacademy.com/",
       image: "/assets/bangla-iqra-academy.png",
+      hideFromResume: true,
     },
   ],
   other: [

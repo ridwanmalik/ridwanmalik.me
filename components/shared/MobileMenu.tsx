@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import { Menu, X } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
-import ContactModal from "@/components/shared/ContactModal"
+import { PERSONAL_INFO } from "@/lib/constants"
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -12,6 +12,12 @@ const NAV_LINKS = [
   { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ]
+
+// Mirrors the desktop header CTA — downloads the PDF from pages/api/resume.ts
+const RESUME_CTA = {
+  label: "Resume",
+  href: PERSONAL_INFO.resume,
+}
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -85,10 +91,13 @@ const MobileMenu = () => {
                       </a>
                     ))}
 
-                    <ContactModal
-                      label="Get In Touch"
-                      className="mt-6 border border-accent text-custom-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-mono text-sm"
-                    />
+                    <a
+                      href={RESUME_CTA.href}
+                      download
+                      onClick={() => setIsOpen(false)}
+                      className="mt-6 border border-accent text-custom-accent px-8 py-3 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
+                      {RESUME_CTA.label}
+                    </a>
                   </nav>
                 </motion.div>
               </div>

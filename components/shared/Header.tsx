@@ -1,10 +1,19 @@
 import Image from "next/image"
 import Link from "next/link"
 import { logoWhite } from "@/lib/assets"
+import { PERSONAL_INFO } from "@/lib/constants"
 import { CSSProperties } from "react"
-import ContactModal from "@/components/shared/ContactModal"
 import MobileMenu from "@/components/shared/MobileMenu"
 import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerReveal"
+
+// Local constants - only used in this component (outside component to avoid recreation)
+const HEADER_CONTENT = {
+  resume: {
+    label: "Resume",
+    // Served by pages/api/resume.ts, which streams the generated PDF as an attachment
+    href: PERSONAL_INFO.resume,
+  },
+}
 
 interface HeaderProps {
   variant?: "default" | "sticky"
@@ -60,10 +69,12 @@ const Header = ({ variant = "default", className = "", style, isScrolled = false
               </li>
             </ul>
             <StaggerItem from="down">
-              <ContactModal
-                label="Get In Touch"
-                className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm"
-              />
+              <a
+                href={HEADER_CONTENT.resume.href}
+                download
+                className="hidden md:inline-block border border-accent text-custom-accent px-4 py-2 rounded hover:bg-accent/10 transition-colors font-mono text-sm">
+                {HEADER_CONTENT.resume.label}
+              </a>
             </StaggerItem>
           </StaggerGroup>
         </div>

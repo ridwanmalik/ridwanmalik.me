@@ -1,4 +1,12 @@
-import { CERTIFICATIONS, EDUCATION, EXPERIENCES, PERSONAL_INFO, PROJECTS, SOCIAL_LINKS, TECH_STACK } from "@/lib/constants"
+import {
+  CERTIFICATIONS,
+  EDUCATION,
+  EXPERIENCES,
+  PERSONAL_INFO,
+  PROJECTS,
+  RESUME_SKILLS,
+  SOCIAL_LINKS,
+} from "@/lib/constants"
 import { Document, Link, Page, StyleSheet, Text, View } from "@react-pdf/renderer"
 
 // Print-friendly palette (the site's mint accent is too light on white paper)
@@ -13,66 +21,65 @@ const COLORS = {
 
 const styles = StyleSheet.create({
   page: {
-    paddingVertical: 28,
-    paddingHorizontal: 40,
-    fontSize: 9,
+    paddingVertical: 32,
+    paddingHorizontal: 32,
+    fontSize: 8.8,
     fontFamily: "Helvetica",
     color: COLORS.body,
-    lineHeight: 1.35,
+    lineHeight: 1.25,
   },
   name: { fontSize: 20, fontFamily: "Helvetica-Bold", color: COLORS.ink, letterSpacing: 0.5 },
-  title: { fontSize: 10.5, color: COLORS.accent, marginTop: 2, fontFamily: "Helvetica-Bold" },
+  title: { fontSize: 9, color: COLORS.accent, marginTop: 2, fontFamily: "Helvetica-Bold" },
   contactRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 5, fontSize: 8.5, color: COLORS.muted },
   contactItem: { marginRight: 6 },
   contactLink: { color: COLORS.heading, textDecoration: "none" },
   contactPlain: { color: COLORS.body, textDecoration: "none" },
-  section: { marginTop: 8 },
+  section: { marginTop: 5 },
   sectionTitle: {
     fontSize: 9.5,
     fontFamily: "Helvetica-Bold",
     color: COLORS.heading,
-    letterSpacing: 1.2,
+    // NO letterSpacing. Tracking splits headings into "E D U C AT I O N" in the PDF text
+    // layer, and ATS parsers then fail to match the section against their heading
+    // dictionary — Jobscan reported the education section as missing entirely.
     textTransform: "uppercase",
     borderBottom: `1px solid ${COLORS.line}`,
     paddingBottom: 2,
-    marginBottom: 5,
-  },
-  summary: { color: COLORS.body },
-  skillsRow: { flexDirection: "row", flexWrap: "wrap" },
-  skill: {
-    fontSize: 8.5,
-    color: COLORS.ink,
-    backgroundColor: "#F1F5F9",
-    borderRadius: 3,
-    paddingVertical: 2,
-    paddingHorizontal: 6,
-    marginRight: 5,
     marginBottom: 4,
   },
-  job: { marginBottom: 7 },
+  summary: { color: COLORS.body },
+  // Skills render as plain "Label: a, b, c" text lines. Pill chips laid out in a wrapping
+  // flex row extract in an unpredictable order and detach labels from their values.
+  skillGroup: { marginBottom: 2 },
+  skillLabel: { fontFamily: "Helvetica-Bold", color: COLORS.ink, fontSize: 9 },
+  skillItems: { color: COLORS.body, marginTop: 1 },
+  job: { marginBottom: 3.5 },
   jobHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" },
-  jobRole: { flex: 1, paddingRight: 8, fontSize: 9.5, fontFamily: "Helvetica-Bold", color: COLORS.ink },
-  jobCompany: { fontSize: 9.5, color: COLORS.accent, fontFamily: "Helvetica-Bold" },
+  jobRole: { flex: 1, paddingRight: 8, fontSize: 9.5, fontFamily: "Helvetica-Bold", color: COLORS.muted },
+  jobCompany: { fontSize: 9.5, color: COLORS.ink, fontFamily: "Helvetica-Bold", textDecoration: "none" },
   jobPeriod: { fontSize: 8, color: COLORS.muted, textAlign: "right" },
-  bulletRow: { flexDirection: "row", marginTop: 2 },
+  bulletRow: { flexDirection: "row", marginTop: 1.5 },
   bulletDot: { width: 9, color: COLORS.accent },
   bulletText: { flex: 1, color: COLORS.body },
-  project: { marginBottom: 5 },
+  project: { marginBottom: 3 },
   projectHeading: { fontSize: 9, color: COLORS.ink },
   projectTitle: { fontFamily: "Helvetica-Bold", color: COLORS.ink },
   projectTech: { color: COLORS.accent },
   projectDesc: { marginTop: 1, color: COLORS.body },
   certText: { color: COLORS.body },
   certName: { fontFamily: "Helvetica-Bold", color: COLORS.heading, textDecoration: "none" },
+  eduLine: { marginBottom: 2, fontSize: 9 },
+  eduDegree: { fontFamily: "Helvetica-Bold", color: COLORS.ink, fontSize: 9.5 },
   eduInstitution: { fontFamily: "Helvetica", color: COLORS.body },
 })
 
-// Roles to show and bullets per role, tuned to keep the resume to one page.
-// The most recent roles get more detail; older roles are condensed to a single bullet.
+// Recent roles carry the detail; older roles are condensed.
 const MAX_ROLES = 7
-const ROLES_WITH_FULL_BULLETS = 3
-const FULL_BULLETS = 2
+const ROLES_WITH_FULL_BULLETS = 4
+const FULL_BULLETS = 3
 const CONDENSED_BULLETS = 1
+
+const MAX_PROJECTS = 4
 
 const firstSentence = (text: string) => {
   const idx = text.indexOf(". ")
@@ -111,6 +118,13 @@ const ResumeDocument = () => {
             </Link>
             <Text style={styles.contactItem}>|</Text>
             <Text style={styles.contactItem}>{PERSONAL_INFO.location}</Text>
+          </View>
+          <View style={styles.contactRow}>
+            {PERSONAL_INFO.website ? (
+              <Link src={PERSONAL_INFO.website} style={[styles.contactItem, styles.contactLink]}>
+                {stripProtocol(PERSONAL_INFO.website)}
+              </Link>
+            ) : null}
             {linkedin ? (
               <>
                 <Text style={styles.contactItem}>|</Text>
@@ -128,11 +142,6 @@ const ResumeDocument = () => {
               </>
             ) : null}
           </View>
-          {PERSONAL_INFO.website ? (
-            <Link src={PERSONAL_INFO.website} style={[styles.contactRow, styles.contactLink]}>
-              {stripProtocol(PERSONAL_INFO.website)}
-            </Link>
-          ) : null}
         </View>
 
         {/* Summary */}
@@ -144,18 +153,19 @@ const ResumeDocument = () => {
         {/* Skills */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Technical Skills</Text>
-          <View style={styles.skillsRow}>
-            {TECH_STACK.map(skill => (
-              <Text key={skill} style={styles.skill}>
-                {skill}
-              </Text>
-            ))}
-          </View>
+          {RESUME_SKILLS.map(group => (
+            <View key={group.label} style={styles.skillGroup}>
+              <Text style={styles.skillLabel}>{group.label}</Text>
+              <Text style={styles.skillItems}>{group.items.join(", ")}</Text>
+            </View>
+          ))}
         </View>
 
         {/* Experience */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Experience</Text>
+          {/* ATS heading dictionaries match "Professional Experience" / "Work History"
+              more reliably than a bare "Experience". */}
+          <Text style={styles.sectionTitle}>Professional Experience</Text>
           {EXPERIENCES.filter(job => !(job as { hideFromResume?: boolean }).hideFromResume)
             .slice(0, MAX_ROLES)
             .map((job, index) => {
@@ -166,7 +176,14 @@ const ResumeDocument = () => {
                 <View key={`${job.company}-${job.period}`} style={styles.job} wrap={false}>
                   <View style={styles.jobHeader}>
                     <Text style={styles.jobRole}>
-                      {job.role} <Text style={styles.jobCompany}>@ {job.company}</Text>
+                      {job.role} @{" "}
+                      {job.url ? (
+                        <Link src={job.url} style={styles.jobCompany}>
+                          {job.company}
+                        </Link>
+                      ) : (
+                        <Text style={styles.jobCompany}>{job.company}</Text>
+                      )}
                     </Text>
                     <Text style={styles.jobPeriod}>{job.period}</Text>
                   </View>
@@ -183,36 +200,39 @@ const ResumeDocument = () => {
 
         {/* Selected Projects */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Projects</Text>
-          {PROJECTS.featured.map(project => (
-            <View key={project.title} style={styles.project} wrap={false}>
-              <Text style={styles.projectHeading}>
-                <Text style={styles.projectTitle}>{project.title}</Text>
-                <Text style={styles.projectTech}> — {project.tech.join(", ")}</Text>
-                {project.external ? (
-                  <Link src={project.external} style={styles.contactLink}>
-                    {"  "}
-                    {stripProtocol(project.external)}
-                  </Link>
-                ) : null}
-              </Text>
-              <Text style={styles.projectDesc}>{firstSentence(project.description)}</Text>
-            </View>
-          ))}
+          <Text style={styles.sectionTitle}>Selected Projects</Text>
+          {PROJECTS.featured
+            .filter(project => !(project as { hideFromResume?: boolean }).hideFromResume)
+            .slice(0, MAX_PROJECTS)
+            .map(project => (
+              <View key={project.title} style={styles.project} wrap={false}>
+                <Text style={styles.projectHeading}>
+                  <Text style={styles.projectTitle}>{project.title}</Text>
+                  <Text style={styles.projectTech}> — {project.tech.join(", ")}</Text>
+                  {project.external ? (
+                    <Link src={project.external} style={styles.contactLink}>
+                      {"  "}
+                      {stripProtocol(project.external)}
+                    </Link>
+                  ) : null}
+                </Text>
+                <Text style={styles.projectDesc}>{firstSentence(project.description)}</Text>
+              </View>
+            ))}
         </View>
 
-        {/* Education */}
+        {/* Education — dates are inlined into the same text run rather than pushed to a
+            right-hand column. A smaller right-aligned date sits on a slightly higher
+            baseline, and text extractors then attach it to the line above (the section
+            heading), leaving each degree looking undated. */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Education</Text>
           {EDUCATION.map(edu => (
-            <View key={edu.degree} style={styles.job} wrap={false}>
-              <View style={styles.jobHeader}>
-                <Text style={styles.jobRole}>
-                  {edu.degree} <Text style={styles.eduInstitution}>— {edu.shortName}</Text>
-                </Text>
-                <Text style={styles.jobPeriod}>{edu.note ? `${edu.period} · ${edu.note}` : edu.period}</Text>
-              </View>
-            </View>
+            <Text key={edu.degree} style={styles.eduLine}>
+              <Text style={styles.eduDegree}>{edu.degree}</Text>
+              <Text style={styles.eduInstitution}> — {edu.shortName}</Text>
+              {` (${edu.period})${edu.note ? `, ${edu.note}` : ""}`}
+            </Text>
           ))}
         </View>
 
