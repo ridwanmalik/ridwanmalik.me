@@ -167,7 +167,10 @@ const ResumeDocument = () => {
           {EXPERIENCES.filter(job => !(job as { hideFromResume?: boolean }).hideFromResume)
             .slice(0, MAX_ROLES)
             .map((job, index) => {
-              const bulletLimit = index < ROLES_WITH_FULL_BULLETS ? FULL_BULLETS : CONDENSED_BULLETS
+              // A role may also override how many bullets it gets (e.g. to fit an extra line)
+              const bulletLimit =
+                (job as { resumeBulletLimit?: number }).resumeBulletLimit ??
+                (index < ROLES_WITH_FULL_BULLETS ? FULL_BULLETS : CONDENSED_BULLETS)
               // A role may override which bullets the resume shows (e.g. lead with React work)
               const bullets = (job as { resumeBullets?: string[] }).resumeBullets ?? job.description
               return (

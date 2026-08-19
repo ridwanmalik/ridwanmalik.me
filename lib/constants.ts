@@ -109,10 +109,12 @@ export const EXPERIENCES = [
     url: "https://scouty.io",
     role: "Senior Software Developer",
     period: "November 2022 - Present",
+    resumeBulletLimit: 4,
     resumeBullets: [
       "Built Scouty, a football team management platform, as a Next.js web app paired with a React Native mobile app for iOS and Android.",
       "Implemented real-time communication with Firebase, delivering live updates across coaches, players, and admins.",
-      "Led the team's technical direction and code reviews, integrated Stripe for subscription billing, and deployed the web app to DigitalOcean with Nginx, SSL, and PM2.",
+      "Lead the team's technical direction and code reviews across web and mobile.",
+      "Integrated Stripe for subscription billing and deployed the web app to DigitalOcean with Nginx, SSL, and PM2.",
     ],
     description: [
       "Designed and built Scouty (scouty.io), a football team management platform with a Next.js web app and a cross-platform React Native mobile app for iOS and Android.",
