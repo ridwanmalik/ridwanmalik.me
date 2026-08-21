@@ -118,7 +118,7 @@ export const RESUME_SKILLS = [
 //   hideFromResume - drop the role from the PDF only (it stays on the site)
 //   resumePeriod   - override the dates in the PDF only (`period` stays true on the site)
 // Roles cut from the resume were the ones carrying no quantified result; the remaining
-// four run junior -> senior with no overlaps and no gaps. See docs/ATS-JOB-TEST-RESULTS.md
+// four run junior -> senior with no overlaps and no gaps. See docs/_ATS-JOB-TEST-RESULTS.md
 // for the full reasoning and the timeline it produces.
 export const EXPERIENCES = [
   {
