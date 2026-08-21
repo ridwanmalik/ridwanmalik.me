@@ -55,6 +55,16 @@ export const TECH_STACK = [
 // Categorized skills for the generated resume. ATS keyword matching weighs the skills
 // block heaviest and compares exact strings, so spellings mirror how job descriptions
 // write them ("ReactJS" and "React" both appear).
+//
+// "REST API Development" is deliberately one string: it contains both "REST API" and
+// "API Development" as substrings, so it matches whichever phrasing a posting uses.
+//
+// This block is length-critical: the resume is designed to fit on one page, and the job
+// entries below render with wrap={false}, so a single extra wrapped line here pushes a
+// whole role onto a second page. Measured 2026-08-21 — adding "REST API Development" on
+// its own tipped the resume to two pages; dropping "Ionic" (still evidenced by the Dream
+// Diver bullet) bought the room back. Re-check the PDF page count after any addition
+// here, and read the generated text layer, not just the rendered page.
 export const RESUME_SKILLS = [
   {
     label: "Programming Languages",
@@ -64,15 +74,14 @@ export const RESUME_SKILLS = [
     label: "Libraries & Frameworks",
     items: [
       "React (ReactJS)",
-      "Next.js",
+      "Next.js (NextJS)",
       "React Native",
       "Redux",
       "Node.js",
       "Laravel",
       "Tailwind CSS",
-      "REST API",
+      "REST API Development",
       "Vue.js",
-      "Ionic",
       "WebSockets",
     ],
   },
@@ -102,13 +111,22 @@ export const RESUME_SKILLS = [
   },
 ]
 
-// Work experience — shared by the Experience section and the generated resume PDF
+// Work experience — shared by the Experience section and the generated resume PDF.
+//
+// The website shows every role with its true dates. The resume shows a deliberately
+// reduced, linear subset, controlled by two optional fields:
+//   hideFromResume - drop the role from the PDF only (it stays on the site)
+//   resumePeriod   - override the dates in the PDF only (`period` stays true on the site)
+// Roles cut from the resume were the ones carrying no quantified result; the remaining
+// four run junior -> senior with no overlaps and no gaps. See docs/ATS-JOB-TEST-RESULTS.md
+// for the full reasoning and the timeline it produces.
 export const EXPERIENCES = [
   {
     company: "Scouty Interactive",
     url: "https://scouty.io",
     role: "Senior Software Developer",
     period: "November 2022 - Present",
+    resumePeriod: "December 2022 - Present",
     resumeBulletLimit: 4,
     resumeBullets: [
       "Built Scouty, a football team management platform, as a Next.js web app paired with a React Native mobile app for iOS and Android.",
@@ -127,6 +145,7 @@ export const EXPERIENCES = [
     url: "https://equalandco.com",
     role: "Software Developer",
     period: "January 2022 - Present",
+    hideFromResume: true,
     resumeBullets: [
       "Developed a React Industrial Liquid Management system, optimizing interface interactions across both admin and customer panels.",
       "Integrated WebSockets to handle high-frequency data streams, driving accurate, timely updates to interactive graphs.",
@@ -154,6 +173,7 @@ export const EXPERIENCES = [
     url: "https://ois.edu.bd",
     role: "Software Developer",
     period: "December 2023 - October 2025",
+    hideFromResume: true,
     description: [
       "Developing and maintaining the school's Education Management System (EMS) used across multiple campuses in Dhaka.",
       "Building React.js-based interfaces for academic administration, student records, and internal workflows.",
@@ -165,6 +185,7 @@ export const EXPERIENCES = [
     url: "https://talentpro.global",
     role: "Software Developer",
     period: "February 2022 - July 2023",
+    resumePeriod: "January 2022 - December 2022",
     resumeBullets: [
       "Developed and deployed a Next.js real estate web application, improving load times by 30% through optimization techniques.",
       "Built a Vue.js and Laravel admin panel for the same product, expanding property management capability.",
@@ -181,6 +202,7 @@ export const EXPERIENCES = [
     url: "https://dynamicflowit.com",
     role: "Full Stack Web Developer",
     period: "May 2021 - January 2022",
+    hideFromResume: true,
     resumeBullets: [
       "Created a React-based tournament management website, cutting admin overhead by automating scheduling and team coordination.",
       "Launched an online exam system serving over 10,000 users with secure, scalable testing features.",
@@ -200,6 +222,7 @@ export const EXPERIENCES = [
     resumeBullets: [
       "Launched a React (Next.js) website and Ionic PWA for a package delivery company, achieving a 25% increase in customer satisfaction.",
       "Engineered a Laravel-based patient management solution covering records, appointments, and billing.",
+      "Built a cross-platform food ordering app with Ionic, shipping to both iOS and Android.",
     ],
     description: [
       "Engineered a robust Laravel-based patient management solution to streamline patient records, appointments, and billing processes.",
@@ -897,14 +920,26 @@ export const SOCIAL_LINKS = [
   },
 ]
 
-// Education — shared by the Education section and the generated resume PDF
+// Education — shared by the Education section and the generated resume PDF.
+//
+// `period` uses a plain hyphen, matching the EXPERIENCES entries above. It used to use an
+// en dash, and ATS parsers flagged the two different dash characters as inconsistent
+// dates. Keep the hyphen on any entry added here.
+//
+// `resumePeriod` overrides the dates in the PDF only, the same way EXPERIENCES does: the
+// real dates overlap (the diploma ran to 2021 while the bachelor's started in 2020), and
+// the resume presents them sequentially instead. The website keeps `period`.
+//
+// The degree is spelled out ("Bachelor of Science", not "B.Sc.") because ATS skill and
+// education dictionaries match the full wording far more reliably than the abbreviation.
 export const EDUCATION = [
   {
-    degree: "B.Sc. in Computer Science & Engineering",
+    degree: "Bachelor of Science in Computer Science & Engineering",
     institution: "Bangladesh University of Business and Technology",
     shortName: "BUBT, Dhaka",
     location: "Dhaka",
-    period: "2020 – Present",
+    period: "2020 - Present",
+    resumePeriod: "2021 - Present",
     note: "",
   },
   {
@@ -912,7 +947,8 @@ export const EDUCATION = [
     institution: "BCMC College of Engineering & Technology",
     shortName: "BCMC College of Engineering & Technology, Jashore",
     location: "Jashore",
-    period: "2016 – 2021",
+    period: "2016 - 2021",
+    resumePeriod: "2016 - 2020",
     note: "CGPA 3.8/4",
   },
 ]

@@ -33,7 +33,18 @@ const styles = StyleSheet.create({
   contactItem: { marginRight: 6 },
   contactLink: { color: COLORS.heading, textDecoration: "none" },
   contactPlain: { color: COLORS.body, textDecoration: "none" },
-  section: { marginTop: 6 },
+  // Breathing room between sections. Trimming the resume to four roles freed vertical
+  // space, and spending it on whitespace makes the page scan faster for a human without
+  // costing anything an ATS reads.
+  //
+  // These two are the page's slack, so they are where a one-page overflow shows up first.
+  // Measured 2026-08-21 against the current content: 18/14 still fits, 20/16 spills onto a
+  // second page. Left at 16/12 to keep a margin for content growth — if a bullet is added
+  // later and the PDF turns two pages, trim here before cutting anything real.
+  section: { marginTop: 16 },
+  // Extra separation between the contact block and the first real section, so the
+  // identity details read as a header rather than as part of the summary.
+  header: { marginBottom: 12 },
   sectionTitle: {
     fontSize: 9.5,
     fontFamily: "Helvetica-Bold",
@@ -43,8 +54,13 @@ const styles = StyleSheet.create({
     // dictionary — Jobscan reported the education section as missing entirely.
     textTransform: "uppercase",
     borderBottom: `1px solid ${COLORS.line}`,
+    // paddingBottom is the gap between the heading text and its underline; marginBottom
+    // is the gap between that underline and the section's content.
     paddingBottom: 2,
-    marginBottom: 4,
+    // 6 is the ceiling — measured 2026-08-21, 7 spills onto a second page. There is no
+    // slack left here, so buy it back from `section.marginTop` above before adding
+    // content.
+    marginBottom: 6,
   },
   summary: { color: COLORS.body },
   // Skills render as plain "Label: a, b, c" text lines. Pill chips laid out in a wrapping
@@ -102,7 +118,7 @@ const ResumeDocument = () => {
       subject="Full Stack Web Developer Resume">
       <Page size="A4" style={styles.page}>
         {/* Header */}
-        <View>
+        <View style={styles.header}>
           <Text style={styles.name}>{PERSONAL_INFO.name}</Text>
           <View style={styles.contactRow}>
             <Link src={`mailto:${PERSONAL_INFO.email}`} style={[styles.contactItem, styles.contactPlain]}>
@@ -186,7 +202,9 @@ const ResumeDocument = () => {
                         <Text style={styles.jobCompany}>{job.company}</Text>
                       )}
                     </Text>
-                    <Text style={styles.jobPeriod}>{job.period}</Text>
+                    <Text style={styles.jobPeriod}>
+                      {(job as { resumePeriod?: string }).resumePeriod ?? job.period}
+                    </Text>
                   </View>
                   {bullets.slice(0, bulletLimit).map((line, i) => (
                     <View key={i} style={styles.bulletRow}>
@@ -232,7 +250,7 @@ const ResumeDocument = () => {
             <Text key={edu.degree} style={styles.eduLine}>
               <Text style={styles.eduDegree}>{edu.degree}</Text>
               <Text style={styles.eduInstitution}> — {edu.shortName}</Text>
-              {` (${edu.period})${edu.note ? `, ${edu.note}` : ""}`}
+              {` (${edu.resumePeriod ?? edu.period})${edu.note ? `, ${edu.note}` : ""}`}
             </Text>
           ))}
         </View>
