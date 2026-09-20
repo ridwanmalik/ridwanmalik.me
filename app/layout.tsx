@@ -2,8 +2,14 @@ import Navbar from "@/components/layouts/Navbar"
 import FixedSocialMenu from "@/components/shared/FixedSocialMenu"
 import { PERSONAL_INFO } from "@/lib/constants"
 import "@/styles/globals.css"
+import { GoogleAnalytics } from "@next/third-parties/google"
+import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next"
 import { ReactNode } from "react"
+
+// Google Analytics only loads once NEXT_PUBLIC_GA_ID is set (the G-XXXXXXX
+// measurement ID from the GA4 property). Vercel Analytics needs no ID.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
 export const metadata: Metadata = {
   title: {
@@ -83,7 +89,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
           <FixedSocialMenu />
           <div className="section-wrapper">{children}</div>
         </div>
+        <Analytics />
       </body>
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   )
 }
