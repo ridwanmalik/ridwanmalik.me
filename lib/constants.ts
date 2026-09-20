@@ -1,5 +1,13 @@
 const TOTAL_YEARS_EXPERIENCE = new Date().getFullYear() - 2018
 
+// The job title the resume summary opens with. Applications go out mirroring the
+// target posting's exact title, so this is overridable per download via
+// `/api/resume?title=Senior%20Frontend%20Engineer`.
+export const RESUME_DEFAULT_TITLE = "Full Stack Software Developer"
+
+export const buildResumeSummary = (title: string = RESUME_DEFAULT_TITLE) =>
+  `${title} with ${TOTAL_YEARS_EXPERIENCE}+ years building production web and mobile applications in React (ReactJS), Next.js, React Native, TypeScript, Node.js, and Laravel, across real-time platforms, e-commerce, and enterprise systems.`
+
 export const PERSONAL_INFO = {
   name: "Sk. Ridwanul Malik",
   title: "I build things for the web",
@@ -8,7 +16,7 @@ export const PERSONAL_INFO = {
   // Condensed summary used in the resume PDF (kept to ~2 lines / under 255 characters).
   // Written in implied-subject voice and leading with years — ATS resume checkers flag
   // first-person openers and "passionate about" as filler.
-  resumeSummary: `Full Stack Software Developer with ${TOTAL_YEARS_EXPERIENCE}+ years building production web and mobile applications in React (ReactJS), Next.js, React Native, TypeScript, Node.js, and Laravel, across real-time platforms, e-commerce, and enterprise systems.`,
+  resumeSummary: buildResumeSummary(),
   email: "skridwanulmalik@gmail.com",
   phone: "+880 1734-862996",
   // Country spelled out — location parsers match poorly on two-letter codes

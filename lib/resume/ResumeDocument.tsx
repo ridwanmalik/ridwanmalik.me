@@ -6,6 +6,7 @@ import {
   PROJECTS,
   RESUME_SKILLS,
   SOCIAL_LINKS,
+  buildResumeSummary,
 } from "@/lib/constants"
 import { Document, Link, Page, StyleSheet, Text, View } from "@react-pdf/renderer"
 
@@ -107,7 +108,13 @@ const LANGUAGES = ["English (Fluent)", "Bangla (Native)", "Spanish (Basic)", "Hi
 const getSocial = (name: string) => SOCIAL_LINKS.find(link => link.name === name)?.url ?? ""
 const stripProtocol = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "")
 
-const ResumeDocument = () => {
+type ResumeDocumentProps = {
+  // Mirrors the target posting's exact job title in the summary's opening line.
+  // Omitted for the site's own download, which keeps the default title.
+  title?: string
+}
+
+const ResumeDocument = ({ title }: ResumeDocumentProps) => {
   const github = getSocial("GitHub")
   const linkedin = getSocial("LinkedIn")
 
@@ -161,7 +168,7 @@ const ResumeDocument = () => {
         {/* Summary */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Summary</Text>
-          <Text style={styles.summary}>{PERSONAL_INFO.resumeSummary}</Text>
+          <Text style={styles.summary}>{buildResumeSummary(title)}</Text>
         </View>
 
         {/* Skills */}
