@@ -21,7 +21,7 @@ export const PERSONAL_INFO = {
   // results show ~50-60 characters of title, and social cards cut descriptions
   // off around 125 characters on mobile.
   metaTitle: "Sk. Ridwanul Malik — Full Stack Developer",
-  metaDescription: `Full Stack developer, ${TOTAL_YEARS_EXPERIENCE}+ years building web and mobile apps with React, Next.js and Node.js. Open to remote work.`,
+  metaDescription: `React, Next.js, React Native, Node.js. ${TOTAL_YEARS_EXPERIENCE}+ years turning ideas into products that ship — web, iOS and Android. Open to remote.`,
   email: "skridwanulmalik@gmail.com",
   phone: "+880 1734-862996",
   // Country spelled out — location parsers match poorly on two-letter codes
