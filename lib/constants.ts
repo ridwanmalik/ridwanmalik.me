@@ -17,6 +17,9 @@ export const PERSONAL_INFO = {
   // Written in implied-subject voice and leading with years — ATS resume checkers flag
   // first-person openers and "passionate about" as filler.
   resumeSummary: buildResumeSummary(),
+  // Used for the meta/OG/Twitter tags only. Search engines and social cards cut
+  // descriptions off around 160 characters, so this stays well inside that.
+  metaDescription: `Full Stack developer with ${TOTAL_YEARS_EXPERIENCE}+ years building web and mobile products in React, Next.js, React Native and Node.js. Open to remote roles.`,
   email: "skridwanulmalik@gmail.com",
   phone: "+880 1734-862996",
   // Country spelled out — location parsers match poorly on two-letter codes

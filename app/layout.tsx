@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: PERSONAL_INFO.name,
     template: `%s | ${PERSONAL_INFO.name}`,
   },
-  description: PERSONAL_INFO.description,
+  description: PERSONAL_INFO.metaDescription,
   keywords: [
     "Sk. Ridwanul Malik",
     "Software Engineer",
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     url: PERSONAL_INFO.website,
     siteName: PERSONAL_INFO.name,
     title: PERSONAL_INFO.name,
-    description: PERSONAL_INFO.description,
+    description: PERSONAL_INFO.metaDescription,
     // The card image comes from app/opengraph-image.tsx — Next adds the tags.
   },
   twitter: {
     card: "summary_large_image",
     title: PERSONAL_INFO.name,
-    description: PERSONAL_INFO.description,
+    description: PERSONAL_INFO.metaDescription,
   },
   alternates: {
     canonical: PERSONAL_INFO.website,
