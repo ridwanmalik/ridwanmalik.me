@@ -20,7 +20,7 @@ export const PERSONAL_INFO = {
   // Used for the meta/OG/Twitter tags only, so both are sized for them: search
   // results show ~50-60 characters of title, and social cards cut descriptions
   // off around 125 characters on mobile.
-  metaTitle: "Sk. Ridwanul Malik — Full Stack Developer (React, Next.js)",
+  metaTitle: "Sk. Ridwanul Malik — Full Stack Developer",
   metaDescription: `Full Stack developer, ${TOTAL_YEARS_EXPERIENCE}+ years building web and mobile apps with React, Next.js and Node.js. Open to remote work.`,
   email: "skridwanulmalik@gmail.com",
   phone: "+880 1734-862996",
