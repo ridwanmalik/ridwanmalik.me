@@ -11,14 +11,15 @@ export const contentType = "image/png"
 const COLORS = {
   background: "#0A192F",
   foreground: "#ccd6f6",
-  secondary: "#8892b0",
   accent: "#7CFAD6",
 }
 
-const STACK = ["React", "Next.js", "React Native", "TypeScript", "Node.js"]
+// WhatsApp, Slack and Telegram crop the card to its centre square and render it
+// small, so every element sits inside a 630-wide centre column and the type is
+// sized to survive a thumbnail. That width is also what caps the name's size.
+const SAFE_WIDTH = size.height - 40
 
-// Displayed without the protocol, but still sourced from the one constant.
-const DOMAIN = PERSONAL_INFO.website.replace(/^https?:\/\//, "")
+const BADGES = ["React", "Next.js", "React Native"]
 
 const OpenGraphImage = () =>
   new ImageResponse(
@@ -28,39 +29,64 @@ const OpenGraphImage = () =>
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
+          alignItems: "center",
           justifyContent: "center",
-          padding: "80px",
           backgroundColor: COLORS.background,
-          backgroundImage: `radial-gradient(circle at 75% 15%, rgba(124, 250, 214, 0.16), transparent 55%)`,
+          // Off-centre glows: accent from the upper left, a cooler blue from the
+          // lower right. A centred glow reads flat once the card is cropped square.
+          backgroundImage: `radial-gradient(circle at 20% 15%, rgba(124, 250, 214, 0.22), transparent 55%), radial-gradient(circle at 88% 92%, rgba(56, 130, 246, 0.22), transparent 55%)`,
         }}>
-        <div style={{ display: "flex", fontSize: 72, fontWeight: 700, color: COLORS.foreground }}>
-          {PERSONAL_INFO.name}
-        </div>
-        <div style={{ display: "flex", marginTop: 16, fontSize: 40, color: COLORS.accent }}>
-          Full Stack Developer
-        </div>
-        <div style={{ display: "flex", marginTop: 24, fontSize: 28, color: COLORS.secondary }}>
-          8+ years building web and mobile products end to end
-        </div>
-        <div style={{ display: "flex", gap: 16, marginTop: 48 }}>
-          {STACK.map(item => (
-            <div
-              key={item}
-              style={{
-                display: "flex",
-                padding: "10px 22px",
-                borderRadius: 999,
-                border: `1px solid ${COLORS.accent}`,
-                color: COLORS.accent,
-                fontSize: 24,
-              }}>
-              {item}
-            </div>
-          ))}
-        </div>
-        <div style={{ display: "flex", marginTop: 56, fontSize: 30, color: COLORS.foreground }}>
-          {DOMAIN}
+        <div
+          style={{
+            width: SAFE_WIDTH,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 62,
+              fontWeight: 700,
+              color: COLORS.foreground,
+              whiteSpace: "nowrap",
+            }}>
+            {PERSONAL_INFO.name}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 18,
+              fontSize: 48,
+              fontWeight: 600,
+              color: COLORS.accent,
+            }}>
+            Full Stack Developer
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: 16,
+              marginTop: 44,
+            }}>
+            {BADGES.map(badge => (
+              <div
+                key={badge}
+                style={{
+                  display: "flex",
+                  padding: "10px 24px",
+                  borderRadius: 999,
+                  border: `2px solid rgba(124, 250, 214, 0.45)`,
+                  color: COLORS.foreground,
+                  fontSize: 27,
+                }}>
+                {badge}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     ),
