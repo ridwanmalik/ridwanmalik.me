@@ -5,6 +5,7 @@ import { createPortal } from "react-dom"
 import { Menu, X } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { PERSONAL_INFO } from "@/lib/constants"
+import { useIsMounted } from "@/lib/hooks"
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -20,10 +21,8 @@ const RESUME_CTA = {
 }
 
 const MobileMenu = () => {
+  const mounted = useIsMounted()
   const [isOpen, setIsOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     if (!isOpen) return

@@ -5,6 +5,7 @@ import { createPortal } from "react-dom"
 import { Mail, Download, Copy, Check, X } from "lucide-react"
 import { PERSONAL_INFO, CONTACT_MODAL } from "@/lib/constants"
 import SocialIconMenu from "@/components/shared/SocialIconMenu"
+import { useIsMounted } from "@/lib/hooks"
 
 interface ContactModalProps {
   label: string
@@ -12,11 +13,9 @@ interface ContactModalProps {
 }
 
 const ContactModal = ({ label, className = "" }: ContactModalProps) => {
+  const mounted = useIsMounted()
   const [isOpen, setIsOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
   const [copied, setCopied] = useState(false)
-
-  useEffect(() => setMounted(true), [])
 
   // Close on Escape and lock body scroll while open
   useEffect(() => {

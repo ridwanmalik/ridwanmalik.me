@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import { TECHNICAL_SKILLS } from "@/lib/constants"
+import { useCanHover, useIsMounted } from "@/lib/hooks"
 
 export type Tech = {
   name: string
@@ -45,22 +46,12 @@ export const TechDetails = ({ tech }: { tech: Tech }) => {
   )
 }
 
-// True when the device supports real hover (desktop); false on touch screens
-export const useCanHover = () => {
-  const [canHover, setCanHover] = useState(true)
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.matchMedia) {
-      setCanHover(window.matchMedia("(hover: hover)").matches)
-    }
-  }, [])
-  return canHover
-}
+// useCanHover now lives in lib/hooks so the modal and the cards share one source.
+export { useCanHover }
 
 // Bottom-sheet / centered modal shown when a tech is tapped on touch devices
 export const TechModal = ({ tech, onClose }: { tech: Tech; onClose: () => void }) => {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => setMounted(true), [])
+  const mounted = useIsMounted()
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose()

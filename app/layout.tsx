@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Backend",
     "Portfolio",
   ],
-  authors: [{ name: PERSONAL_INFO.name, url: "https://ridwanmalik.me" }],
+  authors: [{ name: PERSONAL_INFO.name, url: PERSONAL_INFO.website }],
   creator: PERSONAL_INFO.name,
   publisher: PERSONAL_INFO.name,
   robots: {
@@ -51,34 +51,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://ridwanmalik.me",
+    url: PERSONAL_INFO.website,
     siteName: PERSONAL_INFO.name,
     title: PERSONAL_INFO.name,
     description: PERSONAL_INFO.description,
-    images: [
-      {
-        url: "https://ridwanmalik.me/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: `${PERSONAL_INFO.name} - Software Engineer Portfolio`,
-      },
-    ],
+    // The card image comes from app/opengraph-image.tsx — Next adds the tags.
   },
   twitter: {
     card: "summary_large_image",
     title: PERSONAL_INFO.name,
     description: PERSONAL_INFO.description,
-    images: ["https://ridwanmalik.me/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://ridwanmalik.me",
+    canonical: PERSONAL_INFO.website,
   },
-  metadataBase: new URL("https://ridwanmalik.me"),
+  metadataBase: new URL(PERSONAL_INFO.website),
 }
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <html lang="en" className="dark">
+    // data-scroll-behavior keeps Next.js 16 jumping straight to the top on route
+    // changes, despite the global `scroll-behavior: smooth` in globals.css.
+    <html lang="en" className="dark" data-scroll-behavior="smooth">
       <body
         className="h-screen w-screen bg-slate-900 text-slate-400 bg-glowing-blue font-sans tracking-wide"
         style={{
