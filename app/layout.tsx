@@ -13,7 +13,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
 export const metadata: Metadata = {
   title: {
-    default: PERSONAL_INFO.name,
+    default: PERSONAL_INFO.metaTitle,
     template: `%s | ${PERSONAL_INFO.name}`,
   },
   description: PERSONAL_INFO.metaDescription,
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: PERSONAL_INFO.website,
     siteName: PERSONAL_INFO.name,
-    title: PERSONAL_INFO.name,
+    title: PERSONAL_INFO.metaTitle,
     description: PERSONAL_INFO.metaDescription,
     // The card image comes from app/opengraph-image.tsx — Next adds the tags.
   },
   twitter: {
     card: "summary_large_image",
-    title: PERSONAL_INFO.name,
+    title: PERSONAL_INFO.metaTitle,
     description: PERSONAL_INFO.metaDescription,
   },
   alternates: {
