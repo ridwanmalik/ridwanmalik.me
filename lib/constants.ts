@@ -133,10 +133,16 @@ export const RESUME_SKILLS = [
 // Roles cut from the resume were the ones carrying no quantified result; the remaining
 // four run junior -> senior with no overlaps and no gaps. See docs/_ATS-JOB-TEST-RESULTS.md
 // for the full reasoning and the timeline it produces.
+//
+// `location` and `address` are for application forms, not the site. Job applications ask for
+// an employer location on every work-history row; `location` is the city-level answer those
+// fields expect, `address` the full street address where it is known. Only the four roles
+// that appear on the resume carry them so far.
 export const EXPERIENCES = [
   {
     company: "Scouty Interactive",
     url: "https://scouty.io",
+    location: "Vancouver, Canada",
     role: "Senior Software Developer",
     period: "November 2022 - Present",
     resumePeriod: "December 2022 - Present",
@@ -196,6 +202,8 @@ export const EXPERIENCES = [
   {
     company: "Talent Pro",
     url: "https://talentpro.global",
+    location: "Dhaka, Bangladesh",
+    address: "109 Masjid Road, Old DOHS, Banani, Dhaka, Bangladesh",
     role: "Software Developer",
     period: "February 2022 - July 2023",
     resumePeriod: "January 2022 - December 2022",
@@ -229,6 +237,8 @@ export const EXPERIENCES = [
   {
     company: "Dream Diver",
     url: "https://dreamdiver.nl",
+    location: "Rotterdam, Netherlands",
+    address: "Westerbeekstraat 10B, 3074 DH Rotterdam, Netherlands",
     role: "Web & Apps Developer",
     period: "July 2020 - December 2021",
     // Resume leads with the React/Next.js work rather than the default first bullet
@@ -257,6 +267,8 @@ export const EXPERIENCES = [
   {
     company: "7 Info Tech",
     url: "https://7infotech.com.bd",
+    location: "Jessore, Bangladesh",
+    address: "Neel Ratan Dhar Road (Bhola Tank Road), Fire Service Samne, Jessore, Bangladesh",
     role: "Junior Web Developer",
     period: "August 2018 - July 2020",
     description: [
